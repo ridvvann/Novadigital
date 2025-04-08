@@ -603,6 +603,11 @@
     font-size: 1.5rem;
     margin-top: 0.125rem;
   }
+
+  .contact-item P:hover{
+    color: hsl(var(--primary));
+    cursor: pointer;
+  }
   
   .contact-item h3 {
     font-weight: 600;
