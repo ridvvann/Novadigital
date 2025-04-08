@@ -3,9 +3,272 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Professional branding and social media marketing agency services">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
     <title>Nova | Branding & SMMA Agency</title>
 </head>
-<body>
-    <h1>hello world</h1>
+<body class="dark">
+    <header class="sticky-header">
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">
+            <a href="index.html">
+              <span class="logo-text">NOVA</span>
+            </a>
+          </div>
+          
+          <nav class="desktop-nav">
+            <a href="index.html" class="nav-link active">Home</a>
+            <a href="portfolio.html" class="nav-link">Portfolio</a>
+            <a href="pricing.html" class="nav-link">Pricing</a>
+            <a href="about.html" class="nav-link">About</a>
+          </nav>
+          
+          <div class="desktop-cta">
+            <a href="#" class="btn btn-primary whatsapp-btn" data-phone="+252672085009" data-message="Hello, I'm interested in your services." data-source="Header">Get Started</a>
+          </div>
+          
+          <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+      
+      <div class="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation menu">
+        <nav class="mobile-nav">
+          <a href="index.html" class="nav-link active">Home</a>
+          <a href="portfolio.html" class="nav-link">Portfolio</a>
+          <a href="pricing.html" class="nav-link">Pricing</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="#" class="btn btn-primary whatsapp-btn mt-4" data-phone="+252672085009" data-message="Hello, I'm interested in your services." data-source="Mobile Menu">Get Started</a>
+        </nav>
+        <button class="mobile-menu-close" aria-label="Close menu">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+    </header>
+    <section class="hero">
+        <div class="container">
+          <div class="hero-grid">
+            <div class="hero-content">
+              <h1 class="hero-title">
+                Elevate Your Brand with <span class="gradient-text">NOVA</span>
+              </h1>
+              <p class="hero-description">
+                Strategic branding and social media marketing to help your business stand out in the digital landscape.
+              </p>
+              <div class="hero-buttons">
+                <a href="#" class="btn btn-whatsapp whatsapp-btn" data-phone="+252672085009" data-message="Hello, I'm interested in learning more about your services." data-source="Home Page Hero">Get Started</a>
+                <a href="portfolio.html" class="btn btn-outline">View Our Work</a>
+              </div>
+            </div>
+            <div class="hero-image">
+              <img src="https://placehold.co/600x400" alt="Nova Branding">
+            </div>
+          </div>
+        </div>
+    </section>
+    <!-- Services Section -->
+    <section class="services">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">Our Services</h2>
+            <p class="section-description">
+              Comprehensive branding and marketing solutions to help your business grow
+            </p>
+          </div>
+          
+          <div class="services-grid">
+            <div class="service-card">
+              <div class="service-icon">
+                <i class="fas fa-paint-brush"></i>
+              </div>
+              <h3 class="service-title">Visual Branding</h3>
+              <p class="service-description">
+                Create a distinctive visual identity that captures your brand's essence and resonates with your target audience.
+              </p>
+              <a href="portfolio.html" class="btn btn-outline btn-sm">Learn More</a>
+            </div>
+            
+            <div class="service-card">
+              <div class="service-icon">
+                <i class="fas fa-chart-bar"></i>
+              </div>
+              <h3 class="service-title">Social Media Marketing</h3>
+              <p class="service-description">
+                Strategic social media campaigns that increase engagement, build community, and drive conversions.
+              </p>
+              <a href="portfolio.html" class="btn btn-outline btn-sm">Learn More</a>
+            </div>
+            
+            <div class="service-card">
+              <div class="service-icon">
+                <i class="fas fa-layer-group"></i>
+              </div>
+              <h3 class="service-title">Logo Design</h3>
+              <p class="service-description">
+                Professional logo design that communicates your brand values and creates a memorable impression.
+              </p>
+              <a href="portfolio.html" class="btn btn-outline btn-sm">Learn More</a>
+            </div>
+            
+            <div class="service-card">
+              <div class="service-icon">
+                <i class="fas fa-comment"></i>
+              </div>
+              <h3 class="service-title">Content Creation</h3>
+              <p class="service-description">
+                Engaging content that tells your brand story and connects with your audience across platforms.
+              </p>
+              <a href="portfolio.html" class="btn btn-outline btn-sm">Learn More</a>
+            </div>
+          </div>
+        </div>
+    </section>
+    <!-- About Section -->
+    <section class="about-preview">
+        <div class="container">
+          <div class="about-grid">
+            <div class="about-image">
+              <img src="https://placehold.co/600x400" alt="About Nova">
+            </div>
+            <div class="about-content">
+              <h2 class="section-title">About Nova</h2>
+              <p class="about-description">
+                Nova is a creative branding and social media marketing agency dedicated to helping businesses establish a strong presence in the digital world. We combine strategic thinking with creative execution to deliver results that exceed expectations.
+              </p>
+              <p class="about-description">
+                Our team of experts is passionate about creating meaningful connections between brands and their audiences through compelling visual identities and engaging social media campaigns.
+              </p>
+              <a href="about.html" class="btn btn-outline">Learn More About Us</a>
+            </div>
+          </div>
+        </div>
+    </section>
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+          <div class="contact-grid">
+            <div class="contact-info">
+              <h2 class="section-title">Contact Information</h2>
+              <div class="contact-details">
+                <div class="contact-item">
+                  <i class="fas fa-phone"></i>
+                  <div>
+                    <h3>WhatsApp</h3>
+                    <p>+252672085009</p>
+                  </div>
+                </div>
+                <div class="contact-item">
+                  <i class="fas fa-envelope"></i>
+                  <div>
+                    <h3>Email</h3>
+                    <p>novadigitalagency2025@gmail.com</p>
+                  </div>
+                </div>
+                <div class="contact-item">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <div>
+                    <h3>Office</h3>
+                    <p>Borama, Somaliland</p>
+                  </div>
+                </div>
+              </div>
+              <a href="#" class="btn btn-whatsapp whatsapp-btn" data-phone="+252672085009" data-message="Hello, I'm interested in your services and would like to learn more." data-source="Home Page Contact">Contact Us on WhatsApp</a>
+            </div>
+            
+            <div class="contact-form-container">
+              <h2 class="section-title">Get In Touch</h2>
+              <p class="form-description">
+                Fill out the form and we'll connect with you via WhatsApp.
+              </p>
+              <form class="contact-form" id="home-contact-form">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="subject">Subject</label>
+                  <input type="text" id="subject" name="subject" placeholder="What is this about?" required>
+                </div>
+                <div class="form-group">
+                  <label for="message">Message</label>
+                  <textarea id="message" name="message" placeholder="Tell us about your project..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+                <input type="hidden" name="source" value="Home Page">
+                <input type="hidden" name="phone" value="+252672085009">
+              </form>
+            </div>
+          </div>
+        </div>
+    </section>
+    <footer class="site-footer">
+        <div class="container">
+          <div class="footer-grid">
+            <div class="footer-col">
+              <a href="index.html" class="footer-logo">
+                <span class="logo-text">NOVA</span>
+              </a>
+              <p class="footer-description">
+                Elevating brands through strategic design and digital marketing.
+              </p>
+            </div>
+            
+            <div class="footer-col">
+              <h3 class="footer-heading">Pages</h3>
+              <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="about.html">About</a></li>
+              </ul>
+            </div>
+            
+            <div class="footer-col">
+              <h3 class="footer-heading">Services</h3>
+              <ul class="footer-links">
+                <li><a href="portfolio.html">Visual Branding</a></li>
+                <li><a href="portfolio.html">Logo Design</a></li>
+                <li><a href="portfolio.html">Social Media Marketing</a></li>
+                <li><a href="portfolio.html">Content Creation</a></li>
+              </ul>
+            </div>
+            
+            <div class="footer-col">
+              <h3 class="footer-heading">Connect</h3>
+              <div class="social-icons">
+                <a href="https://instagram.com/novaagency" target="_blank" rel="noreferrer">
+                  <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://twitter.com/novaagency" target="_blank" rel="noreferrer">
+                  <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://facebook.com/novaagency" target="_blank" rel="noreferrer">
+                  <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://linkedin.com/company/novaagency" target="_blank" rel="noreferrer">
+                  <i class="fab fa-linkedin"></i>
+                </a>
+              </div>
+              <p class="footer-contact">WhatsApp: +252672085009</p>
+            </div>
+          </div>
+          
+          <div class="footer-bottom">
+            <p class="copyright">&copy; <span id="current-year"></span> Nova. All rights reserved.</p>
+            <div class="footer-legal">
+              <a href="privacy.html">Privacy Policy</a>
+              <a href="terms.html">Terms of Service</a>
+            </div>
+          </div>
+        </div>
+    </footer>
 </body>
 </html>
