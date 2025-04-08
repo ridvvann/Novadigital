@@ -278,6 +278,7 @@
   .mobile-nav {
     display: flex;
     flex-direction: column;
+    background-color: hsl(var(--background));
     gap: 1rem;
   }
   
