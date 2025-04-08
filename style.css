@@ -184,7 +184,6 @@
     border-bottom: 1px solid hsl(var(--border));
     background-color: hsl(var(--background) / 0.95);
     backdrop-filter: blur(8px);
-    margin-bottom: 2rem;
   }
   
   .header-content {
