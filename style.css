@@ -357,6 +357,125 @@
     height: 100%;
     object-fit: cover;
   }
+
+  /* Portfolio Grid Layout */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 cards per row on desktop */
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+.portfolio-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  background-color: hsl(var(--card));
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 400px; /* Increased height for a better appearance */
+  width: 1000px; /* Increased width */
+  margin: 0 auto;
+}
+
+.portfolio-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+.portfolio-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.portfolio-card:hover img {
+  transform: scale(1.05);
+}
+
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, hsl(var(--background) / 0.9), transparent);
+  color: hsl(var(--card-foreground));
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.portfolio-card:hover .card-overlay {
+  opacity: 1;
+}
+
+.card-overlay h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.card-overlay p {
+  margin-top: 0.25rem;
+  font-size: 1rem;
+  color: hsl(var(--muted-foreground));
+}
+
+/* Media Queries for Responsiveness */
+
+/* Tablet: 2 cards per row */
+@media (max-width: 1024px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 cards per row on tablet */
+  }
+
+  .portfolio-card {
+    height: 380px; /* Adjust height for tablet */
+    width: 280px; /* Adjust width for tablet */
+  }
+}
+
+/* Mobile: 1 card per row */
+@media (max-width: 768px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr; /* 1 card per row on mobile */
+  }
+
+  .portfolio-card {
+    height: 320px; /* Adjust height for mobile */
+    width: 100%; /* Use full width for mobile */
+  }
+
+  .card-overlay h3 {
+    font-size: 1.125rem; /* Adjust title size for mobile */
+  }
+
+  .card-overlay p {
+    font-size: 0.9rem; /* Adjust description font size */
+  }
+}
+
+  
+  
+  
+  .view-btn {
+    background-color: #6C63FF;
+    color: #fff;
+    padding: 0.5rem 1.2rem;
+    border: none;
+    border-radius: 999px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .view-btn:hover {
+    background-color: #574b90;
+  }
+  
   
   /* Services Section */
   .services {
