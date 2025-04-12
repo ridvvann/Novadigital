@@ -1,30 +1,31 @@
 :root {
-    --background: 240, 10%, 3.9%;
-    --foreground: 0, 0%, 98%;
-    --card: 240, 10%, 3.9%;
-    --card-foreground: 0, 0%, 98%;
-    --popover: 240, 10%, 3.9%;
-    --popover-foreground: 0, 0%, 98%;
-    --primary: 267, 75%, 60%;
-    --primary-foreground: 0, 0%, 98%;
-    --secondary: 240, 3.7%, 15.9%;
-    --secondary-foreground: 0, 0%, 98%;
-    --muted: 240, 3.7%, 15.9%;
-    --muted-foreground: 240, 5%, 64.9%;
-    --accent: 240, 3.7%, 15.9%;
-    --accent-foreground: 0, 0%, 98%;
-    --destructive: 0, 62.8%, 30.6%;
-    --destructive-foreground: 0, 0%, 98%;
-    --border: 240, 3.7%, 15.9%;
-    --input: 240, 3.7%, 15.9%;
-    --ring: 267, 75%, 60%;
-    --radius: 0.5rem;
-  
-    --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
-      "Helvetica Neue", sans-serif;
-    --whatsapp: #25d366;
-    --whatsapp-hover: #128c7e;
-  }
+  --background: #000000;
+  --foreground: #FFFFFF;
+  --card: #000000;
+  --card-foreground: #FFFFFF;
+  --popover: #000000;
+  --popover-foreground: #FFFFFF;
+  --primary: #4A31FC;
+  --primary-foreground: #FFFFFF;
+  --secondary: #000000;
+  --secondary-foreground: #FFFFFF;
+  --muted: #000000;
+  --muted-foreground: #A3A3A3;
+  --accent: #000000;
+  --accent-foreground: #FFFFFF;
+  --destructive: #9E1C1C;
+  --destructive-foreground: #FFFFFF;
+  --border: #000000;
+  --input: #000000;
+  --ring: #4A31FC;
+  --radius: 0.5rem;
+
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+    "Helvetica Neue", sans-serif;
+  --whatsapp: #25d366;
+  --whatsapp-hover: #128c7e;
+}
+
   
   /* Base Styles */
   * {
@@ -214,7 +215,7 @@
   .logo-text {
     font-size: 1.5rem;
     font-weight: 700;
-    background: linear-gradient(to right, #a855f7, #ec4899);
+    background: white;
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -358,31 +359,41 @@
     object-fit: cover;
   }
 
-  /* Portfolio Grid Layout */
+  /* Ensure the parent container is centered */
+.main-portfolio {
+  max-width: 1400px; /* Adjust as needed */
+  margin: 0 auto; /* Centers the container */
+  padding: 0 2rem;
+}
+
+/* Portfolio Grid Layout */
 .portfolio-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 cards per row on desktop */
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns */
+  gap: 2rem; /* Spacing between cards */
+  justify-content: center; /* Center alignment */
   padding: 2rem 0;
 }
 
+/* Portfolio Card */
 .portfolio-card {
   position: relative;
   overflow: hidden;
-  border-radius: 1rem;
+  border-radius: var(--radius);
   background-color: hsl(var(--card));
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  height: 400px; /* Increased height for a better appearance */
-  width: 1000px; /* Increased width */
-  margin: 0 auto;
+  height: 300px; /* Default height */
+  width: 100%; /* Full width */
 }
 
+/* Hover Effects */
 .portfolio-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
 }
 
+/* Image Styling */
 .portfolio-card img {
   width: 100%;
   height: 100%;
@@ -390,11 +401,11 @@
   display: block;
   transition: transform 0.4s ease;
 }
-
 .portfolio-card:hover img {
   transform: scale(1.05);
 }
 
+/* Card Overlay */
 .card-overlay {
   position: absolute;
   inset: 0;
@@ -407,7 +418,6 @@
   opacity: 0;
   transition: opacity 0.4s ease;
 }
-
 .portfolio-card:hover .card-overlay {
   opacity: 1;
 }
@@ -424,35 +434,35 @@
   color: hsl(var(--muted-foreground));
 }
 
-/* Media Queries for Responsiveness */
+/* Responsive Adjustments for Project Sizes */
+@media (min-width: 1025px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(4, 1fr); /* 4 cards per row on desktop */
+  }
+  .portfolio-card {
+    height: 300px; /* Smaller height for desktop */
+  }
+}
 
-/* Tablet: 2 cards per row */
 @media (max-width: 1024px) {
   .portfolio-grid {
     grid-template-columns: repeat(2, 1fr); /* 2 cards per row on tablet */
   }
-
   .portfolio-card {
-    height: 380px; /* Adjust height for tablet */
-    width: 280px; /* Adjust width for tablet */
+    height: 350px; /* Slightly larger height for tablet */
   }
 }
 
-/* Mobile: 1 card per row */
 @media (max-width: 768px) {
   .portfolio-grid {
     grid-template-columns: 1fr; /* 1 card per row on mobile */
   }
-
   .portfolio-card {
-    height: 320px; /* Adjust height for mobile */
-    width: 100%; /* Use full width for mobile */
+    height: 400px; /* Larger height for mobile */
   }
-
   .card-overlay h3 {
     font-size: 1.125rem; /* Adjust title size for mobile */
   }
-
   .card-overlay p {
     font-size: 0.9rem; /* Adjust description font size */
   }
@@ -993,143 +1003,180 @@
     padding: 5rem 0;
   }
   
-  /* Pricing Page */
-  .pricing-section {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    padding: 5rem 0;
+  /* Pricing Section */
+.pricing-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 5rem 0;
+}
+
+/* Pricing Grid */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Default: Three columns for desktop */
+  gap: 2rem; /* Spacing between cards */
+  justify-content: center; /* Center alignment */
+  width: 100%;
+}
+
+/* Pricing Card */
+.pricing-card {
+  background-color: hsl(var(--card));
+  border-radius: var(--radius);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  border: 1px solid hsl(var(--border));
+  position: relative;
+}
+
+.pricing-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Popular Badge */
+.popular-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  font-size: 0.75rem;
+  padding: 0.25rem 0.75rem;
+  border-bottom-left-radius: var(--radius);
+}
+
+/* Pricing Header */
+.pricing-header {
+  padding: 2rem 1.5rem;
+  border-bottom: 1px solid hsl(var(--border));
+  text-align: center;
+}
+
+.pricing-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.pricing-price {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.pricing-amount {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(to right, #a855f7, #ec4899);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.pricing-duration {
+  font-size: 1rem;
+  margin-left: 0.5rem;
+}
+
+/* Feature List */
+.feature-list {
+  list-style: none;
+  padding: 1.5rem;
+  flex-grow: 1;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.feature-item i {
+  color: hsl(var(--primary));
+  font-size: 1rem;
+  margin-top: 0.125rem;
+  flex-shrink: 0;
+}
+
+.feature-item span {
+  font-size: 0.875rem;
+}
+
+/* Pricing Footer */
+.pricing-footer {
+  padding: 1.5rem;
+  border-top: 1px solid hsl(var(--border));
+  text-align: center;
+}
+
+/* Custom Solution Section */
+.custom-solution {
+  text-align: center;
+  margin-top: 4rem;
+  padding: 2rem;
+  background-color: hsl(var(--muted) / 0.3);
+  border-radius: var(--radius);
+}
+
+.custom-solution h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.custom-solution p {
+  color: hsl(var(--muted-foreground));
+  max-width: 32rem;
+  margin: 0 auto 2rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  /* Tablet: Two pricing cards per row */
+  .pricing-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
-  
-  /* Update the pricing card styles to better handle longer feature lists */
-  
-  .pricing-card {
-    display: flex;
-    flex-direction: column;
-    border-radius: var(--radius);
-    border: 1px solid hsl(var(--border));
-    background-color: hsl(var(--card));
-    overflow: hidden;
-    position: relative;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    height: 100%;
+}
+
+@media (max-width: 768px) {
+  /* Mobile: One pricing card per row */
+  .pricing-grid {
+    grid-template-columns: 1fr;
   }
-  
-  .pricing-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  }
-  
-  .pricing-card.popular {
-    border-color: hsl(var(--primary));
-    box-shadow: 0 10px 15px -3px hsl(var(--primary) / 0.1), 0 4px 6px -4px hsl(var(--primary) / 0.1);
-    transform: scale(1.05);
-    z-index: 10;
-  }
-  
-  .pricing-card.popular:hover {
-    transform: scale(1.05) translateY(-5px);
-  }
-  
-  .popular-badge {
-    position: absolute;
-    top: 0;
-    right: 0;
-    background-color: hsl(var(--primary));
-    color: hsl(var(--primary-foreground));
-    font-size: 0.75rem;
-    padding: 0.25rem 0.75rem;
-    border-bottom-left-radius: var(--radius);
-  }
-  
-  .pricing-header {
-    padding: 2rem 1.5rem;
-    border-bottom: 1px solid hsl(var(--border));
-    text-align: center;
-  }
-  
+
+  /* Adjust font sizes and spacing for mobile */
   .pricing-title {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
   }
-  
-  .pricing-price {
-    display: flex;
-    align-items: baseline;
-    justify-content: center;
-    margin: 1rem 0;
-  }
-  
+
   .pricing-amount {
-    font-size: 2.5rem;
-    font-weight: 700;
-    background: linear-gradient(to right, #a855f7, #ec4899);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    font-size: 2rem;
   }
-  
-  .pricing-description {
-    color: hsl(var(--muted-foreground));
+
+  .pricing-duration {
     font-size: 0.875rem;
   }
-  
-  .pricing-features {
-    padding: 1.5rem;
-    flex-grow: 1;
-    overflow-y: auto;
-    max-height: 400px;
-  }
-  
-  .feature-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-  
-  .feature-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.75rem;
-  }
-  
-  .feature-item i {
-    color: hsl(var(--primary));
-    font-size: 1rem;
-    margin-top: 0.125rem;
-    flex-shrink: 0;
-  }
-  
+
   .feature-item span {
+    font-size: 0.75rem;
+  }
+
+  .custom-solution h2 {
+    font-size: 1.25rem;
+  }
+
+  .custom-solution p {
     font-size: 0.875rem;
   }
-  
-  .pricing-footer {
-    padding: 1.5rem;
-    border-top: 1px solid hsl(var(--border));
-    text-align: center;
-  }
-  
-  .custom-solution {
-    text-align: center;
-    margin-top: 4rem;
-    padding: 2rem;
-    background-color: hsl(var(--muted) / 0.3);
-    border-radius: var(--radius);
-  }
-  
-  .custom-solution h2 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-  }
-  
-  .custom-solution p {
-    color: hsl(var(--muted-foreground));
-    max-width: 32rem;
-    margin: 0 auto 2rem;
-  }
+}
   
   /* About Page */
   .about-section {
@@ -1403,4 +1450,53 @@
     }
   }
   
-  
+  /* Add borders to all relevant boxes */
+.portfolio-card,
+.service-card,
+.pricing-card,
+.mission-card,
+.value-card,
+.contact-form-container,
+.feature-list,
+.card-overlay,
+.bento-overlay {
+  border: 1px solid hsl(0, 0%, 10%); /* Tiny blackish border */
+}
+
+/* Ensure borders are visible on hover or active states */
+.portfolio-card:hover,
+.bento-item:hover,
+.pricing-card:hover {
+  border-color: hsl(0, 0%, 10%); /* Keep border color consistent */
+}
+
+/* Specific adjustments for nested elements */
+.card-overlay,
+.bento-overlay {
+  border: 1px solid hsl(0, 0%, 10%); /* Add borders to overlays */
+}
+
+/* Add borders to buttons */
+.btn,
+.btn-lg,
+.btn-sm,
+.btn-block,
+.view-btn {
+  border: 1px solid hsl(0, 0%, 10%); /* Add borders to buttons */
+}
+
+/* Add borders to input fields */
+input,
+textarea,
+select {
+  border: 1px solid hsl(0, 0%, 10%); /* Tiny blackish border for inputs */
+}
+
+/* Ensure focus states retain the border */
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: hsl(0, 0%, 10%); /* Keep border color consistent */
+  box-shadow: 0 0 0 2px hsl(var(--ring) / 0.3); /* Optional: Add a subtle focus glow */
+}
