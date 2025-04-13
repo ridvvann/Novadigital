@@ -215,7 +215,7 @@
   .logo-text {
     font-size: 1.5rem;
     font-weight: 700;
-    background: white;
+    background: rgb(0, 0, 0);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -359,20 +359,67 @@
     object-fit: cover;
   }
 
-  /* Ensure the parent container is centered */
-.main-portfolio {
-  max-width: 1400px; /* Adjust as needed */
-  margin: 0 auto; /* Centers the container */
-  padding: 0 2rem;
+  .main-portfolio {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  /* Portfolio Section */
+  .portfolio-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: hsl(var(--background) / 0.5);
+    height: auto; /* Let height grow as needed */
+    padding: 4rem 0; /* Add vertical padding for breathing space */
+    margin: 0;
+  }
+  
+  .portfolio-section .container {
+    max-width: 1400px;
+    width: 100%;
+    display: flex;
+    align-items: flex-start; /* Align items to the top */
+    justify-content: center;
+    gap: 2rem; /* Space between cards */
+    padding: 0 2rem;
+    box-sizing: border-box;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  }
+  
+  /* Optional: Control content inside the container */
+  .portfolio-section .container > * {
+    margin: 0;
+    padding: 0;
+  }
+  
+
+
+.portfolio-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.portfolio-section p {
+  color: hsl(var(--muted-foreground));
+  font-size: 1.125rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.portfolio-section .section-header {
+  text-align: center;
+  margin-bottom: 3rem;
 }
 
 /* Portfolio Grid Layout */
 .portfolio-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns */
-  gap: 2rem; /* Spacing between cards */
+  gap: 1rem; /* Reduce gap between cards */
   justify-content: center; /* Center alignment */
-  padding: 2rem 0;
+  padding: 1rem 0; /* Reduce vertical padding */
 }
 
 /* Portfolio Card */
@@ -383,7 +430,7 @@
   background-color: hsl(var(--card));
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  height: 300px; /* Default height */
+  height: auto; /* Allow cards to adapt to content */
   width: 100%; /* Full width */
 }
 
@@ -426,12 +473,13 @@
   margin: 0;
   font-size: 1.25rem;
   font-weight: 600;
+  color: white;
 }
 
 .card-overlay p {
   margin-top: 0.25rem;
   font-size: 1rem;
-  color: hsl(var(--muted-foreground));
+  color: white;
 }
 
 /* Responsive Adjustments for Project Sizes */
@@ -439,26 +487,17 @@
   .portfolio-grid {
     grid-template-columns: repeat(4, 1fr); /* 4 cards per row on desktop */
   }
-  .portfolio-card {
-    height: 300px; /* Smaller height for desktop */
-  }
 }
 
 @media (max-width: 1024px) {
   .portfolio-grid {
     grid-template-columns: repeat(2, 1fr); /* 2 cards per row on tablet */
   }
-  .portfolio-card {
-    height: 350px; /* Slightly larger height for tablet */
-  }
 }
 
 @media (max-width: 768px) {
   .portfolio-grid {
     grid-template-columns: 1fr; /* 1 card per row on mobile */
-  }
-  .portfolio-card {
-    height: 400px; /* Larger height for mobile */
   }
   .card-overlay h3 {
     font-size: 1.125rem; /* Adjust title size for mobile */
@@ -468,8 +507,6 @@
   }
 }
 
-  
-  
   
   .view-btn {
     background-color: #6C63FF;
@@ -1021,9 +1058,19 @@
   width: 100%;
 }
 
+/* Global Variables */
+:root {
+  --card-bg: 240, 100%, 98%; /* Light gray background */
+  --card-hover-bg: 240, 100%, 96%; /* Slightly darker on hover */
+  --border: 240, 100%, 85%; /* Gray border */
+  --text-primary: 0, 0%, 10%; /* Black text */
+  --text-secondary: 240, 100%, 40%; /* Dark gray text */
+  --radius: 10px; /* Rounded corners */
+}
+
 /* Pricing Card */
 .pricing-card {
-  background-color: hsl(var(--card));
+  background-color: hsl(var(--card-bg));
   border-radius: var(--radius);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -1031,6 +1078,7 @@
   text-align: center;
   border: 1px solid hsl(var(--border));
   position: relative;
+  min-height: 400px; /* Ensure consistent height */
 }
 
 .pricing-card:hover {
@@ -1043,11 +1091,12 @@
   position: absolute;
   top: 1rem;
   right: 1rem;
-  background-color: hsl(var(--primary));
-  color: hsl(var(--primary-foreground));
+  background-color: hsl(0, 0%, 70%); /* Light gray badge */
+  color: hsl(var(--text-primary)); /* Black text */
   font-size: 0.75rem;
   padding: 0.25rem 0.75rem;
   border-bottom-left-radius: var(--radius);
+  font-weight: 700; /* Bold text */
 }
 
 /* Pricing Header */
@@ -1061,6 +1110,7 @@
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
   font-weight: 700;
+  color: hsl(var(--text-primary)); /* Black title */
 }
 
 .pricing-price {
@@ -1073,24 +1123,64 @@
 .pricing-amount {
   font-size: 2.5rem;
   font-weight: 700;
-  background: linear-gradient(to right, #a855f7, #ec4899);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: hsl(var(--text-primary)); /* Black amount */
 }
 
 .pricing-duration {
   font-size: 1rem;
   margin-left: 0.5rem;
+  color: hsl(var(--text-secondary)); /* Dark gray duration */
+}
+
+/* Features List */
+.pricing-features {
+  list-style-type: none;
+  padding: 0;
+  margin: 2rem 1.5rem 1rem;
+}
+
+.pricing-feature {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.pricing-feature-icon {
+  font-size: 1rem;
+  margin-right: 0.5rem;
+  color: hsl(var(--text-primary)); /* Black icon */
+}
+
+.pricing-feature-text {
+  color: hsl(var(--text-secondary)); /* Dark gray text */
+}
+
+/* Choose Plan Button */
+.choose-plan {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
+  background-color: transparent;
+  color: hsl(var(--text-primary)); /* Black text */
+  font-weight: 500;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+}
+
+.choose-plan:hover {
+  background-color: hsl(var(--border)); /* Gray background on hover */
+  color: hsl(var(--card-bg)); /* Light gray text on hover */
 }
 
 /* Feature List */
 .feature-list {
   list-style: none;
-  padding: 1.5rem;
+  padding: 2.5rem;
   flex-grow: 1;
   max-height: 400px;
   overflow-y: auto;
+  border: none;
 }
 
 .feature-item {
@@ -1457,7 +1547,6 @@
 .mission-card,
 .value-card,
 .contact-form-container,
-.feature-list,
 .card-overlay,
 .bento-overlay {
   border: 1px solid hsl(0, 0%, 10%); /* Tiny blackish border */

@@ -1,0 +1,103 @@
+/* Pricing Section */
+.pricing-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 5rem 0;
+  }
+  
+  /* Pricing Grid */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  /* Pricing Card */
+  .pricing-card {
+    background-color: hsl(var(--card-bg));
+    border-radius: var(--radius);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    border: 1px solid hsl(var(--border));
+    position: relative;
+    min-height: 400px;
+  }
+  .pricing-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Popular Badge */
+  .popular-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-color: hsl(0, 0%, 70%);
+    color: hsl(var(--text-primary));
+    font-size: 0.75rem;
+    padding: 0.25rem 0.75rem;
+    border-bottom-left-radius: var(--radius);
+    font-weight: 700;
+  }
+  
+  /* Pricing Header */
+  .pricing-header {
+    padding: 2rem 1.5rem;
+    border-bottom: 1px solid hsl(var(--border));
+    text-align: center;
+  }
+  .pricing-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    color: hsl(var(--text-primary));
+  }
+  .pricing-price {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    margin: 1rem 0;
+  }
+  .pricing-amount {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: hsl(var(--text-primary));
+  }
+  .pricing-duration {
+    font-size: 1rem;
+    margin-left: 0.5rem;
+    color: hsl(var(--text-secondary));
+  }
+  
+  /* Features List */
+  .pricing-features {
+    list-style-type: none;
+    padding: 0;
+    margin: 2rem 1.5rem 1rem;
+  }
+  .pricing-feature {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+  .pricing-feature-icon {
+    font-size: 1rem;
+    margin-right: 0.5rem;
+    color: hsl(var(--text-primary));
+  }
+  .pricing-feature-text {
+    color: hsl(var(--text-secondary));
+  }
+  
+  /* Choose Plan Button */
+  .choose-plan {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border: 1px solid hsl(var(--border));
+  }
