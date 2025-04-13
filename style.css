@@ -364,53 +364,10 @@
     margin: 0 auto;
     padding: 0 2rem;
   }
-  
-  /* Portfolio Section */
-  .portfolio-section {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: hsl(var(--background) / 0.5);
-    height: auto; /* Let height grow as needed */
-    padding: 4rem 0; /* Add vertical padding for breathing space */
-    margin: 0;
-  }
-  
-  .portfolio-section .container {
-    max-width: 1400px;
-    width: 100%;
-    display: flex;
-    align-items: flex-start; /* Align items to the top */
-    justify-content: center;
-    gap: 2rem; /* Space between cards */
-    padding: 0 2rem;
-    box-sizing: border-box;
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
-  }
-  
-  /* Optional: Control content inside the container */
-  .portfolio-section .container > * {
-    margin: 0;
-    padding: 0;
-  }
-  
 
-
-.portfolio-section h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-.portfolio-section p {
-  color: hsl(var(--muted-foreground));
-  font-size: 1.125rem;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.portfolio-section .section-header {
+.main-portfolio .section-header {
   text-align: center;
-  margin-bottom: 3rem;
+  margin: 5rem;
 }
 
 /* Portfolio Grid Layout */
