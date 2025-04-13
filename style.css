@@ -143,12 +143,14 @@
   }
   
   .btn-primary {
-    background-color: hsl(var(--primary));
-    color: hsl(var(--primary-foreground));
+    background-color: var(--primary);
+    color: var(--accent-foreground);
+    width: 100%;
   }
   
   .btn-primary:hover {
-    background-color: hsl(var(--primary) / 0.9);
+    background-color: var(--background);
+    color: var(--foreground);
   }
   
   .btn-outline {
@@ -163,12 +165,12 @@
   }
   
   .btn-whatsapp {
-    background-color: var(--whatsapp);
+    background-color: var(--primary);
     color: white;
   }
   
   .btn-whatsapp:hover {
-    background-color: var(--whatsapp-hover);
+    background-color: var(--background);
   }
   
   .btn-icon {
@@ -281,6 +283,8 @@
     flex-direction: column;
     background-color: hsl(var(--background));
     gap: 1rem;
+    background-color: var(--foreground);
+    margin: 0;
   }
   
   .mobile-nav .nav-link {
@@ -292,6 +296,10 @@
   .mobile-nav .nav-link:hover,
   .mobile-nav .nav-link:focus {
     background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .mobile-nav a:hover {
+    background-color: var(--primary);
   }
   
   .mt-4 {
@@ -307,6 +315,13 @@
     padding-top: 0;
     margin-top: 0;
   }
+
+  @media (max-width: 768px) { 
+    .hero {
+      margin-top: 5rem;
+    }
+  }
+
   
   .hero-grid {
     display: grid;
@@ -327,7 +342,7 @@
   }
   
   .gradient-text {
-    background: linear-gradient(to right, #a855f7, #ec4899);
+    background-color: var(--primary);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -359,27 +374,26 @@
     object-fit: cover;
   }
 
-  .main-portfolio {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 2rem;
-  }
+  /* Base Styles */
+.main-portfolio {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
 
 .main-portfolio .section-header {
   text-align: center;
-  margin: 5rem;
+  margin: 5rem 0;
 }
 
-/* Portfolio Grid Layout */
 .portfolio-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns */
-  gap: 1rem; /* Reduce gap between cards */
+  gap: 1rem; /* Consistent spacing between cards */
   justify-content: center; /* Center alignment */
   padding: 1rem 0; /* Reduce vertical padding */
 }
 
-/* Portfolio Card */
 .portfolio-card {
   position: relative;
   overflow: hidden;
@@ -389,6 +403,7 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   height: auto; /* Allow cards to adapt to content */
   width: 100%; /* Full width */
+  aspect-ratio: 1 / 1; /* Maintain square aspect ratio */
 }
 
 /* Hover Effects */
@@ -439,19 +454,7 @@
   color: white;
 }
 
-/* Responsive Adjustments for Project Sizes */
-@media (min-width: 1025px) {
-  .portfolio-grid {
-    grid-template-columns: repeat(4, 1fr); /* 4 cards per row on desktop */
-  }
-}
-
-@media (max-width: 1024px) {
-  .portfolio-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 cards per row on tablet */
-  }
-}
-
+/* Responsive Adjustments for Portfolio Section */
 @media (max-width: 768px) {
   .portfolio-grid {
     grid-template-columns: 1fr; /* 1 card per row on mobile */
@@ -461,6 +464,100 @@
   }
   .card-overlay p {
     font-size: 0.9rem; /* Adjust description font size */
+  }
+}
+
+/* Custom Styles for Featured Work Section */
+
+/* Container for Featured Work */
+.featured-container {
+  padding: 0 1rem; /* Reduced padding for mobile */
+}
+
+/* Grid Layout for Featured Work */
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns */
+  gap: 1rem; /* Consistent spacing between cards */
+  justify-content: center; /* Center alignment */
+  padding: 1rem 0; /* Reduce vertical padding */
+}
+
+/* Portfolio Card for Featured Work */
+.featured-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background-color: hsl(var(--card));
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: auto; /* Allow cards to adapt to content */
+  width: 100%; /* Full width */
+  aspect-ratio: 1 / 1; /* Maintain square aspect ratio */
+  max-height: 300px; /* Prevent excessive height */
+}
+
+/* Hover Effects for Featured Cards */
+.featured-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Image Styling for Featured Cards */
+.featured-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.featured-card:hover img {
+  transform: scale(1.05);
+}
+
+/* Card Overlay for Featured Cards */
+.featured-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, hsl(var(--background) / 0.9), transparent);
+  color: hsl(var(--card-foreground));
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.featured-card:hover .featured-overlay {
+  opacity: 1;
+}
+.featured-overlay h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: white;
+}
+.featured-overlay p {
+  margin-top: 0.25rem;
+  font-size: 1rem;
+  color: white;
+}
+
+/* Responsive Adjustments for Featured Work */
+@media (max-width: 768px) {
+  .featured-grid {
+    grid-template-columns: 1fr; /* 1 card per row on mobile */
+  }
+  .featured-overlay h3 {
+    font-size: 1.125rem; /* Adjust title size for mobile */
+  }
+  .featured-overlay p {
+    font-size: 0.9rem; /* Adjust description font size */
+  }
+
+  /* Fix Excessive Height on Mobile */
+  .featured-card {
+    max-height: 250px; /* Limit height for mobile */
   }
 }
 
@@ -766,8 +863,12 @@
   
   .social-icons i {
     font-size: 1.5rem;
-    color: hsl(var(--primary));
+    color: var(--background);
     margin-bottom: 0.5rem;
+  }
+
+  .social-icons i:hover{
+    color: var(--primary);
   }
   
   .social-icons.large a {
@@ -1036,6 +1137,9 @@
   border: 1px solid hsl(var(--border));
   position: relative;
   min-height: 400px; /* Ensure consistent height */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Space out content evenly */
 }
 
 .pricing-card:hover {
@@ -1046,12 +1150,12 @@
 /* Popular Badge */
 .popular-badge {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background-color: hsl(0, 0%, 70%); /* Light gray badge */
-  color: hsl(var(--text-primary)); /* Black text */
+  top: 0;
+  right: 0;
+  background-color: var(--primary);
+  color: var(--foreground);
   font-size: 0.75rem;
-  padding: 0.25rem 0.75rem;
+  padding: 0.5rem 1.5rem;
   border-bottom-left-radius: var(--radius);
   font-weight: 700; /* Bold text */
 }
@@ -1530,6 +1634,8 @@
 .view-btn {
   border: 1px solid hsl(0, 0%, 10%); /* Add borders to buttons */
 }
+
+
 
 /* Add borders to input fields */
 input,
