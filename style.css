@@ -167,6 +167,17 @@
   .btn-whatsapp {
     background-color: var(--primary);
     color: white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius);
+    font-weight: 500;
+    font-size: 0.875rem;
+    height: 2.5rem;
+    padding: 0 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
   }
   
   .btn-whatsapp:hover {
@@ -494,7 +505,6 @@
   height: auto; /* Allow cards to adapt to content */
   width: 100%; /* Full width */
   aspect-ratio: 1 / 1; /* Maintain square aspect ratio */
-  max-height: 300px; /* Prevent excessive height */
 }
 
 /* Hover Effects for Featured Cards */

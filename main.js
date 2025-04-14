@@ -140,3 +140,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
   console.log("main.js loaded and all event listeners attached.");
 });
+
+// Contact form functionality
+document.getElementById("home-contact-form").addEventListener("submit", function(e) {
+  e.preventDefault(); // Prevent form from actually submitting
+
+  // Collect form values
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const subject = document.getElementById("subject").value.trim();
+  const message = document.getElementById("message").value.trim();
+
+  // Build the WhatsApp message
+  const whatsappMessage = `Hello, I'm reaching out from your website.\n\n*Name:* ${name}\n*Email:* ${email}\n*Subject:* ${subject}\n*Message:* ${message}`;
+
+  // Encode the message for URL
+  const encodedMessage = encodeURIComponent(whatsappMessage);
+
+  // Your WhatsApp number (no plus sign)
+  const phoneNumber = "252672085009";
+
+  // Redirect to WhatsApp
+  window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, "_blank");
+});
+
