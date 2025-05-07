@@ -1,6 +1,10 @@
 // Wait until the DOM is fully loaded
 document.addEventListener("DOMContentLoaded", () => {
-  // WhatsApp button functionality
+  console.log("main.js loaded and all event listeners attached.");
+
+  // ======================
+  // WhatsApp Button Logic
+  // ======================
   const whatsappBtns = document.querySelectorAll(".whatsapp-btn");
   whatsappBtns.forEach((btn) => {
     btn.addEventListener("click", function (e) {
@@ -12,7 +16,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Mobile menu functionality
+  // ======================
+  // Mobile Menu Functionality
+  // ======================
   const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
   const mobileMenu = document.querySelector(".mobile-menu");
   const mobileNavLinks = document.querySelectorAll(".mobile-nav .nav-link");
@@ -68,99 +74,126 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Wait until the DOM is fully loaded
-document.addEventListener("DOMContentLoaded", () => {
-  // Get all image links
+  // ======================
+  // Image Popup Functionality
+  // ======================
   const imageLinks = document.querySelectorAll(".image-link");
 
-  // Function to create and display the pop-up
   function openPopup(imageUrl) {
-    // Create the pop-up container
+    // Remove existing popup if present
+    const existingPopup = document.querySelector(".popup");
+    if (existingPopup) existingPopup.remove();
+
     const popup = document.createElement("div");
     popup.classList.add("popup");
+    Object.assign(popup.style, {
+      position: "fixed",
+      top: 0,
+      left: 0,
+      width: "100vw",
+      height: "100vh",
+      backgroundColor: "rgba(0,0,0,0.8)",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      zIndex: 9999,
+    });
 
-    // Create the close button
     const closeButton = document.createElement("span");
     closeButton.classList.add("close-popup");
     closeButton.innerHTML = "&times;";
-    closeButton.style.position = "absolute";
-    closeButton.style.top = "10px";
-    closeButton.style.right = "10px";
-    closeButton.style.color = "#fff";
-    closeButton.style.fontSize = "24px";
-    closeButton.style.cursor = "pointer";
+    Object.assign(closeButton.style, {
+      position: "absolute",
+      top: "10px",
+      right: "20px",
+      color: "#fff",
+      fontSize: "32px",
+      cursor: "pointer",
+      fontWeight: "bold",
+    });
 
-    // Create the image element
     const image = document.createElement("img");
     image.src = imageUrl;
     image.alt = "Full Image";
-    image.style.maxWidth = "90%";
-    image.style.maxHeight = "90%";
-    image.style.borderRadius = "8px";
-    image.style.boxShadow = "0 4px 16px rgba(0, 0, 0, 0.2)";
+    Object.assign(image.style, {
+      maxWidth: "90%",
+      maxHeight: "90%",
+      borderRadius: "8px",
+      boxShadow: "0 4px 16px rgba(0, 0, 0, 0.2)",
+    });
 
-    // Append elements to the pop-up
     popup.appendChild(closeButton);
     popup.appendChild(image);
-
-    // Add the pop-up to the document body
     document.body.appendChild(popup);
 
-    // Close the pop-up when the close button is clicked
-    closeButton.addEventListener("click", () => {
-      document.body.removeChild(popup);
-    });
-
-    // Close the pop-up when clicking outside the image
+    closeButton.addEventListener("click", () => popup.remove());
     popup.addEventListener("click", (e) => {
-      if (e.target === popup) {
-        document.body.removeChild(popup);
-      }
+      if (e.target === popup) popup.remove();
     });
-
-    // Close the pop-up when pressing the Esc key
-    document.addEventListener("keydown", (e) => {
+    document.addEventListener("keydown", function escHandler(e) {
       if (e.key === "Escape") {
-        document.body.removeChild(popup);
+        popup.remove();
+        document.removeEventListener("keydown", escHandler);
       }
     });
   }
 
-  // Attach click event listeners to image links
   imageLinks.forEach((link) => {
     link.addEventListener("click", function (e) {
-      e.preventDefault(); // Prevent default link behavior
+      e.preventDefault();
       const fullImage = this.dataset.fullImage;
-      if (fullImage) {
-        openPopup(fullImage); // Open the pop-up with the full image
-      }
+      if (fullImage) openPopup(fullImage);
     });
   });
+
+  // ======================
+  // Contact Form → WhatsApp Redirect
+  // ======================
+  const contactForm = document.getElementById("home-contact-form");
+  if (contactForm) {
+    contactForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const subject = document.getElementById("subject").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      const whatsappMessage = `Hello, I'm reaching out from your website.\n\n*Name:* ${name}\n*Email:* ${email}\n*Subject:* ${subject}\n*Message:* ${message}`;
+      const encodedMessage = encodeURIComponent(whatsappMessage);
+      const phoneNumber = "252672085009";
+
+      window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, "_blank");
+    });
+  }
 });
 
-  console.log("main.js loaded and all event listeners attached.");
-});
+  // Select all cards (both regular and featured)
+  const cards = document.querySelectorAll('.portfolio-card, .featured-card');
+  const popup = document.querySelector('.popup-image');
+  const popupImg = document.querySelector('.popup-img');
+  const closePopup = document.querySelector('.close-popup');
 
-// Contact form functionality
-document.getElementById("home-contact-form").addEventListener("submit", function(e) {
-  e.preventDefault(); // Prevent form from actually submitting
+  // Add click event to all cards
+  cards.forEach(card => {
+    card.addEventListener('click', function() {
+      const fullImageUrl = this.querySelector('.image-link').getAttribute('data-full-image');
+      popupImg.src = fullImageUrl;
+      popup.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+  });
 
-  // Collect form values
-  const name = document.getElementById("name").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const subject = document.getElementById("subject").value.trim();
-  const message = document.getElementById("message").value.trim();
+  // Close popup
+  closePopup.addEventListener('click', function() {
+    popup.classList.remove('active');
+    document.body.style.overflow = 'auto';
+  });
 
-  // Build the WhatsApp message
-  const whatsappMessage = `Hello, I'm reaching out from your website.\n\n*Name:* ${name}\n*Email:* ${email}\n*Subject:* ${subject}\n*Message:* ${message}`;
-
-  // Encode the message for URL
-  const encodedMessage = encodeURIComponent(whatsappMessage);
-
-  // Your WhatsApp number (no plus sign)
-  const phoneNumber = "252672085009";
-
-  // Redirect to WhatsApp
-  window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, "_blank");
-});
-
+  // Close when clicking outside image
+  popup.addEventListener('click', function(e) {
+    if (e.target === popup) {
+      popup.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+  });

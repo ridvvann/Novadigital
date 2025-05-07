@@ -385,45 +385,47 @@
     object-fit: cover;
   }
 
-  /* Base Styles */
+/* ===== BASE STYLES ===== */
 .main-portfolio {
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.main-portfolio .section-header {
+.section-header {
   text-align: center;
   margin: 5rem 0;
 }
 
+/* ===== CARD GRID ===== */
 .portfolio-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns */
-  gap: 1rem; /* Consistent spacing between cards */
-  justify-content: center; /* Center alignment */
-  padding: 1rem 0; /* Reduce vertical padding */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  padding: 1rem 0;
 }
 
-.portfolio-card {
+/* ===== SHARED CARD STYLES ===== */
+.portfolio-card,
+.portfolio-card.featured-card {
   position: relative;
   overflow: hidden;
   border-radius: var(--radius);
   background-color: hsl(var(--card));
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  height: auto; /* Allow cards to adapt to content */
-  width: 100%; /* Full width */
-  aspect-ratio: 1 / 1; /* Maintain square aspect ratio */
+  aspect-ratio: 1/1;
 }
 
-/* Hover Effects */
-.portfolio-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+.portfolio-card .image-link {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
-/* Image Styling */
 .portfolio-card img {
   width: 100%;
   height: 100%;
@@ -431,138 +433,14 @@
   display: block;
   transition: transform 0.4s ease;
 }
-.portfolio-card:hover img {
-  transform: scale(1.05);
-}
 
-/* Card Overlay */
-.card-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, hsl(var(--background) / 0.9), transparent);
-  color: hsl(var(--card-foreground));
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
-.portfolio-card:hover .card-overlay {
-  opacity: 1;
-}
-
-.card-overlay h3 {
-  margin: 0;
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: white;
-}
-
-.card-overlay p {
-  margin-top: 0.25rem;
-  font-size: 1rem;
-  color: white;
-}
-
-/* Responsive Adjustments for Portfolio Section */
-@media (max-width: 768px) {
-  .portfolio-grid {
-    grid-template-columns: 1fr; /* 1 card per row on mobile */
-  }
-  .card-overlay h3 {
-    font-size: 1.125rem; /* Adjust title size for mobile */
-  }
-  .card-overlay p {
-    font-size: 0.9rem; /* Adjust description font size */
-  }
-}
-
-/* Custom Styles for Featured Work Section */
-
-/* Container for Featured Work */
-.featured-container {
-  padding: 0 1rem; /* Reduced padding for mobile */
-  margin: 0 auto; /* Center the container */
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Center items horizontally */
-}
-
-/* Grid Layout for Featured Work */
-.featured-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns */
-  gap: 1rem; /* Consistent spacing between cards */
-  justify-content: center; /* Center alignment */
-  padding: 1rem 0; /* Reduce vertical padding */
-}
-
-/* Portfolio Card for Featured Work */
-.featured-card {
-  position: relative;
-  overflow: hidden;
-  border-radius: var(--radius);
-  background-color: hsl(var(--card));
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  height: auto; /* Allow cards to adapt to content */
-  width: 100%; /* Full width */
-  height: 80%; /* Full height */
-  aspect-ratio: 1 / 1; /* Maintain square aspect ratio */
-}
-
-@media screen and (max-width: 768px) {
-  .featured-container {
-    padding: 0 1rem; /* Reduced padding for mobile */
-    margin: 0 auto; /* Center the container */
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center items horizontally */
-    width: 100%; /* Full width on mobile */
-  }
-
-  .featured-grid {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns */
-    gap: 1rem; /* Consistent spacing between cards */
-    justify-content: center; /* Center alignment */
-    padding: 1rem 0; /* Reduce vertical padding */
-    width: 100%; /* Full width on mobile */
-  }
-
-  /* Adjustments for mobile view */
-  .featured-card {
-    height: 100%; /* Full height on mobile */
-    aspect-ratio: auto; /* Remove aspect ratio on mobile */
-    width: 100%; /* Full width on mobile */
-  }
-  
-}
-
-/* Hover Effects for Featured Cards */
-.featured-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
-}
-
-/* Image Styling for Featured Cards */
-.featured-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.4s ease;
-}
-.featured-card:hover img {
-  transform: scale(1.05);
-}
-
-/* Card Overlay for Featured Cards */
+/* ===== SHARED OVERLAY STYLES ===== */
+.card-overlay,
 .featured-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(to top, hsl(var(--background) / 0.9), transparent);
-  color: hsl(var(--card-foreground));
+  color: white;
   padding: 1rem;
   display: flex;
   flex-direction: column;
@@ -570,36 +448,85 @@
   opacity: 0;
   transition: opacity 0.4s ease;
 }
-.featured-card:hover .featured-overlay {
+
+.card-overlay p {
+  background-color: #4a31fc;
+  color: #fff;
+  width: fit-content;
+  padding: 0.3rem 1rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+}
+
+
+/* ===== SHARED HOVER EFFECTS ===== */
+.portfolio-card:hover,
+.portfolio-card.featured-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+.portfolio-card:hover img,
+.portfolio-card.featured-card:hover img {
+  transform: scale(1.05);
+}
+
+.portfolio-card:hover .card-overlay,
+.portfolio-card.featured-card:hover .featured-overlay {
   opacity: 1;
 }
-.featured-overlay h3 {
-  margin: 0;
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: white;
-}
-.featured-overlay p {
-  margin-top: 0.25rem;
-  font-size: 1rem;
-  color: white;
+
+/* ===== SHARED POPUP STYLES ===== */
+.popup-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
 }
 
-/* Responsive Adjustments for Featured Work */
+.popup-image.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.popup-image .popup-img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+}
+
+.popup-image .close-popup {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.popup-image .close-popup:hover {
+  color: #ccc;
+}
+
+/* ===== RESPONSIVE ADJUSTMENTS ===== */
 @media (max-width: 768px) {
-  .featured-grid {
-    grid-template-columns: 1fr; /* 1 card per row on mobile */
+  .portfolio-grid {
+    grid-template-columns: 1fr;
   }
-  .featured-overlay h3 {
-    font-size: 1.125rem; /* Adjust title size for mobile */
-  }
-  .featured-overlay p {
-    font-size: 0.9rem; /* Adjust description font size */
-  }
-
-  /* Fix Excessive Height on Mobile */
-  .featured-card {
-    max-height: 250px; /* Limit height for mobile */
+  
+  .portfolio-card,
+  .portfolio-card.featured-card {
+    max-height: 300px;
   }
 }
 
