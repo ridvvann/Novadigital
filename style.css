@@ -1622,3 +1622,79 @@ select:focus {
   border-color: hsl(0, 0%, 10%); /* Keep border color consistent */
   box-shadow: 0 0 0 2px hsl(var(--ring) / 0.3); /* Optional: Add a subtle focus glow */
 }
+
+/* CEO Section Styles */
+.ceo-section {
+  padding: 5rem 0;
+}
+
+.ceo-section .about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.ceo-section .about-image {
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%; /* This creates a perfect square */
+  height: 0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.ceo-section .about-image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.ceo-section .ceo-info {
+  padding: 1rem 0;
+}
+
+.ceo-section .ceo-info h3 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: var(--primary);
+}
+
+.ceo-section .ceo-title {
+  font-size: 1.2rem;
+  color: var(--muted-foreground);
+  margin-bottom: 2rem;
+}
+
+.ceo-section .ceo-social {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.ceo-section .ceo-social a {
+  color: var(#000000);
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.ceo-section .ceo-social a:hover {
+  color: var(--primary);
+}
+
+/* Media Query for Mobile */
+@media (max-width: 768px) {
+  .ceo-section .about-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .ceo-section .about-image {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
