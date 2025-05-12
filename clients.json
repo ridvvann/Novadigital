@@ -10,5 +10,17 @@
     "status": "active",
     "createdAt": "2025-05-12T22:23:32.740Z",
     "updatedAt": "2025-05-12T22:23:32.740Z"
+  },
+  {
+    "id": "1747088714275",
+    "name": "Globex Inc",
+    "contact": "+1 (555) 987-6543",
+    "service": "Consulting",
+    "price": 200,
+    "discount": 0,
+    "notes": "",
+    "status": "active",
+    "createdAt": "2025-05-12T22:25:14.275Z",
+    "updatedAt": "2025-05-12T22:25:14.275Z"
   }
 ]
