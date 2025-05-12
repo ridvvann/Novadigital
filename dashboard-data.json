@@ -1,0 +1,43 @@
+{
+  "clients": [],
+  "previousMonthStats": {
+    "clients": 0,
+    "revenue": 0,
+    "newClients": 0,
+    "pendingPayments": 0
+  },
+  "currentMonthStats": {
+    "clients": 0,
+    "revenue": 0,
+    "newClients": 0,
+    "pendingPayments": 0
+  },
+  "monthlyRevenue": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "monthlyRegistrations": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}
