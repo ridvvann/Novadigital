@@ -1,0 +1,1408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #4f46e5;
+            --primary-dark: #4338ca;
+            --secondary: #f3f4f6;
+            --text-primary: #111827;
+            --text-secondary: #6b7280;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --border: #e5e7eb;
+            --sidebar-width: 250px;
+        }
+
+        body {
+            background-color: #f9fafb;
+            color: var(--text-primary);
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: var(--sidebar-width);
+            background-color: white;
+            border-right: 1px solid var(--border);
+            height: 100vh;
+            position: fixed;
+            overflow-y: auto;
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .sidebar-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .sidebar-menu {
+            padding: 1rem 0;
+        }
+
+        .menu-item {
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            align-items: center;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .menu-item:hover {
+            background-color: var(--secondary);
+            color: var(--primary);
+        }
+
+        .menu-item.active {
+            background-color: var(--secondary);
+            color: var(--primary);
+            border-left: 3px solid var(--primary);
+        }
+
+        .menu-item i {
+            margin-right: 0.75rem;
+            font-size: 1.25rem;
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            flex: 1;
+            margin-left: var(--sidebar-width);
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .page-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+
+        /* Dashboard Section */
+        .dashboard-section {
+            display: block;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background-color: white;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-card-title {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card-value {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card-change {
+            display: flex;
+            align-items: center;
+            font-size: 0.875rem;
+        }
+
+        .stat-card-change.positive {
+            color: var(--success);
+        }
+
+        .stat-card-change.negative {
+            color: var(--danger);
+        }
+
+        .chart-container {
+            background-color: white;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1.5rem;
+        }
+
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .chart-title {
+            font-weight: 600;
+        }
+
+        .chart-canvas {
+            width: 100%;
+            height: 300px;
+            position: relative;
+        }
+
+        /* Clients Section */
+        .clients-section {
+            display: none;
+        }
+
+        .table-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            border: 1px solid var(--border);
+            border-radius: 0.375rem;
+            padding: 0.5rem 0.75rem;
+            width: 300px;
+        }
+
+        .search-bar input {
+            border: none;
+            outline: none;
+            background: transparent;
+            width: 100%;
+            margin-left: 0.5rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .clients-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .clients-table th, .clients-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .clients-table th {
+            background-color: var(--secondary);
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .clients-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .clients-table tr:hover {
+            background-color: var(--secondary);
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .status-active {
+            background-color: rgba(16, 185, 129, 0.1);
+            color: var(--success);
+        }
+
+        .status-pending {
+            background-color: rgba(245, 158, 11, 0.1);
+            color: var(--warning);
+        }
+
+        .status-inactive {
+            background-color: rgba(239, 68, 68, 0.1);
+            color: var(--danger);
+        }
+
+        .action-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-secondary);
+            transition: color 0.2s ease;
+        }
+
+        .action-btn:hover {
+            color: var(--primary);
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-top: 1rem;
+        }
+
+        .pagination-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 0.375rem;
+            margin: 0 0.25rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .pagination-btn.active {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .pagination-btn:hover:not(.active) {
+            background-color: var(--secondary);
+        }
+
+        /* Settings Section */
+        .settings-section {
+            display: none;
+        }
+
+        .settings-card {
+            background-color: white;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1.5rem;
+        }
+
+        .settings-card-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: 0.375rem;
+            outline: none;
+            transition: border-color 0.2s ease;
+        }
+
+        .form-input:focus {
+            border-color: var(--primary);
+        }
+
+        .form-select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: 0.375rem;
+            outline: none;
+            transition: border-color 0.2s ease;
+            background-color: white;
+        }
+
+        .form-select:focus {
+            border-color: var(--primary);
+        }
+
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .toggle-slider {
+            background-color: var(--primary);
+        }
+
+        input:checked + .toggle-slider:before {
+            transform: translateX(26px);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            border-radius: 0.5rem;
+            width: 500px;
+            max-width: 90%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .modal-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .modal-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-secondary);
+        }
+
+        .modal-body {
+            padding: 1.5rem;
+        }
+
+        .modal-footer {
+            padding: 1rem 1.5rem;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: flex-end;
+            gap: 0.75rem;
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary);
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background-color: #e5e7eb;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+
+            .sidebar.active {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .main-content.sidebar-active {
+                margin-left: var(--sidebar-width);
+            }
+
+            .mobile-toggle {
+                display: block;
+                background: none;
+                border: none;
+                font-size: 1.5rem;
+                cursor: pointer;
+                color: var(--text-primary);
+            }
+        }
+
+        /* Icons */
+        .icon {
+            display: inline-block;
+            width: 1.5em;
+            height: 1.5em;
+            stroke-width: 0;
+            stroke: currentColor;
+            fill: currentColor;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">AdminPanel</div>
+            <button class="mobile-toggle" id="close-sidebar">×</button>
+        </div>
+        <div class="sidebar-menu">
+            <!-- Using inline onclick attributes for direct click handling -->
+            <div class="menu-item active" id="dashboard-menu-item" onclick="showDashboard()">
+                <i class="icon">📊</i>
+                <span>Dashboard</span>
+            </div>
+            <div class="menu-item" id="clients-menu-item" onclick="showClients()">
+                <i class="icon">👥</i>
+                <span>Clients</span>
+            </div>
+            <div class="menu-item" id="settings-menu-item" onclick="showSettings()">
+                <i class="icon">⚙️</i>
+                <span>Settings</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content" id="main-content">
+        <div class="header">
+            <div class="page-title" id="page-title">Dashboard</div>
+            <div class="user-profile">
+                <div class="user-avatar">A</div>
+                <div class="user-name">Admin</div>
+            </div>
+        </div>
+
+        <!-- Dashboard Section -->
+        <div class="dashboard-section" id="dashboard-section">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-card-title">Total Clients</div>
+                    <div class="stat-card-value" id="total-clients">0</div>
+                    <div class="stat-card-change positive" id="clients-change">+0% from last month</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-title">Total Revenue</div>
+                    <div class="stat-card-value" id="total-revenue">$0.00</div>
+                    <div class="stat-card-change positive" id="revenue-change">+0% from last month</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-title">New Clients</div>
+                    <div class="stat-card-value" id="new-clients">0</div>
+                    <div class="stat-card-change positive" id="new-clients-change">+0% from last month</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-title">Pending Payments</div>
+                    <div class="stat-card-value" id="pending-payments">$0.00</div>
+                    <div class="stat-card-change negative" id="pending-change">+0% from last month</div>
+                </div>
+            </div>
+
+            <div class="chart-container">
+                <div class="chart-header">
+                    <div class="chart-title">Revenue Overview</div>
+                    <select id="revenue-period" class="form-select" style="width: auto;" onchange="updateRevenueChart()">
+                        <option value="weekly">Weekly</option>
+                        <option value="monthly" selected>Monthly</option>
+                        <option value="yearly">Yearly</option>
+                    </select>
+                </div>
+                <div class="chart-canvas" id="revenue-chart"></div>
+            </div>
+
+            <div class="chart-container">
+                <div class="chart-header">
+                    <div class="chart-title">Client Registration</div>
+                    <select id="registration-period" class="form-select" style="width: auto;" onchange="updateRegistrationChart()">
+                        <option value="weekly">Weekly</option>
+                        <option value="monthly" selected>Monthly</option>
+                        <option value="yearly">Yearly</option>
+                    </select>
+                </div>
+                <div class="chart-canvas" id="registration-chart"></div>
+            </div>
+        </div>
+
+        <!-- Clients Section -->
+        <div class="clients-section" id="clients-section">
+            <div class="table-actions">
+                <div class="search-bar">
+                    <i class="icon">🔍</i>
+                    <input type="text" placeholder="Search clients..." id="client-search">
+                </div>
+                <button class="btn btn-primary" id="add-client-btn" onclick="openAddClientModal()">
+                    <i class="icon" style="margin-right: 0.5rem;">➕</i>
+                    Add Client
+                </button>
+            </div>
+
+            <table class="clients-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Contact</th>
+                        <th>Service</th>
+                        <th>Price</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="clients-table-body">
+                    <!-- Client rows will be populated by JavaScript -->
+                </tbody>
+            </table>
+
+            <div class="pagination" id="clients-pagination">
+                <div class="pagination-btn">«</div>
+                <div class="pagination-btn active">1</div>
+                <div class="pagination-btn">2</div>
+                <div class="pagination-btn">3</div>
+                <div class="pagination-btn">»</div>
+            </div>
+        </div>
+
+        <!-- Settings Section -->
+        <div class="settings-section" id="settings-section">
+            <div class="settings-card">
+                <div class="settings-card-title">General Settings</div>
+                <div class="form-group">
+                    <label class="form-label">Company Name</label>
+                    <input type="text" class="form-input" value="">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-input" value="">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Phone</label>
+                    <input type="tel" class="form-input" value="">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Address</label>
+                    <input type="text" class="form-input" value="">
+                </div>
+                <button class="btn btn-primary">Save Changes</button>
+            </div>
+
+            <div class="settings-card">
+                <div class="settings-card-title">Notification Settings</div>
+                <div class="form-group" style="display: flex; justify-content: space-between; align-items: center;">
+                    <label class="form-label" style="margin-bottom: 0;">Email Notifications</label>
+                    <label class="toggle-switch">
+                        <input type="checkbox" checked>
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                <div class="form-group" style="display: flex; justify-content: space-between; align-items: center;">
+                    <label class="form-label" style="margin-bottom: 0;">SMS Notifications</label>
+                    <label class="toggle-switch">
+                        <input type="checkbox">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                <div class="form-group" style="display: flex; justify-content: space-between; align-items: center;">
+                    <label class="form-label" style="margin-bottom: 0;">New Client Alerts</label>
+                    <label class="toggle-switch">
+                        <input type="checkbox" checked>
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                <div class="form-group" style="display: flex; justify-content: space-between; align-items: center;">
+                    <label class="form-label" style="margin-bottom: 0;">Payment Reminders</label>
+                    <label class="toggle-switch">
+                        <input type="checkbox" checked>
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="settings-card">
+                <div class="settings-card-title">Service Settings</div>
+                <div class="form-group">
+                    <label class="form-label">Default Currency</label>
+                    <select class="form-select">
+                        <option value="USD" selected>USD ($)</option>
+                        <option value="EUR">EUR (€)</option>
+                        <option value="GBP">GBP (£)</option>
+                        <option value="CAD">CAD ($)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Tax Rate (%)</label>
+                    <input type="number" class="form-input" value="">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Default Payment Terms</label>
+                    <select class="form-select">
+                        <option value="7">Net 7</option>
+                        <option value="15">Net 15</option>
+                        <option value="30" selected>Net 30</option>
+                        <option value="60">Net 60</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Client Modal -->
+    <div class="modal" id="add-client-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">Add New Client</div>
+                <button class="modal-close" id="close-modal" onclick="closeAddClientModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="form-label">Full Name*</label>
+                    <input type="text" class="form-input" id="client-name" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Email*</label>
+                    <input type="email" class="form-input" id="client-email" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Phone*</label>
+                    <input type="tel" class="form-input" id="client-phone" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Service Type</label>
+                    <select class="form-select" id="client-service">
+                        <option value="Consulting">Consulting</option>
+                        <option value="Development">Development</option>
+                        <option value="Design">Design</option>
+                        <option value="Marketing">Marketing</option>
+                        <option value="Support">Support</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Price ($)*</label>
+                    <input type="number" class="form-input" id="client-price" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Discount (%)</label>
+                    <input type="number" class="form-input" id="client-discount" value="0" min="0" max="100">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Status</label>
+                    <select class="form-select" id="client-status">
+                        <option value="active">Active</option>
+                        <option value="pending">Pending</option>
+                        <option value="inactive">Inactive</option>
+                    </select>
+                </div>
+                <p style="color: var(--text-secondary); font-size: 0.875rem; margin-top: 0.5rem;">* Required fields</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancel-add-client" onclick="closeAddClientModal()">Cancel</button>
+                <button class="btn btn-primary" id="save-client" onclick="saveClient()">Save Client</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Client data
+        let clients = [];
+        
+        // Track monthly data for charts
+        let monthlyRevenue = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        let monthlyRegistrations = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        
+        // Track stats for comparison
+        let previousMonthStats = {
+            clients: 0,
+            revenue: 0,
+            newClients: 0,
+            pendingPayments: 0
+        };
+        
+        let currentMonthStats = {
+            clients: 0,
+            revenue: 0,
+            newClients: 0,
+            pendingPayments: 0
+        };
+
+        // DOM Elements
+        const sidebar = document.getElementById('sidebar');
+        const mainContent = document.getElementById('main-content');
+        const pageTitle = document.getElementById('page-title');
+        const menuItems = document.querySelectorAll('.menu-item');
+        const sections = {
+            dashboard: document.getElementById('dashboard-section'),
+            clients: document.getElementById('clients-section'),
+            settings: document.getElementById('settings-section')
+        };
+        const addClientBtn = document.getElementById('add-client-btn');
+        const addClientModal = document.getElementById('add-client-modal');
+        const closeModalBtn = document.getElementById('close-modal');
+        const cancelAddClientBtn = document.getElementById('cancel-add-client');
+        const saveClientBtn = document.getElementById('save-client');
+        const clientsTableBody = document.getElementById('clients-table-body');
+        const clientSearch = document.getElementById('client-search');
+
+        // Dashboard elements
+        const totalClientsElement = document.getElementById('total-clients');
+        const totalRevenueElement = document.getElementById('total-revenue');
+        const newClientsElement = document.getElementById('new-clients');
+        const pendingPaymentsElement = document.getElementById('pending-payments');
+        const clientsChangeElement = document.getElementById('clients-change');
+        const revenueChangeElement = document.getElementById('revenue-change');
+        const newClientsChangeElement = document.getElementById('new-clients-change');
+        const pendingChangeElement = document.getElementById('pending-change');
+
+        // Global functions for direct menu item clicks
+        function showDashboard() {
+            switchSection('dashboard');
+        }
+
+        function showClients() {
+            switchSection('clients');
+        }
+
+        function showSettings() {
+            switchSection('settings');
+        }
+
+        // Function to open the add client modal
+        function openAddClientModal() {
+            addClientModal.style.display = 'flex';
+            
+            // Reset the save button to default state
+            const saveButton = document.getElementById('save-client');
+            saveButton.textContent = 'Save Client';
+            saveButton.onclick = saveClient;
+        }
+
+        // Function to close the add client modal
+        function closeAddClientModal() {
+            addClientModal.style.display = 'none';
+            // Reset form fields
+            document.getElementById('client-name').value = '';
+            document.getElementById('client-email').value = '';
+            document.getElementById('client-phone').value = '';
+            document.getElementById('client-price').value = '';
+            document.getElementById('client-discount').value = '0';
+        }
+
+        // Function to save a new client
+        function saveClient() {
+            const name = document.getElementById('client-name').value;
+            const email = document.getElementById('client-email').value;
+            const phone = document.getElementById('client-phone').value;
+            const service = document.getElementById('client-service').value;
+            const price = parseFloat(document.getElementById('client-price').value);
+            const discount = parseFloat(document.getElementById('client-discount').value);
+            const status = document.getElementById('client-status').value;
+            
+            // Simple validation
+            if (!name || !email || !phone || isNaN(price)) {
+                alert('Please fill in all required fields');
+                return;
+            }
+            
+            // Get current date for registration tracking
+            const now = new Date();
+            const registrationDate = now.toISOString();
+            
+            // Add new client
+            const newClient = {
+                id: clients.length > 0 ? Math.max(...clients.map(c => c.id)) + 1 : 1,
+                name,
+                email,
+                phone,
+                service,
+                price,
+                discount,
+                status,
+                registrationDate
+            };
+            
+            clients.push(newClient);
+            populateClientsTable(clients);
+            
+            // Close modal
+            closeAddClientModal();
+            
+            // Update all dashboard data
+            updateAllDashboardData();
+            
+            // Show success message
+            alert('Client added successfully!');
+        }
+
+        // Function to update all dashboard data
+        function updateAllDashboardData() {
+            updateDashboardStats();
+            updateRevenueChart();
+            updateRegistrationChart();
+        }
+
+        // Function to update dashboard statistics
+        function updateDashboardStats() {
+            const now = new Date();
+            const currentMonth = now.getMonth();
+            const currentYear = now.getFullYear();
+            
+            // Calculate total clients
+            const totalClients = clients.length;
+            
+            // Calculate total revenue
+            const totalRevenue = clients.reduce((sum, client) => {
+                const finalPrice = client.price - (client.price * client.discount / 100);
+                return sum + finalPrice;
+            }, 0);
+            
+            // Calculate new clients (registered this month)
+            const newClients = clients.filter(client => {
+                const regDate = new Date(client.registrationDate);
+                return regDate.getMonth() === currentMonth && regDate.getFullYear() === currentYear;
+            }).length;
+            
+            // Calculate pending payments (clients with pending status)
+            const pendingPayments = clients.filter(client => client.status === 'pending')
+                .reduce((sum, client) => {
+                    const finalPrice = client.price - (client.price * client.discount / 100);
+                    return sum + finalPrice;
+                }, 0);
+            
+            // Update current month stats
+            currentMonthStats = {
+                clients: totalClients,
+                revenue: totalRevenue,
+                newClients: newClients,
+                pendingPayments: pendingPayments
+            };
+            
+            // Calculate percentage changes
+            const clientsChange = previousMonthStats.clients === 0 ? 100 : 
+                ((currentMonthStats.clients - previousMonthStats.clients) / previousMonthStats.clients) * 100;
+            
+            const revenueChange = previousMonthStats.revenue === 0 ? 100 : 
+                ((currentMonthStats.revenue - previousMonthStats.revenue) / previousMonthStats.revenue) * 100;
+            
+            const newClientsChange = previousMonthStats.newClients === 0 ? 100 : 
+                ((currentMonthStats.newClients - previousMonthStats.newClients) / previousMonthStats.newClients) * 100;
+            
+            const pendingChange = previousMonthStats.pendingPayments === 0 ? 0 : 
+                ((currentMonthStats.pendingPayments - previousMonthStats.pendingPayments) / previousMonthStats.pendingPayments) * 100;
+            
+            // Update dashboard elements
+            totalClientsElement.textContent = totalClients;
+            totalRevenueElement.textContent = '$' + totalRevenue.toFixed(2);
+            newClientsElement.textContent = newClients;
+            pendingPaymentsElement.textContent = '$' + pendingPayments.toFixed(2);
+            
+            // Update change indicators
+            clientsChangeElement.textContent = `${clientsChange >= 0 ? '+' : ''}${clientsChange.toFixed(1)}% from last month`;
+            clientsChangeElement.className = `stat-card-change ${clientsChange >= 0 ? 'positive' : 'negative'}`;
+            
+            revenueChangeElement.textContent = `${revenueChange >= 0 ? '+' : ''}${revenueChange.toFixed(1)}% from last month`;
+            revenueChangeElement.className = `stat-card-change ${revenueChange >= 0 ? 'positive' : 'negative'}`;
+            
+            newClientsChangeElement.textContent = `${newClientsChange >= 0 ? '+' : ''}${newClientsChange.toFixed(1)}% from last month`;
+            newClientsChangeElement.className = `stat-card-change ${newClientsChange >= 0 ? 'positive' : 'negative'}`;
+            
+            pendingChangeElement.textContent = `${pendingChange >= 0 ? '+' : ''}${pendingChange.toFixed(1)}% from last month`;
+            pendingChangeElement.className = `stat-card-change ${pendingChange <= 0 ? 'positive' : 'negative'}`;
+            
+            // Update monthly data for charts
+            updateMonthlyData();
+        }
+
+        // Function to update monthly data for charts
+        function updateMonthlyData() {
+            // Reset monthly data
+            monthlyRevenue = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+            monthlyRegistrations = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+            
+            // Calculate monthly revenue and registrations
+            clients.forEach(client => {
+                const regDate = new Date(client.registrationDate);
+                const month = regDate.getMonth();
+                const finalPrice = client.price - (client.price * client.discount / 100);
+                
+                // Add to monthly revenue
+                monthlyRevenue[month] += finalPrice;
+                
+                // Add to monthly registrations
+                monthlyRegistrations[month]++;
+            });
+        }
+
+        // Function to update revenue chart
+        function updateRevenueChart() {
+            const period = document.getElementById('revenue-period').value;
+            const revenueCanvas = document.getElementById('revenue-chart');
+            const revenueCtx = revenueCanvas.getContext('2d');
+            
+            let labels, data;
+            
+            if (period === 'weekly') {
+                // Weekly data (simplified for demo)
+                labels = ['Week 1', 'Week 2', 'Week 3', 'Week 4'];
+                data = [
+                    monthlyRevenue[new Date().getMonth()] * 0.2,
+                    monthlyRevenue[new Date().getMonth()] * 0.3,
+                    monthlyRevenue[new Date().getMonth()] * 0.25,
+                    monthlyRevenue[new Date().getMonth()] * 0.25
+                ];
+            } else if (period === 'yearly') {
+                // Yearly data (simplified for demo)
+                labels = ['2023', '2024', '2025'];
+                const totalRevenue = monthlyRevenue.reduce((sum, val) => sum + val, 0);
+                data = [totalRevenue * 0.3, totalRevenue * 0.7, 0];
+            } else {
+                // Monthly data
+                labels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+                data = monthlyRevenue;
+            }
+            
+            // Draw revenue chart
+            drawBarChart(revenueCtx, data, labels, 'Revenue ($)', '#4f46e5');
+        }
+
+        // Function to update registration chart
+        function updateRegistrationChart() {
+            const period = document.getElementById('registration-period').value;
+            const registrationCanvas = document.getElementById('registration-chart');
+            const registrationCtx = registrationCanvas.getContext('2d');
+            
+            let labels, data;
+            
+            if (period === 'weekly') {
+                // Weekly data (simplified for demo)
+                labels = ['Week 1', 'Week 2', 'Week 3', 'Week 4'];
+                data = [
+                    monthlyRegistrations[new Date().getMonth()] * 0.2,
+                    monthlyRegistrations[new Date().getMonth()] * 0.3,
+                    monthlyRegistrations[new Date().getMonth()] * 0.25,
+                    monthlyRegistrations[new Date().getMonth()] * 0.25
+                ];
+            } else if (period === 'yearly') {
+                // Yearly data (simplified for demo)
+                labels = ['2023', '2024', '2025'];
+                const totalRegistrations = monthlyRegistrations.reduce((sum, val) => sum + val, 0);
+                data = [totalRegistrations * 0.3, totalRegistrations * 0.7, 0];
+            } else {
+                // Monthly data
+                labels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+                data = monthlyRegistrations;
+            }
+            
+            // Draw registration chart
+            drawBarChart(registrationCtx, data, labels, 'New Clients', '#10b981');
+        }
+
+        // Initialize charts
+        function initCharts() {
+            updateRevenueChart();
+            updateRegistrationChart();
+        }
+
+        // Function to draw a simple bar chart
+        function drawBarChart(ctx, data, labels, yLabel, color) {
+            const canvas = ctx.canvas;
+            const width = canvas.width = canvas.clientWidth;
+            const height = canvas.height = canvas.clientHeight;
+            const padding = 40;
+            const barWidth = (width - padding * 2) / data.length - 10;
+            
+            // Clear canvas
+            ctx.clearRect(0, 0, width, height);
+            
+            // Find max value for scaling (default to 10 if all values are 0)
+            const maxValue = Math.max(...data, 10) * 1.1;
+            
+            // Draw axes
+            ctx.beginPath();
+            ctx.moveTo(padding, padding);
+            ctx.lineTo(padding, height - padding);
+            ctx.lineTo(width - padding, height - padding);
+            ctx.strokeStyle = '#e5e7eb';
+            ctx.stroke();
+            
+            // Draw y-axis label
+            ctx.save();
+            ctx.translate(15, height / 2);
+            ctx.rotate(-Math.PI / 2);
+            ctx.textAlign = 'center';
+            ctx.fillStyle = '#6b7280';
+            ctx.fillText(yLabel, 0, 0);
+            ctx.restore();
+            
+            // Draw horizontal grid lines
+            const gridCount = 5;
+            ctx.beginPath();
+            for (let i = 0; i <= gridCount; i++) {
+                const y = padding + (height - padding * 2) * (i / gridCount);
+                ctx.moveTo(padding, y);
+                ctx.lineTo(width - padding, y);
+                
+                // Draw y-axis values
+                const value = Math.round(maxValue - (maxValue * i / gridCount));
+                ctx.fillStyle = '#6b7280';
+                ctx.textAlign = 'right';
+                ctx.fillText(value, padding - 10, y + 4);
+            }
+            ctx.strokeStyle = '#f3f4f6';
+            ctx.stroke();
+            
+            // Draw bars
+            for (let i = 0; i < data.length; i++) {
+                const x = padding + i * ((width - padding * 2) / data.length) + 5;
+                const barHeight = ((height - padding * 2) * data[i]) / maxValue;
+                const y = height - padding - barHeight;
+                
+                // Draw bar
+                ctx.fillStyle = color;
+                ctx.fillRect(x, y, barWidth, barHeight);
+                
+                // Draw x-axis labels
+                ctx.fillStyle = '#6b7280';
+                ctx.textAlign = 'center';
+                ctx.fillText(labels[i], x + barWidth / 2, height - padding + 15);
+            }
+        }
+
+        // Function to populate clients table
+        function populateClientsTable(clientsData) {
+            clientsTableBody.innerHTML = '';
+            
+            if (clientsData.length === 0) {
+                const row = document.createElement('tr');
+                row.innerHTML = `<td colspan="6" style="text-align: center;">No clients found</td>`;
+                clientsTableBody.appendChild(row);
+                return;
+            }
+            
+            clientsData.forEach(client => {
+                const row = document.createElement('tr');
+                
+                // Calculate final price after discount
+                const finalPrice = client.price - (client.price * client.discount / 100);
+                
+                row.innerHTML = `
+                    <td>
+                        <div style="font-weight: 500;">${client.name}</div>
+                        <div style="color: var(--text-secondary); font-size: 0.875rem;">${client.email}</div>
+                    </td>
+                    <td>${client.phone}</td>
+                    <td>${client.service}</td>
+                    <td>
+                        <div>$${finalPrice.toFixed(2)}</div>
+                        ${client.discount > 0 ? `<div style="color: var(--success); font-size: 0.875rem;">${client.discount}% off</div>` : ''}
+                    </td>
+                    <td>
+                        <span class="status-badge status-${client.status}">
+                            ${client.status.charAt(0).toUpperCase() + client.status.slice(1)}
+                        </span>
+                    </td>
+                    <td>
+                        <button class="action-btn edit-client" data-id="${client.id}" onclick="editClient(${client.id})">✏️</button>
+                        <button class="action-btn delete-client" data-id="${client.id}" onclick="deleteClient(${client.id})">🗑️</button>
+                    </td>
+                `;
+                
+                clientsTableBody.appendChild(row);
+            });
+        }
+
+        // Function to edit a client
+        function editClient(clientId) {
+            const client = clients.find(c => c.id === clientId);
+            if (!client) return;
+            
+            // Fill the form with client data
+            document.getElementById('client-name').value = client.name;
+            document.getElementById('client-email').value = client.email;
+            document.getElementById('client-phone').value = client.phone;
+            document.getElementById('client-service').value = client.service;
+            document.getElementById('client-price').value = client.price;
+            document.getElementById('client-discount').value = client.discount;
+            document.getElementById('client-status').value = client.status;
+            
+            // Change save button to update
+            const saveButton = document.getElementById('save-client');
+            saveButton.textContent = 'Update Client';
+            saveButton.onclick = function() {
+                updateClient(clientId);
+            };
+            
+            // Open the modal
+            openAddClientModal();
+        }
+
+        // Function to update a client
+        function updateClient(clientId) {
+            const name = document.getElementById('client-name').value;
+            const email = document.getElementById('client-email').value;
+            const phone = document.getElementById('client-phone').value;
+            const service = document.getElementById('client-service').value;
+            const price = parseFloat(document.getElementById('client-price').value);
+            const discount = parseFloat(document.getElementById('client-discount').value);
+            const status = document.getElementById('client-status').value;
+            
+            // Simple validation
+            if (!name || !email || !phone || isNaN(price)) {
+                alert('Please fill in all required fields');
+                return;
+            }
+            
+            // Find and update the client
+            const clientIndex = clients.findIndex(c => c.id === clientId);
+            if (clientIndex !== -1) {
+                // Store the previous data for comparison
+                const oldClient = clients[clientIndex];
+                
+                // Update the client
+                clients[clientIndex] = {
+                    ...oldClient,
+                    name,
+                    email,
+                    phone,
+                    service,
+                    price,
+                    discount,
+                    status
+                };
+                
+                // Update the table
+                populateClientsTable(clients);
+                
+                // Reset the save button
+                const saveButton = document.getElementById('save-client');
+                saveButton.textContent = 'Save Client';
+                saveButton.onclick = saveClient;
+                
+                // Close the modal
+                closeAddClientModal();
+                
+                // Update all dashboard data
+                updateAllDashboardData();
+                
+                // Show success message
+                alert('Client updated successfully!');
+            }
+        }
+
+        // Function to delete a client
+        function deleteClient(clientId) {
+            if (confirm('Are you sure you want to delete this client?')) {
+                // Store current stats before deletion
+                previousMonthStats = { ...currentMonthStats };
+                
+                // Delete the client
+                clients = clients.filter(client => client.id !== clientId);
+                populateClientsTable(clients);
+                
+                // Update all dashboard data
+                updateAllDashboardData();
+                
+                // Show success message
+                alert('Client deleted successfully!');
+            }
+        }
+
+        // Function to switch between sections
+        function switchSection(sectionName) {
+            console.log('Switching to section:', sectionName);
+            
+            // Update active menu item
+            menuItems.forEach(item => {
+                if (item.id === sectionName + '-menu-item') {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+            
+            // Update page title
+            pageTitle.textContent = sectionName.charAt(0).toUpperCase() + sectionName.slice(1);
+            
+            // Show selected section, hide others
+            Object.keys(sections).forEach(key => {
+                if (key === sectionName) {
+                    sections[key].style.display = 'block';
+                } else {
+                    sections[key].style.display = 'none';
+                }
+            });
+            
+            // Initialize charts if dashboard is selected
+            if (sectionName === 'dashboard') {
+                updateAllDashboardData();
+            }
+            
+            // Populate clients table if clients section is selected
+            if (sectionName === 'clients') {
+                populateClientsTable(clients);
+            }
+        }
+
+        // Add sample client for testing
+        function addSampleClient() {
+            const now = new Date();
+            const client = {
+                id: 1,
+                name: "Ridvyann abdi",
+                email: "ridvyannabdi@gmail.com",
+                phone: "0636950500",
+                service: "Design",
+                price: 120.00,
+                discount: 0,
+                status: "active",
+                registrationDate: now.toISOString()
+            };
+            
+            clients.push(client);
+            updateAllDashboardData();
+            populateClientsTable(clients);
+        }
+
+        // Event Listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize dashboard
+            switchSection('dashboard');
+            
+            // Add sample client for demonstration
+            addSampleClient();
+            
+            // Client search event
+            clientSearch.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                const filteredClients = clients.filter(client => 
+                    client.name.toLowerCase().includes(searchTerm) ||
+                    client.email.toLowerCase().includes(searchTerm) ||
+                    client.phone.toLowerCase().includes(searchTerm) ||
+                    client.service.toLowerCase().includes(searchTerm)
+                );
+                populateClientsTable(filteredClients);
+            });
+            
+            // Window resize event for charts
+            window.addEventListener('resize', function() {
+                if (sections.dashboard.style.display === 'block') {
+                    initCharts();
+                }
+            });
+
+            // Close modal when clicking outside
+            window.addEventListener('click', function(event) {
+                if (event.target === addClientModal) {
+                    closeAddClientModal();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
