@@ -1,17 +1,5 @@
 [
   {
-    "id": "1747089276093",
-    "name": "Ayanle",
-    "contact": "0634578457",
-    "service": "Development",
-    "price": 300,
-    "discount": 30,
-    "notes": "",
-    "status": "active",
-    "createdAt": "2025-05-12T22:34:36.093Z",
-    "updatedAt": "2025-05-12T22:34:36.093Z"
-  },
-  {
     "id": "1748535809890",
     "name": "Eng Dollar",
     "contact": "+252 63 4454824",
