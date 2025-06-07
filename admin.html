@@ -1,346 +1,923 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link rel="icon" type="image/png" href="favicon.png">
-  <title>NOVA Admin Dashboard</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NOVA Dashboard</title>
   <style>
     :root {
       --primary: #4A31FC;
-      --bg: #F0F4F8; /* Light background color */
-      --fg: #333333; /* Dark foreground color */
-      --card-bg: #FFFFFF; /* White card background */
+      --bg: #F0F4F8;
+      --fg: #333333;
+      --card-bg: #FFFFFF;
       --highlight: #F1F1F1;
-      --button-bg: #4A31FC;
-      --button-hover: #3d28c3;
+      --border: #E0E0E0;
+      --success: #28a745;
+      --warning: #ffc107;
+      --danger: #dc3545;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Arial', sans-serif; background: var(--bg); color: var(--fg); overflow-x: hidden; }
-
-    nav {
-      background: var(--card-bg);
-      width: 250px;
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100%;
-      padding: 2rem 1rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for nav */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
-    nav h2 {
-      color: var(--primary);
-      font-size: 24px;
-      margin-bottom: 2rem;
-    }
-
-    nav button {
-      background: none;
+    body {
+      background-color: var(--bg);
       color: var(--fg);
-      font-weight: bold;
-      border: none;
-      margin: 1rem 0;
-      cursor: pointer;
-      transition: color 0.3s;
-      font-size: 18px;
-    }
-
-    nav button.active {
-      color: var(--primary);
     }
 
     .container {
-      margin-left: 260px;
+      display: flex;
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      width: 250px;
+      background-color: var(--card-bg);
+      padding: 2rem 1rem;
+      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .sidebar h1 {
+      color: var(--primary);
+      margin-bottom: 2rem;
+      font-size: 1.8rem;
+    }
+
+    .sidebar-nav {
+      list-style: none;
+    }
+
+    .sidebar-nav li {
+      margin-bottom: 1rem;
+      padding: 0.8rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .sidebar-nav li.active,
+    .sidebar-nav li:hover:not(.active) {
+      background-color: var(--highlight);
+      font-weight: bold;
+    }
+
+    .contact-info {
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    .main-content {
+      flex: 1;
       padding: 2rem;
     }
 
-    .card {
-      background: var(--card-bg);
-      padding: 1.5rem;
-      border-radius: 10px;
+    .dashboard-section {
+      margin-bottom: 2rem;
+    }
+
+    .section-title {
+      color: var(--primary);
       margin-bottom: 1.5rem;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for cards */
-    }
-
-    .card h3 {
-      margin-bottom: 1rem;
       font-size: 1.5rem;
-      color: var(--fg);
+      font-weight: 600;
     }
 
-    table {
+    .card {
+      background-color: var(--card-bg);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    }
+
+    .divider {
+      height: 1px;
+      background-color: var(--border);
+      margin: 1.5rem 0;
+    }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .metric-card {
+      background-color: var(--card-bg);
+      border-radius: 8px;
+      padding: 1.5rem;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .metric-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .metric-value {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+
+    .metric-label {
+      color: #666;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .client-card {
+      background-color: var(--card-bg);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      position: relative;
+      transition: all 0.3s;
+    }
+
+    .client-card:hover {
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .client-name {
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    .client-contact {
+      color: #666;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    .client-service {
+      display: inline-block;
+      background-color: var(--highlight);
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .client-price {
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: var(--primary);
+    }
+
+    .client-status {
+      display: inline-block;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      margin-left: 0.5rem;
+    }
+
+    .status-active {
+      background-color: rgba(40, 167, 69, 0.1);
+      color: var(--success);
+    }
+
+    .status-pending {
+      background-color: rgba(255, 193, 7, 0.1);
+      color: var(--warning);
+    }
+
+    .client-actions {
+      position: absolute;
+      right: 1.5rem;
+      top: 1.5rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: #555;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      font-size: 1rem;
+      transition: border-color 0.3s;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+
+    textarea.form-control {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .form-row .form-group {
+      flex: 1;
+    }
+
+    .btn {
+      padding: 0.8rem 1.5rem;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      border: none;
+      transition: all 0.3s;
+      font-size: 0.9rem;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background-color: #3a27c9;
+    }
+
+    .btn-outline {
+      background: none;
+      border: 1px solid var(--primary);
+      color: var(--primary);
+    }
+
+    .btn-outline:hover {
+      background-color: var(--highlight);
+    }
+
+    .btn-danger {
+      background-color: var(--danger);
+      color: white;
+    }
+
+    .btn-danger:hover {
+      background-color: #c82333;
+    }
+
+    .data-table {
       width: 100%;
       border-collapse: collapse;
       margin-top: 1rem;
     }
 
-    th, td {
-      padding: 10px;
+    .data-table th,
+    .data-table td {
+      padding: 1rem;
       text-align: left;
-      border-bottom: 1px solid #ddd;
+      border-bottom: 1px solid var(--border);
     }
 
-    th {
+    .data-table th {
       background-color: var(--card-bg);
+      color: var(--primary);
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+    }
+
+    .data-table tr:hover {
+      background-color: var(--highlight);
+    }
+
+    .settings-option {
+      margin-bottom: 1.5rem;
+    }
+
+    .settings-option h3 {
+      margin-bottom: 0.8rem;
       color: var(--primary);
     }
 
-    tr:nth-child(even) {
-      background-color: #F9F9F9; /* Light gray for even rows */
-    }
-
-    tr:hover {
-      background-color: #E0E0E0; /* Slightly darker gray on hover */
-    }
-
-    .action-btn {
-      background-color: var(--primary);
-      color: white;
-      border: none;
-      border-radius: 5px;
-      padding: 5px 10px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-
-    .action-btn:hover {
-      background-color: var(--button-hover);
-    }
-
-    input, select {
-      width: 100%;
-      padding: 10px;
-      border-radius: 5px;
-      margin: 0.5rem 0;
-      border: 1px solid #333;
-      background-color: #F9F9F9; /* Light gray input background */
-      color: var(--fg);
-    }
-
-    form button {
-      width: 100%;
-      padding: 12px;
-      background-color: var(--primary);
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-
-    form button:hover {
-      background-color: var(--button-hover);
-    }
-
-    #client-form {
+    .checkbox-option {
       display: flex;
-      flex-direction: column;
-      margin-top: 2rem;
-    }
-
-    .dashboard-card {
-      display: flex;
-      justify-content: space-between;
       align-items: center;
+      margin-bottom: 0.5rem;
     }
 
-    .dashboard-card div {
-      text-align: center;
+    .checkbox-option input {
+      margin-right: 0.8rem;
+      width: 18px;
+      height: 18px;
     }
 
-    .page {
+    .hidden {
       display: none;
     }
 
-    .page.active {
-      display: block;
+    .text-center {
+      text-align: center;
+    }
+
+    .text-muted {
+      color: #999;
+    }
+
+    .alert {
+      padding: 1rem;
+      border-radius: 5px;
+      margin-bottom: 1rem;
+    }
+
+    .alert-success {
+      background-color: rgba(40, 167, 69, 0.1);
+      color: var(--success);
+      border: 1px solid rgba(40, 167, 69, 0.3);
+    }
+
+    .alert-error {
+      background-color: rgba(220, 53, 69, 0.1);
+      color: var(--danger);
+      border: 1px solid rgba(220, 53, 69, 0.3);
     }
   </style>
-  
 </head>
 <body>
-
-<!-- Sidebar Navigation -->
-<nav>
-  <h2>NOVA Admin</h2>
-  <button class="nav-btn active" onclick="showPage('dashboard')">Dashboard</button>
-  <button class="nav-btn" onclick="showPage('clients')">Clients</button>
-  <h3 class="number">067 2085009</h3>
-</nav>
-
-<!-- Main Content -->
-<div class="container">
-  <!-- Dashboard Page -->
-  <div id="dashboard" class="page active">
-    <div class="card dashboard-card">
-      <div>
-        <h3>Total Clients</h3>
-        <p id="total-clients">0</p>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+          <h1>Nova</h1>
+          <ul class="sidebar-nav">
+            <li class="active" onclick="showPage('dashboard')">Dashboard</li>
+            <li onclick="showPage('clients')">Clients</li>
+            <li onclick="showPage('settings')">Settings</li>
+          </ul>
+          <div class="contact-info">
+            +1 (555) 123-4567
+          </div>
+        </div>
+    
+        <!-- Main Content -->
+        <div class="main-content">
+          <!-- Dashboard Page -->
+          <div id="dashboard-page">
+            <h1 class="section-title">Dashboard Overview</h1>
+            
+            <div id="alert-container"></div>
+            
+            <div class="metrics-grid">
+              <div class="metric-card">
+                <div class="metric-value" id="total-clients">0</div>
+                <div class="metric-label">Registered Clients</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-value" id="total-revenue">$0</div>
+                <div class="metric-label">Total Revenue</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-value" id="pending-services">0</div>
+                <div class="metric-label">Pending Services</div>
+              </div>
+            </div>
+    
+            <div class="divider"></div>
+    
+            <h2 class="section-title">Recent Clients</h2>
+            <div id="client-list">
+              <!-- Client cards will be added here dynamically -->
+            </div>
+          </div>
+    
+          <!-- Clients Page -->
+          <div id="clients-page" class="hidden">
+            <h1 class="section-title">Client Management</h1>
+            
+            <div id="client-alert-container"></div>
+            
+            <div class="card">
+              <h2 class="section-title">Add New Client</h2>
+              <form id="client-form">
+                <input type="hidden" id="client-id">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>Client Name</label>
+                    <input type="text" class="form-control" id="client-name" required>
+                  </div>
+                  
+                  <div class="form-group">
+                    <label>Contact Number</label>
+                    <input type="tel" class="form-control" id="client-contact" required>
+                  </div>
+                </div>
+                
+                <div class="form-group">
+                  <label>Service Type</label>
+                  <select class="form-control" id="client-service" required>
+                    <option value="">Select a service</option>
+                    <option>Consulting</option>
+                    <option>Development</option>
+                    <option>Design</option>
+                  </select>
+                </div>
+                
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>Price ($)</label>
+                    <input type="number" class="form-control" id="client-price" required>
+                  </div>
+                  <div class="form-group">
+                    <label>Discount (%)</label>
+                    <input type="number" class="form-control" id="client-discount" min="0" max="100" value="0">
+                  </div>
+                </div>
+                
+                <div class="form-group">
+                  <label>Additional Notes</label>
+                  <textarea class="form-control" id="client-notes"></textarea>
+                </div>
+                
+                <div class="form-group">
+                  <label>Status</label>
+                  <select class="form-control" id="client-status" required>
+                    <option value="active">Active</option>
+                    <option value="pending">Pending</option>
+                  </select>
+                </div>
+                
+                <div class="form-group">
+                  <button type="submit" class="btn btn-primary" id="save-client">Save Client</button>
+                  <button type="button" class="btn btn-outline" id="cancel-edit">Cancel</button>
+                </div>
+              </form>
+            </div>
+    
+            <div class="divider"></div>
+    
+            <div class="card">
+              <h2 class="section-title">All Clients</h2>
+              <div class="table-responsive">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Contact</th>
+                      <th>Service</th>
+                      <th>Price</th>
+                      <th>Status</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="all-client-list">
+                    <!-- Client rows will be added here dynamically -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+    
+          <!-- Settings Page -->
+          <div id="settings-page" class="hidden">
+            <h1 class="section-title">Settings</h1>
+            
+            <div id="settings-alert-container"></div>
+            
+            <div class="card">
+              <h2 class="section-title">GitHub Data Storage</h2>
+              
+              <div class="form-group">
+                <label>GitHub Personal Access Token</label>
+                <input type="password" class="form-control" id="github-token" placeholder="Enter your GitHub token">
+                <small class="text-muted">This token needs repo permissions</small>
+              </div>
+              
+              <div class="form-group">
+                <label>Repository Name</label>
+                <input type="text" class="form-control" id="github-repo" value="ridvvann/Novadigital" readonly>
+              </div>
+              
+              <div class="form-group">
+                <label>Data File Path</label>
+                <input type="text" class="form-control" id="github-path" value="data/clients.json">
+              </div>
+              
+              <div class="form-group">
+                <button class="btn btn-primary" id="save-github-settings">Save GitHub Settings</button>
+                <button class="btn btn-outline" id="test-connection">Test Connection</button>
+              </div>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <div class="card">
+              <h2 class="section-title">Appearance</h2>
+              
+              <div class="settings-option">
+                <h3>Theme</h3>
+                <div class="checkbox-option">
+                  <input type="checkbox" id="dark-theme">
+                  <label for="dark-theme">Enable Dark Mode</label>
+                </div>
+              </div>
+              
+              <div class="settings-option">
+                <h3>Accent Color</h3>
+                <div class="form-group">
+                  <select class="form-control" id="accent-color">
+                    <option value="#4A31FC">Default Purple</option>
+                    <option value="#007bff">Blue</option>
+                    <option value="#28a745">Green</option>
+                    <option value="#fd7e14">Orange</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+    
+            <div class="divider"></div>
+    
+            <div class="card">
+              <h2 class="section-title">Notifications</h2>
+              
+              <div class="settings-option">
+                <h3>Email Notifications</h3>
+                <div class="checkbox-option">
+                  <input type="checkbox" id="email-notifications" checked>
+                  <label for="email-notifications">Enabled</label>
+                </div>
+              </div>
+              
+              <div class="settings-option">
+                <h3>Notification Frequency</h3>
+                <div class="form-group">
+                  <select class="form-control" id="notification-frequency">
+                    <option value="instant">Instant</option>
+                    <option value="daily">Daily Summary</option>
+                    <option value="weekly">Weekly Summary</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+    
+            <div class="divider"></div>
+    
+            <div class="form-group">
+              <button class="btn btn-primary" id="save-settings">Save Settings</button>
+            </div>
+          </div>
+        </div>
       </div>
-      <div>
-        <h3>Total Revenue</h3>
-        <p id="total-revenue">$0.00</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Clients Page -->
-  <div id="clients" class="page">
-    <div class="card">
-      <h3>Registered Clients</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Contact</th>
-            <th>Service</th>
-            <th>Price</th>
-            <th>Discount</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody id="client-list"></tbody>
-      </table>
-
-      <!-- Add/Edit Client Form -->
-      <form id="client-form">
-        <h3 id="form-title">Add Client</h3>
-        <input type="hidden" id="client-id">
-        <input type="text" id="name" placeholder="Client Name" required>
-        <input type="text" id="contact" placeholder="Client Contact" required>
-        <input type="text" id="service" placeholder="Service Provided" required>
-        <input type="number" id="price" placeholder="Price" required>
-        <input type="number" id="discount" placeholder="Discount Percentage" required>
-        <button type="submit">Save Client</button>
-      </form>
-    </div>
-  </div>
-</div>
-
-<script>
-  const GITHUB_TOKEN = "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";
-  const REPO = "ridvvann/Novadigital";
-  const FILE_PATH = "clients.json";
-  const API_URL = `https://api.github.com/repos/${REPO}/contents/${FILE_PATH}`;
-  let clients = [];
-  let fileSha = ""; // Needed to update GitHub files
-
-  // Show the active page
-  function showPage(page) {
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
-    document.getElementById(page).classList.add('active');
-    document.querySelector(`.nav-btn[onclick="showPage('${page}')"]`).classList.add('active');
-    if (page === 'dashboard') updateDashboard();
-  }
-
-  // Update Dashboard stats
-  function updateDashboard() {
-    document.getElementById('total-clients').innerText = clients.length;
-    const revenue = clients.reduce((sum, c) => sum + (c.price - (c.price * c.discount / 100)), 0);
-    document.getElementById('total-revenue').innerText = `$${revenue.toFixed(2)}`;
-  }
-
-  // Render Clients List
-  function renderClients() {
+  <script>
+    // Global variables
+    let clients = [];
+    let editingClientId = null;
+    let githubToken = localStorage.getItem('github-token') || '';
+    let githubRepo = localStorage.getItem('github-repo') || 'ridvvann/Novadigital';
+    let githubPath = localStorage.getItem('github-path') || 'clients.json';
+    
+    // DOM Elements
+    const clientForm = document.getElementById('client-form');
+    const cancelEditBtn = document.getElementById('cancel-edit');
+    const saveClientBtn = document.getElementById('save-client');
+    const allClientList = document.getElementById('all-client-list');
     const clientList = document.getElementById('client-list');
-    clientList.innerHTML = '';
-    clients.forEach(c => {
-      const row = document.createElement('tr');
-      row.innerHTML = `
-        <td>${c.name}</td>
-        <td>${c.contact}</td>
-        <td>${c.service}</td>
-        <td>$${c.price}</td>
-        <td>${c.discount}%</td>
-        <td>
-          <button class="action-btn" onclick="editClient(${c.id})">Edit</button>
-          <button class="action-btn" onclick="deleteClient(${c.id})">Delete</button>
-        </td>
-      `;
-      clientList.appendChild(row);
+    const totalClientsEl = document.getElementById('total-clients');
+    const totalRevenueEl = document.getElementById('total-revenue');
+    const pendingServicesEl = document.getElementById('pending-services');
+    const githubTokenInput = document.getElementById('github-token');
+    const githubRepoInput = document.getElementById('github-repo');
+    const githubPathInput = document.getElementById('github-path');
+    const saveGithubSettingsBtn = document.getElementById('save-github-settings');
+    const testConnectionBtn = document.getElementById('test-connection');
+    
+    // Initialize
+    document.addEventListener('DOMContentLoaded', () => {
+      // Load GitHub settings
+      githubTokenInput.value = githubToken;
+      githubRepoInput.value = githubRepo;
+      githubPathInput.value = githubPath;
+      
+      // Load clients from GitHub
+      loadClients();
+      
+      // Set up event listeners
+      clientForm.addEventListener('submit', handleClientSubmit);
+      cancelEditBtn.addEventListener('click', cancelEdit);
+      saveGithubSettingsBtn.addEventListener('click', saveGithubSettings);
+      testConnectionBtn.addEventListener('click', testGitHubConnection);
     });
-    updateDashboard();
-  }
-
-  // Edit Client
-  function editClient(id) {
-    const c = clients.find(client => client.id === id);
-    document.getElementById('form-title').innerText = 'Edit Client';
-    document.getElementById('client-id').value = c.id;
-    document.getElementById('name').value = c.name;
-    document.getElementById('contact').value = c.contact;
-    document.getElementById('service').value = c.service;
-    document.getElementById('price').value = c.price;
-    document.getElementById('discount').value = c.discount;
-  }
-
-  // Delete Client
-  function deleteClient(id) {
-    clients = clients.filter(client => client.id !== id);
-    saveToGitHub();
-  }
-
-  // Save New/Edited Client
-  document.getElementById('client-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const id = document.getElementById('client-id').value;
-    const newClient = {
-      id: id ? parseInt(id) : Date.now(),
-      name: document.getElementById('name').value,
-      contact: document.getElementById('contact').value,
-      service: document.getElementById('service').value,
-      price: parseFloat(document.getElementById('price').value),
-      discount: parseFloat(document.getElementById('discount').value),
-    };
-    if (id) {
-      clients = clients.map(client => client.id === newClient.id ? newClient : client);
-    } else {
-      clients.push(newClient);
-    }
-    this.reset();
-    document.getElementById('form-title').innerText = 'Add Client';
-    saveToGitHub();
-  });
-
-  // GitHub API functions
-  async function loadFromGitHub() {
-    const res = await fetch(API_URL, {
-      headers: {
-        Authorization: `Bearer ${GITHUB_TOKEN}`,
-        Accept: "application/vnd.github.v3+json"
+    
+    // GitHub API functions
+    async function loadClients() {
+      try {
+        if (!githubToken) {
+          showAlert('Please set your GitHub token in Settings first', 'error', 'alert-container');
+          return;
+        }
+        
+        const response = await fetch(`https://api.github.com/repos/${githubRepo}/contents/${githubPath}`, {
+          headers: {
+            'Authorization': `token ${githubToken}`,
+            'Accept': 'application/vnd.github.v3+json'
+          }
+        });
+        
+        if (!response.ok) {
+          throw new Error('Failed to fetch data from GitHub');
+        }
+        
+        const data = await response.json();
+        const content = atob(data.content);
+        clients = JSON.parse(content);
+        
+        updateDashboardMetrics();
+        renderClientList();
+        renderAllClientList();
+        
+      } catch (error) {
+        console.error('Error loading clients:', error);
+        showAlert('Error loading clients: ' + error.message, 'error', 'alert-container');
+        // Initialize with empty array if file doesn't exist
+        if (error.message.includes('404')) {
+          clients = [];
+          await saveClientsToGitHub(); // Create initial file
+        }
       }
+    }
+    
+    async function saveClientsToGitHub() {
+      try {
+        if (!githubToken) {
+          showAlert('Please set your GitHub token in Settings first', 'error', 'alert-container');
+          return false;
+        }
+        
+        // First, get the current file SHA if it exists
+        let sha = '';
+        try {
+          const getResponse = await fetch(`https://api.github.com/repos/${githubRepo}/contents/${githubPath}`, {
+            headers: {
+              'Authorization': `token ${githubToken}`,
+              'Accept': 'application/vnd.github.v3+json'
+            }
+          });
+          
+          if (getResponse.ok) {
+            const data = await getResponse.json();
+            sha = data.sha;
+          }
+        } catch (e) {
+          // File doesn't exist yet, sha remains empty
+        }
+        
+        const content = JSON.stringify(clients, null, 2);
+        const encodedContent = btoa(unescape(encodeURIComponent(content)));
+        
+        const response = await fetch(`https://api.github.com/repos/${githubRepo}/contents/${githubPath}`, {
+          method: 'PUT',
+          headers: {
+            'Authorization': `token ${githubToken}`,
+            'Accept': 'application/vnd.github.v3+json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            message: 'Update clients data',
+            content: encodedContent,
+            sha: sha || undefined
+          })
+        });
+        
+        if (!response.ok) {
+          throw new Error('Failed to save data to GitHub');
+        }
+        
+        return true;
+      } catch (error) {
+        console.error('Error saving clients:', error);
+        showAlert('Error saving clients: ' + error.message, 'error', 'alert-container');
+        return false;
+      }
+    }
+    
+    // Client CRUD functions
+    function handleClientSubmit(e) {
+      e.preventDefault();
+      
+      const client = {
+        id: editingClientId || Date.now().toString(),
+        name: document.getElementById('client-name').value,
+        contact: document.getElementById('client-contact').value,
+        service: document.getElementById('client-service').value,
+        price: parseFloat(document.getElementById('client-price').value),
+        discount: parseInt(document.getElementById('client-discount').value) || 0,
+        notes: document.getElementById('client-notes').value,
+        status: document.getElementById('client-status').value,
+        createdAt: editingClientId 
+          ? clients.find(c => c.id === editingClientId).createdAt 
+          : new Date().toISOString(),
+        updatedAt: new Date().toISOString()
+      };
+      
+      if (editingClientId) {
+        // Update existing client
+        const index = clients.findIndex(c => c.id === editingClientId);
+        clients[index] = client;
+        showAlert('Client updated successfully!', 'success', 'client-alert-container');
+      } else {
+        // Add new client
+        clients.push(client);
+        showAlert('Client added successfully!', 'success', 'client-alert-container');
+      }
+      
+      saveClientsToGitHub().then(success => {
+        if (success) {
+          updateDashboardMetrics();
+          renderClientList();
+          renderAllClientList();
+          clientForm.reset();
+          editingClientId = null;
+          saveClientBtn.textContent = 'Save Client';
+        }
+      });
+    }
+    
+    function editClient(id) {
+      const client = clients.find(c => c.id === id);
+      if (!client) return;
+      
+      editingClientId = id;
+      document.getElementById('client-id').value = client.id;
+      document.getElementById('client-name').value = client.name;
+      document.getElementById('client-contact').value = client.contact;
+      document.getElementById('client-service').value = client.service;
+      document.getElementById('client-price').value = client.price;
+      document.getElementById('client-discount').value = client.discount;
+      document.getElementById('client-notes').value = client.notes;
+      document.getElementById('client-status').value = client.status;
+      saveClientBtn.textContent = 'Update Client';
+      
+      // Scroll to form
+      document.getElementById('client-form').scrollIntoView({ behavior: 'smooth' });
+    }
+    
+    function deleteClient(id) {
+      if (confirm('Are you sure you want to delete this client?')) {
+        clients = clients.filter(c => c.id !== id);
+        saveClientsToGitHub().then(success => {
+          if (success) {
+            showAlert('Client deleted successfully!', 'success', 'client-alert-container');
+            updateDashboardMetrics();
+            renderClientList();
+            renderAllClientList();
+          }
+        });
+      }
+    }
+    
+    function cancelEdit() {
+      clientForm.reset();
+      editingClientId = null;
+      saveClientBtn.textContent = 'Save Client';
+    }
+    
+    // Rendering functions
+    function renderClientList() {
+      // Show only the 5 most recent clients
+      const recentClients = [...clients]
+        .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+        .slice(0, 5);
+      
+      clientList.innerHTML = recentClients.map(client => `
+        <div class="client-card">
+          <div class="client-name">${client.name}</div>
+          <div class="client-contact">${client.contact}</div>
+          <div class="client-service">${client.service}</div>
+          <div class="client-price">$${(client.price * (1 - client.discount / 100)).toFixed(2)}</div>
+          <span class="client-status status-${client.status}">${client.status.charAt(0).toUpperCase() + client.status.slice(1)}</span>
+        </div>
+      `).join('');
+    }
+    
+    function renderAllClientList() {
+      allClientList.innerHTML = clients.map(client => `
+        <tr>
+          <td>${client.name}</td>
+          <td>${client.contact}</td>
+          <td>${client.service}</td>
+          <td>$${(client.price * (1 - client.discount / 100)).toFixed(2)}</td>
+          <td><span class="client-status status-${client.status}">${client.status.charAt(0).toUpperCase() + client.status.slice(1)}</span></td>
+          <td>
+            <button class="btn btn-outline" onclick="editClient('${client.id}')">Edit</button>
+            <button class="btn btn-danger" onclick="deleteClient('${client.id}')">Delete</button>
+          </td>
+        </tr>
+      `).join('');
+    }
+    
+    function updateDashboardMetrics() {
+      totalClientsEl.textContent = clients.length;
+      
+      const totalRevenue = clients.reduce((sum, client) => {
+        return sum + (client.price * (1 - client.discount / 100));
+      }, 0);
+      totalRevenueEl.textContent = `$${totalRevenue.toFixed(2)}`;
+      
+      const pendingServices = clients.filter(c => c.status === 'pending').length;
+      pendingServicesEl.textContent = pendingServices;
+    }
+    
+    // Settings functions
+    function saveGithubSettings() {
+      githubToken = githubTokenInput.value.trim();
+      githubRepo = githubRepoInput.value.trim();
+      githubPath = githubPathInput.value.trim();
+      
+      localStorage.setItem('github-token', githubToken);
+      localStorage.setItem('github-repo', githubRepo);
+      localStorage.setItem('github-path', githubPath);
+      
+      showAlert('GitHub settings saved successfully!', 'success', 'settings-alert-container');
+    }
+    
+    async function testGitHubConnection() {
+      try {
+        if (!githubTokenInput.value.trim()) {
+          showAlert('Please enter your GitHub token first', 'error', 'settings-alert-container');
+          return;
+        }
+        
+        const testToken = githubTokenInput.value.trim();
+        const testRepo = githubRepoInput.value.trim();
+        
+        const response = await fetch(`https://api.github.com/repos/${testRepo}`, {
+          headers: {
+            'Authorization': `token ${testToken}`,
+            'Accept': 'application/vnd.github.v3+json'
+          }
+        });
+        
+        if (!response.ok) {
+          throw new Error('Failed to connect to GitHub repository');
+        }
+        
+        showAlert('Successfully connected to GitHub repository!', 'success', 'settings-alert-container');
+      } catch (error) {
+        console.error('Error testing GitHub connection:', error);
+        showAlert('Error connecting to GitHub: ' + error.message, 'error', 'settings-alert-container');
+      }
+    }
+    
+    // UI Helper functions
+    function showAlert(message, type, containerId = 'alert-container') {
+      const container = document.getElementById(containerId);
+      const alertEl = document.createElement('div');
+      alertEl.className = `alert alert-${type}`;
+      alertEl.textContent = message;
+      container.innerHTML = '';
+      container.appendChild(alertEl);
+      
+      setTimeout(() => {
+        alertEl.remove();
+      }, 5000);
+    }
+    
+    function showPage(page) {
+      document.getElementById('dashboard-page').classList.add('hidden');
+      document.getElementById('clients-page').classList.add('hidden');
+      document.getElementById('settings-page').classList.add('hidden');
+      document.getElementById(`${page}-page`).classList.remove('hidden');
+
+      document.querySelectorAll('.sidebar-nav li').forEach(item => item.classList.remove('active'));
+      const pageMap = {
+        dashboard: 0,
+        clients: 1,
+        settings: 2
+      };
+      document.querySelectorAll('.sidebar-nav li')[pageMap[page]].classList.add('active');
+    }
+
+    // Theme and appearance controls
+    const themeCheckbox = document.getElementById('dark-theme');
+    const accentColorSelect = document.getElementById('accent-color');
+
+    themeCheckbox.addEventListener('change', () => {
+      document.body.style.backgroundColor = themeCheckbox.checked ? '#121212' : getComputedStyle(document.documentElement).getPropertyValue('--bg');
+      document.body.style.color = themeCheckbox.checked ? '#F0F4F8' : getComputedStyle(document.documentElement).getPropertyValue('--fg');
     });
-    const data = await res.json();
-    fileSha = data.sha;
-    clients = JSON.parse(atob(data.content));
-    renderClients();
-  }
 
-  async function saveToGitHub() {
-    const content = btoa(JSON.stringify(clients, null, 2));
-    await fetch(API_URL, {
-      method: "PUT",
-      headers: {
-        Authorization: `Bearer ${GITHUB_TOKEN}`,
-        Accept: "application/vnd.github.v3+json"
-      },
-      body: JSON.stringify({
-        message: "Update clients.json",
-        content: content,
-        sha: fileSha
-      })
-    }).then(() => loadFromGitHub());
-  }
-
-  // Load clients on page load
-  loadFromGitHub();
-</script>
-
+    accentColorSelect.addEventListener('change', () => {
+      document.documentElement.style.setProperty('--primary', accentColorSelect.value);
+    });
+  </script>
 </body>
 </html>
