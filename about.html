@@ -1,276 +1,363 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us | Nova</title>
-  <meta name="description" content="Learn about Nova's mission, vision, and values">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - NOVA Digital Agency</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body class="dark">
-  <header class="sticky-header">
-    <div class="container">
-      <div class="header-content">
-        <div class="logo">
-          <a href="index.html">
-            <span class="logo-text">NOVA</span>
-          </a>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-icon" style="width: 100px; height: auto; display: flex; align-items: center;">
+                    <img src="images/nova-logo-03.svg" alt="logo" style="width: 100%; height: 100%; object-fit: contain;">
+                </div>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="portfolio.html" class="nav-link">Portfolio</a>
+                </li>
+                <li class="nav-item">
+                    <a href="pricing.html" class="nav-link">Pricing</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link active">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link btn-primary">Get Started</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
         </div>
-        
-        <nav class="desktop-nav">
-          <a href="index.html" class="nav-link">Home</a>
-          <a href="portfolio.html" class="nav-link">Portfolio</a>
-          <a href="pricing.html" class="nav-link">Pricing</a>
-          <a href="about.html" class="nav-link active">About</a>
-        </nav>
-        
-        <div class="desktop-cta">
-          <a href="#" class="btn btn-primary whatsapp-btn" data-phone="+252672085009" data-message="Hello, I'm interested in your services." data-source="Header">Get Started</a>
-        </div>
-        
-        <button class="mobile-menu-btn" aria-label="Toggle menu">
-          <i class="fas fa-bars"></i>
-        </button>
-      </div>
-    </div>
-    
-    <div class="mobile-menu">
-      <nav class="mobile-nav">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="portfolio.html" class="nav-link">Portfolio</a>
-        <a href="pricing.html" class="nav-link">Pricing</a>
-        <a href="about.html" class="nav-link active">About</a>
-        <a href="#" class="btn btn-primary whatsapp-btn mt-4" data-phone="+252672085009" data-message="Hello, I'm interested in your services." data-source="Mobile Menu">Get Started</a>
-      </nav>
-    </div>
-  </header>
+    </nav>
 
-  <main>
-    <section class="about-section">
-      <div class="container">
-        <div class="section-header">
-          <h1 class="section-title">About Nova</h1>
-          <p class="section-description">
-            We're a passionate team of creatives and strategists dedicated to elevating brands
-          </p>
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="page-header-content">
+                <div class="section-badge">
+                    <span>About NOVA</span>
+                </div>
+                <h1>We're passionate about <span class="gradient-text">transforming brands</span></h1>
+                <p>Founded with a vision to help businesses stand out in the digital landscape, NOVA combines creativity with strategy to deliver exceptional brand experiences.</p>
+                <div class="header-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">3+</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Projects Completed</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">25+</div>
+                        <div class="stat-label">Happy Clients</div>
+                    </div>
+                </div>
+            </div>
         </div>
-        
-        <!-- Who We Are Section -->
-        <div class="about-grid">
-          <div class="about-image">
-            <img src="images/site-img-03.svg" alt="About Nova">
-          </div>
-          <div class="about-content">
-            <h2 class="section-title">Who We Are</h2>
-            <p class="about-description">
-              Nova is a creative branding and social media marketing agency founded with a vision to help businesses establish meaningful connections with their audiences through strategic design and digital marketing.
-            </p>
-            <p class="about-description">
-              Our journey began with a simple belief: that every brand has a unique story to tell. We've made it our mission to help businesses discover and articulate their stories in ways that resonate with their target audiences and drive real business results.
-            </p>
-            <p class="about-description">
-              Today, we're proud to work with clients across various industries, from startups to established enterprises, helping them build strong brand identities and impactful digital presences.
-            </p>
-          </div>
-        </div>
-        
-        <!-- Mission, Vision, Values Section -->
-        <div class="mission-section">
-          <div class="section-header">
-            <h2 class="section-title">Our Mission, Vision & Values</h2>
-            <p class="section-description">
-              The principles that guide our work and relationships
-            </p>
-          </div>
-          
-          <div class="mission-grid">
-            <div class="mission-card">
-              <h3>Our Mission</h3>
-              <p>
-                To empower businesses with strategic branding and digital marketing solutions that drive growth, foster connections, and create lasting impressions in an ever-evolving digital landscape.
-              </p>
-            </div>
-            <div class="mission-card">
-              <h3>Our Vision</h3>
-              <p>
-                To be the leading creative partner for businesses seeking to transform their brand identity and digital presence, known for our innovative approach, exceptional results, and meaningful client relationships.
-              </p>
-            </div>
-          </div>
-          
-          <div class="values-grid">
-            <div class="value-card">
-              <h3>Innovation</h3>
-              <p>We constantly push boundaries and explore new ideas to keep our clients ahead of the curve.</p>
-            </div>
-            <div class="value-card">
-              <h3>Excellence</h3>
-              <p>We are committed to delivering exceptional quality in everything we do.</p>
-            </div>
-            <div class="value-card">
-              <h3>Integrity</h3>
-              <p>We operate with honesty, transparency, and ethical practices in all our relationships.</p>
-            </div>
-            <div class="value-card">
-              <h3>Collaboration</h3>
-              <p>We believe in the power of teamwork and partnership with our clients.</p>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Why Choose Nova Section -->
-        <div class="why-choose-section">
-          <div class="about-grid">
-            <div class="about-content">
-              <h2 class="section-title">Why Choose Nova?</h2>
-              <p class="about-description">
-                In a crowded marketplace of agencies, Nova stands out through our commitment to excellence, strategic thinking, and client success. We don't just create beautiful designs or run campaigns – we develop comprehensive strategies that align with your business goals and deliver measurable results.
-              </p>
-              <div class="differentiators">
-                <div class="differentiator-item">
-                  <i class="fas fa-check-circle"></i>
-                  <span>Strategic approach to branding and marketing</span>
-                </div>
-                <div class="differentiator-item">
-                  <i class="fas fa-check-circle"></i>
-                  <span>Data-driven decision making</span>
-                </div>
-                <div class="differentiator-item">
-                  <i class="fas fa-check-circle"></i>
-                  <span>Creative excellence and attention to detail</span>
-                </div>
-                <div class="differentiator-item">
-                  <i class="fas fa-check-circle"></i>
-                  <span>Personalized service and dedicated support</span>
-                </div>
-                <div class="differentiator-item">
-                  <i class="fas fa-check-circle"></i>
-                  <span>Results-focused methodology</span>
-                </div>
-                <div class="differentiator-item">
-                  <i class="fas fa-check-circle"></i>
-                  <span>Industry expertise and continuous learning</span>
-                </div>
-              </div>
-            </div>
-            <div class="about-image">
-              <img src="images/site-img-04.svg" alt="Why Choose Nova">
-            </div>
-          </div>
-        </div>
-
-        <!-- CEO Introduction Section -->
-        <div class="ceo-section">
-          <div class="about-grid">
-            <div class="about-image">
-              <div class="square-image-container">
-                <a href="myfolio.html"><img src="images/R. Abdi-01.png" alt="CEO of Nova"></a>
-              </div>
-            </div>
-            <div class="about-content">
-              <h2 class="section-title">Leadership</h2>
-              <div class="ceo-info">
-                <a href="myfolio.html"><h3 class="heading-tertiary">Ridwaan Abdikani</h3></a>
-                <p class="ceo-title">Founder & CEO</p>
-                <p class="about-description">
-                  As the founder and CEO of Nova, I'm passionate about helping businesses reach their full potential through innovative digital solutions. With years of experience in digital marketing and brand development, I lead a team of creative professionals dedicated to delivering exceptional results for our clients.
-                </p>
-                <p class="about-description">
-                  My vision for Nova has always been to create a agency that combines strategic thinking with creative excellence, helping businesses not just survive but thrive in the digital age. Our success is measured by the success of our clients, and I'm proud to say that we've helped numerous businesses transform their digital presence and achieve their goals.
-                </p>
-                <div class="ceo-social">
-                  <a href="https://www.linkedin.com/in/ridvvann-abdi-1a6293325/" target="_blank" rel="noreferrer" class="social-link">
-                    <i class="fab fa-linkedin fa-2x"></i>
-                  </a>
-                  <a href="https://www.tiktok.com/@design.with.ridvvann?lang=en" target="_blank" rel="noreferrer" class="social-link">
-                    <i class="fab fa-tiktok fa-2x"></i>
-                  </a>
-                  <a href="https://x.com/RidvvannAbdi" target="_blank" rel="noreferrer" class="social-link">
-                    <i class="fab fa-twitter fa-2x"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- CTA Section -->
-        <div class="cta-section">
-          <h2>Ready to Transform Your Brand?</h2>
-          <p>
-            Let's work together to create a brand identity and digital presence that truly represents your business and connects with your audience.
-          </p>
-          <a href="#" class="btn btn-whatsapp whatsapp-btn" data-phone="+252672085009" data-message="Hello, I'm interested in elevating by Brand With NOVA!" data-source="Pricing Page">Contact Us on WhatsApp</a>
-        </div>
-      </div>
     </section>
-  </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <a href="index.html" class="footer-logo">
-            <span class="logo-text">NOVA</span>
-          </a>
-          <p class="footer-description">
-            Elevating brands through strategic design and digital marketing.
-          </p>
+    <!-- Story Section -->
+    <section class="story-section">
+        <div class="container">
+            <div class="story-content">
+                <div class="story-text">
+                    <div class="section-badge">
+                        <span>Our Story</span>
+                    </div>
+                    <h2>Building brands that <span class="gradient-text">make an impact</span></h2>
+                    <p>NOVA Digital Agency was born from a simple belief: every business deserves a brand that truly represents its vision and values. We started as a small team of passionate designers and marketers who saw too many great businesses struggling to communicate their worth in an increasingly crowded digital space.</p>
+                    <p>Today, we've grown into a full-service creative agency that specializes in visual branding and social media marketing. Our approach combines strategic thinking with creative execution, ensuring that every brand we work with not only looks amazing but also connects meaningfully with its audience.</p>
+                    <div class="story-highlights">
+                        <div class="highlight-item">
+                            <i class="fas fa-lightbulb"></i>
+                            <div>
+                                <h4>Creative Excellence</h4>
+                                <p>We push creative boundaries to deliver unique brand experiences</p>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-chart-line"></i>
+                            <div>
+                                <h4>Strategic Approach</h4>
+                                <p>Every decision is backed by research and strategic thinking</p>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-users"></i>
+                            <div>
+                                <h4>Client Partnership</h4>
+                                <p>We work as an extension of your team, not just a vendor</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="story-visual">
+                    <div class="visual-card">
+                        <div class="card-header">
+                            <div class="card-dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <div class="card-title">NOVA Journey</div>
+                        </div>
+                        <div class="journey-timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-year">2021</div>
+                                <div class="timeline-content">
+                                    <h4>Founded</h4>
+                                    <p>Started with a vision to transform brands</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-year">2022</div>
+                                <div class="timeline-content">
+                                    <h4>Growth</h4>
+                                    <p>Expanded services and client base</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-year">2023</div>
+                                <div class="timeline-content">
+                                    <h4>Recognition</h4>
+                                    <p>Award-winning campaigns and satisfied clients</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-year">2024</div>
+                                <div class="timeline-content">
+                                    <h4>Innovation</h4>
+                                    <p>Leading digital transformation initiatives</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        
-        <div class="footer-col">
-          <h3 class="footer-heading">Pages</h3>
-          <ul class="footer-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="portfolio.html">Portfolio</a></li>
-            <li><a href="pricing.html">Pricing</a></li>
-            <li><a href="about.html">About</a></li>
-          </ul>
-        </div>
-        
-        <div class="footer-col">
-          <h3 class="footer-heading">Services</h3>
-          <ul class="footer-links">
-            <li><a href="portfolio.html">Visual Branding</a></li>
-            <li><a href="portfolio.html">Logo Design</a></li>
-            <li><a href="portfolio.html">Social Media Marketing</a></li>
-            <li><a href="portfolio.html">Content Creation</a></li>
-          </ul>
-        </div>
-        
-        <div class="footer-col">
-          <h3 class="footer-heading">Connect</h3>
-          <div class="social-icons">
-            <a href="https://www.instagram.com/nova.digital.2025/" target="_blank" rel="noreferrer">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://www.facebook.com/profile.php?id=61574710993829" target="_blank" rel="noreferrer">
-              <i class="fab fa-facebook"></i>
-            </a>
-            <a href="https://linkedin.com/company/novaagency" target="_blank" rel="noreferrer">
-              <i class="fab fa-linkedin"></i>
-            </a>
-          </div>
-          <p class="footer-contact">WhatsApp: +252672085009</p>
-        </div>
-      </div>
-      
-      <div class="footer-bottom">
-        <p class="copyright">&copy; <span id="current-year"></span> Nova. All rights reserved.</p>
-        <div class="footer-legal">
-          <a href="privacy.html">Privacy Policy</a>
-          <a href="terms.html">Terms of Service</a>
-        </div>
-      </div>
-    </div>
-  </footer>
+    </section>
 
+    <!-- Values Section -->
+    <section class="values-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <span>Our Values</span>
+                </div>
+                <h2>What drives us <span class="gradient-text">every day</span></h2>
+                <p>Our core values shape everything we do and guide our relationships with clients and partners</p>
+            </div>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Excellence</h3>
+                    <p>We strive for perfection in every project, never settling for "good enough" when we can deliver exceptional results.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Integrity</h3>
+                    <p>Honest communication, transparent processes, and ethical practices form the foundation of all our client relationships.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Innovation</h3>
+                    <p>We embrace new technologies and creative approaches to stay ahead of trends and deliver cutting-edge solutions.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Passion</h3>
+                    <p>Our love for design and marketing drives us to go above and beyond for every client, treating each project as our own.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <script src="main.js"></script>
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <span>Our Team</span>
+                </div>
+                <h2>Meet the creative minds <span class="gradient-text">behind NOVA</span></h2>
+                <p>A diverse team of designers, strategists, and marketers united by our passion for exceptional brand experiences</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-image">
+                        <div class="member-placeholder">
+                            <i class="fas fa-user"></i>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Sarah Johnson</h3>
+                        <p class="member-role">Creative Director</p>
+                        <p class="member-bio">Leading our creative vision with 8+ years of experience in brand design and strategy.</p>
+                        <div class="member-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <div class="member-placeholder">
+                            <i class="fas fa-user"></i>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Michael Chen</h3>
+                        <p class="member-role">Strategy Director</p>
+                        <p class="member-bio">Developing data-driven strategies that connect brands with their target audiences effectively.</p>
+                        <div class="member-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <div class="member-placeholder">
+                            <i class="fas fa-user"></i>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Emily Rodriguez</h3>
+                        <p class="member-role">Social Media Manager</p>
+                        <p class="member-bio">Crafting engaging social media experiences that build communities and drive engagement.</p>
+                        <div class="member-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <div class="member-placeholder">
+                            <i class="fas fa-user"></i>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>David Kim</h3>
+                        <p class="member-role">Brand Designer</p>
+                        <p class="member-bio">Creating visual identities that capture the essence of brands and resonate with audiences.</p>
+                        <div class="member-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-dribbble"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <div class="cta-text">
+                    <h2>Ready to work with us?</h2>
+                    <p>Let's create something amazing together. We're excited to learn about your brand and help you achieve your goals.</p>
+                </div>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-primary">
+                        <span>Start Your Project</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="portfolio.html" class="btn btn-secondary">
+                        <span>View Our Work</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="logo-icon">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                <path d="M16 2L20 12H30L22 18L26 28L16 22L6 28L10 18L2 12H12L16 2Z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <span class="logo-text">NOVA</span>
+                    </div>
+                    <p>Creative branding & social media marketing agency helping businesses elevate their digital presence.</p>
+                    <div class="footer-contact">
+                        <a href="https://wa.me/252672085009" class="contact-item">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>+252672085009</span>
+                        </a>
+                        <a href="mailto:novadigitalagency2025@gmail.com" class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>novadigitalagency2025@gmail.com</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Navigation</h4>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="portfolio.html">Portfolio</a></li>
+                            <li><a href="pricing.html">Pricing</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="contact.html">Visual Branding</a></li>
+                            <li><a href="contact.html">Social Media Management</a></li>
+                            <li><a href="contact.html">Ads Management</a></li>
+                            <li><a href="contact.html">Content Creation</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Legal</h4>
+                        <ul>
+                            <li><a href="privacy.html">Privacy Policy</a></li>
+                            <li><a href="terms.html">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 NOVA Digital Agency. All rights reserved.</p>
+                <div class="footer-social">
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
-

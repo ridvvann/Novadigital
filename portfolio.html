@@ -1,172 +1,380 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio | Nova</title>
-<meta name="description" content="Explore our branding and social media marketing projects">
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-<link rel="icon" href="images/favicon.ico" type="image/x-icon">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - NOVA Digital Agency</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body class="dark">
-<header class="sticky-header">
-  <div class="container">
-    <div class="header-content">
-      <div class="logo">
-        <a href="index.html">
-          <span class="logo-text">NOVA</span>
-        </a>
-      </div>
-      
-      <nav class="desktop-nav">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="portfolio.html" class="nav-link active">Portfolio</a>
-        <a href="pricing.html" class="nav-link">Pricing</a>
-        <a href="about.html" class="nav-link">About</a>
-      </nav>
-      
-      <div class="desktop-cta">
-        <a href="#" class="btn btn-primary whatsapp-btn" data-phone="+252672085009" data-message="Hello, I'm interested in your services." data-source="Header">Get Started</a>
-      </div>
-      
-      <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
-        <i class="fas fa-bars"></i>
-      </button>
-    </div>
-  </div>
-  
-  <div class="mobile-menu">
-    <nav class="mobile-nav">
-      <a href="index.html" class="nav-link">Home</a>
-      <a href="portfolio.html" class="nav-link active">Portfolio</a>
-      <a href="pricing.html" class="nav-link">Pricing</a>
-      <a href="about.html" class="nav-link">About</a>
-      <a href="#" class="btn btn-primary whatsapp-btn mt-4" data-phone="+252672085009" data-message="Hello, I'm interested in your services." data-source="Mobile Menu">Get Started</a>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-icon" style="width: 100px; height: auto; display: flex; align-items: center;">
+                    <img src="images/nova-logo-03.svg" alt="logo" style="width: 100%; height: 100%; object-fit: contain;">
+                </div>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="portfolio.html" class="nav-link active">Portfolio</a>
+                </li>
+                <li class="nav-item">
+                    <a href="pricing.html" class="nav-link">Pricing</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link btn-primary">Get Started</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
     </nav>
-  </div>
-</header>
 
-<main class="main-portfolio">
-  <!-- Popup container -->
-  <div class="popup-image">
-    <span class="close-popup">&times;</span>
-    <img src="" alt="Full Size Image" class="popup-img">
-  </div>
-  
-  <div class="section-header">
-    <h1 class="section-title">Our Portfolio</h1>
-    <p class="section-description">See how we've helped brands grow visually and digitally.</p>
-  </div>
-
-  <div class="portfolio-grid">
-    <div class="portfolio-card featured-card">
-      <div class="image-link" data-full-image="images/Nova-Digital-Overall.png">
-        <img src="images/Nova-Digital-Overall.png" alt="Nova Digital Agency">
-      </div>
-      <div class="card-overlay">
-        <p>Branding</p>
-        <h3>Nova Digital Agency</h3>
-      </div>
-    </div>
-
-    <div class="portfolio-card featured-card">
-      <div class="image-link" data-full-image="images/Goray-Podcast-Overall.png">
-        <img src="images/Goray-Podcast-Overall.png" alt="Project Image">
-      </div>
-      <div class="card-overlay">
-        <p>Branding</p>
-        <h3>Goray Podcast</h3>
-      </div>
-    </div>
-
-    <div class="portfolio-card featured-card">
-      <div class="image-link" data-full-image="images/Geesi-Tech-Overall.png">
-        <img src="images/Geesi-Tech-Overall.png" alt="Project Image">
-      </div>
-      <div class="card-overlay">
-        <p>Branding</p>
-        <h3>Geesi Tech</h3>
-      </div>
-    </div>
-
-    <div class="portfolio-card featured-card">
-      <div class="image-link" data-full-image="images/DOLLAR-ZONE-Overall.png">
-        <img src="images/DOLLAR-ZONE-Overall.png" alt="Project Image">
-      </div>
-      <div class="card-overlay">
-        <p>Branding</p>
-        <h3>Dollar Zone</h3>
-      </div>
-    </div>
-
-
-  </div>
-</main>
-
-<!-- Footer Section -->
-<footer class="site-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <a href="index.html" class="footer-logo">
-            <span class="logo-text">NOVA</span>
-          </a>
-          <p class="footer-description">
-            Elevating brands through strategic design and digital marketing.
-          </p>
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="page-header-content">
+                <h1>Our Portfolio</h1>
+                <p>Showcasing our latest branding and marketing projects that have helped businesses transform their digital presence</p>
+            </div>
         </div>
-        
-        <div class="footer-col">
-          <h3 class="footer-heading">Pages</h3>
-          <ul class="footer-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="portfolio.html">Portfolio</a></li>
-            <li><a href="pricing.html">Pricing</a></li>
-            <li><a href="about.html">About</a></li>
-          </ul>
-        </div>
-        
-        <div class="footer-col">
-          <h3 class="footer-heading">Services</h3>
-          <ul class="footer-links">
-            <li><a href="portfolio.html">Visual Branding</a></li>
-            <li><a href="portfolio.html">Logo Design</a></li>
-            <li><a href="portfolio.html">Social Media Marketing</a></li>
-            <li><a href="portfolio.html">Content Creation</a></li>
-          </ul>
-        </div>
-        
-        <div class="footer-col">
-          <h3 class="footer-heading">Connect</h3>
-          <div class="social-icons">
-            <a href="https://www.instagram.com/nova.digital.2025/" target="_blank" rel="noreferrer">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://www.facebook.com/profile.php?id=61574710993829" target="_blank" rel="noreferrer">
-              <i class="fab fa-facebook"></i>
-            </a>
-            <a href="https://linkedin.com/company/novaagency" target="_blank" rel="noreferrer">
-              <i class="fab fa-linkedin"></i>
-            </a>
-          </div>
-          <p class="footer-contact">WhatsApp: +252672085009</p>
-        </div>
-      </div>
-      
-      <div class="footer-bottom">
-        <p class="copyright">&copy; <span id="current-year"></span> Nova. All rights reserved.</p>
-        <div class="footer-legal">
-          <a href="privacy.html">Privacy Policy</a>
-          <a href="terms.html">Terms of Service</a>
-        </div>
-      </div>
-    </div>
-</footer>
+    </section>
 
-<!-- ✅ Script MUST be here, not in <head> -->
-  <script src="./main.js" defer></script>
+    <!-- Portfolio Filter -->
+    <section class="portfolio-filter">
+        <div class="container">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="branding">Branding</button>
+                <button class="filter-btn" data-filter="social-media">Social Media</button>
+                <button class="filter-btn" data-filter="web-design">Web Design</button>
+                <button class="filter-btn" data-filter="advertising">Advertising</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Grid -->
+    <section class="portfolio-showcase">
+        <div class="container">
+            <div class="portfolio-grid">
+                <!-- Project 1 -->
+                <div class="portfolio-item" data-category="branding">
+                    <div class="portfolio-image">
+                        <div class="portfolio-placeholder">
+                            <i class="fas fa-image"></i>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-overlay-content">
+                                <h3>Nova Digital Agency</h3>
+                                <p>Complete brand identity and digital presence</p>
+                                <a href="#" class="btn btn-primary">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Nova Digital Agency</h3>
+                        <p>Branding • Logo Design • Brand Guidelines</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Branding</span>
+                            <span class="tag">Logo Design</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="portfolio-item" data-category="branding">
+                    <div class="portfolio-image">
+                        <div class="portfolio-placeholder">
+                            <i class="fas fa-microphone"></i>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-overlay-content">
+                                <h3>Goray Podcast</h3>
+                                <p>Podcast branding and visual identity</p>
+                                <a href="#" class="btn btn-primary">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Goray Podcast</h3>
+                        <p>Branding • Visual Identity • Social Media</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Branding</span>
+                            <span class="tag">Social Media</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="portfolio-item" data-category="branding web-design">
+                    <div class="portfolio-image">
+                        <div class="portfolio-placeholder">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-overlay-content">
+                                <h3>Geesi Tech</h3>
+                                <p>Technology company branding and website</p>
+                                <a href="#" class="btn btn-primary">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Geesi Tech</h3>
+                        <p>Branding • Web Design • Digital Strategy</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Branding</span>
+                            <span class="tag">Web Design</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="portfolio-item" data-category="branding social-media">
+                    <div class="portfolio-image">
+                        <div class="portfolio-placeholder">
+                            <i class="fas fa-store"></i>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-overlay-content">
+                                <h3>Dollar Zone</h3>
+                                <p>Retail brand identity and social media strategy</p>
+                                <a href="#" class="btn btn-primary">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Dollar Zone</h3>
+                        <p>Branding • Social Media • Marketing</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Branding</span>
+                            <span class="tag">Social Media</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="portfolio-item" data-category="social-media advertising">
+                    <div class="portfolio-image">
+                        <div class="portfolio-placeholder">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-overlay-content">
+                                <h3>Taste Buds Restaurant</h3>
+                                <p>Social media management and advertising campaigns</p>
+                                <a href="#" class="btn btn-primary">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Taste Buds Restaurant</h3>
+                        <p>Social Media • Advertising • Content Creation</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Social Media</span>
+                            <span class="tag">Advertising</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="portfolio-item" data-category="web-design branding">
+                    <div class="portfolio-image">
+                        <div class="portfolio-placeholder">
+                            <i class="fas fa-dumbbell"></i>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-overlay-content">
+                                <h3>FitLife Gym</h3>
+                                <p>Fitness brand identity and website redesign</p>
+                                <a href="#" class="btn btn-primary">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>FitLife Gym</h3>
+                        <p>Branding • Web Design • Digital Marketing</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Branding</span>
+                            <span class="tag">Web Design</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 7 -->
+                <div class="portfolio-item" data-category="advertising social-media">
+                    <div class="portfolio-image">
+                        <div class="portfolio-placeholder">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-overlay-content">
+                                <h3>EduTech Academy</h3>
+                                <p>Educational platform marketing and social media</p>
+                                <a href="#" class="btn btn-primary">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>EduTech Academy</h3>
+                        <p>Social Media • Advertising • Content Strategy</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Social Media</span>
+                            <span class="tag">Advertising</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 8 -->
+                <div class="portfolio-item" data-category="branding web-design">
+                    <div class="portfolio-image">
+                        <div class="portfolio-placeholder">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-overlay-content">
+                                <h3>Green Earth Eco</h3>
+                                <p>Sustainable brand identity and eco-friendly website</p>
+                                <a href="#" class="btn btn-primary">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Green Earth Eco</h3>
+                        <p>Branding • Web Design • Sustainability Focus</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Branding</span>
+                            <span class="tag">Web Design</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Creative Process</h2>
+                <p>How we transform your vision into reality</p>
+            </div>
+            <div class="process-grid">
+                <div class="process-step">
+                    <div class="process-number">01</div>
+                    <h3>Discovery</h3>
+                    <p>We start by understanding your business, goals, and target audience through detailed consultation.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">02</div>
+                    <h3>Strategy</h3>
+                    <p>We develop a comprehensive strategy tailored to your brand's unique needs and market position.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">03</div>
+                    <h3>Design</h3>
+                    <p>Our creative team brings your brand to life with stunning visuals and compelling content.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">04</div>
+                    <h3>Launch</h3>
+                    <p>We implement and launch your brand across all channels with ongoing support and optimization.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Start Your Project?</h2>
+                <p>Let's create something amazing together</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-primary">Get Started</a>
+                    <a href="pricing.html" class="btn btn-secondary">View Pricing</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="logo-icon">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                <path d="M16 2L20 12H30L22 18L26 28L16 22L6 28L10 18L2 12H12L16 2Z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <span class="logo-text">NOVA</span>
+                    </div>
+                    <p>Creative branding & social media marketing agency helping businesses elevate their digital presence.</p>
+                    <div class="footer-contact">
+                        <a href="https://wa.me/252672085009" class="contact-item">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>+252672085009</span>
+                        </a>
+                        <a href="mailto:novadigitalagency2025@gmail.com" class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>novadigitalagency2025@gmail.com</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Navigation</h4>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="portfolio.html">Portfolio</a></li>
+                            <li><a href="pricing.html">Pricing</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="contact.html">Visual Branding</a></li>
+                            <li><a href="contact.html">Social Media Management</a></li>
+                            <li><a href="contact.html">Ads Management</a></li>
+                            <li><a href="contact.html">Content Creation</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Legal</h4>
+                        <ul>
+                            <li><a href="privacy.html">Privacy Policy</a></li>
+                            <li><a href="terms.html">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 NOVA Digital Agency. All rights reserved.</p>
+                <div class="footer-social">
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

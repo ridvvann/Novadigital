@@ -1,210 +1,376 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pricing | Nova</title>
-  <meta name="description" content="Transparent pricing for our branding and social media marketing services">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
-  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing - NOVA Digital Agency</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body class="dark">
-  <header class="sticky-header">
-    <div class="container">
-      <div class="header-content">
-        <div class="logo">
-          <a href="index.html">
-            <span class="logo-text">NOVA</span>
-          </a>
-        </div>
-        
-        <nav class="desktop-nav">
-          <a href="index.html" class="nav-link">Home</a>
-          <a href="portfolio.html" class="nav-link">Portfolio</a>
-          <a href="pricing.html" class="nav-link active">Pricing</a>
-          <a href="about.html" class="nav-link">About</a>
-        </nav>
-        
-        <div class="desktop-cta">
-          <a href="#" class="btn btn-primary whatsapp-btn" data-phone="+252672085009" data-message="Hello, I'm interested in your services." data-source="Header">Get Started</a>
-        </div>
-        
-        <button class="mobile-menu-btn" aria-label="Toggle menu">
-          <i class="fas fa-bars"></i>
-        </button>
-      </div>
-    </div>
-    
-    <div class="mobile-menu">
-      <nav class="mobile-nav">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="portfolio.html" class="nav-link">Portfolio</a>
-        <a href="pricing.html" class="nav-link active">Pricing</a>
-        <a href="about.html" class="nav-link">About</a>
-        <a href="#" class="btn btn-primary whatsapp-btn mt-4" data-phone="+252672085009" data-message="Hello, I'm interested in your services." data-source="Mobile Menu">Get Started</a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- Pricing Section -->
-  <section class="pricing-section">
-    <div class="container">
-      <div class="section-header">
-        <h1 class="section-title">Our Pricing</h1>
-        <p class="section-description">
-          Transparent, value-based pricing packages designed to fit your business needs
-        </p>
-      </div>
-
-      <!-- Pricing Cards Grid -->
-      <div class="pricing-grid">
-        <!-- Starter Package -->
-        <div class="pricing-card">
-          <div class="pricing-header">
-            <h2 class="pricing-title">Starter Package</h2>
-            <div class="pricing-price">
-              <span class="pricing-amount">$49.99</span>
-              <span class="pricing-duration">/ month</span>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-icon" style="width: 100px; height: auto; display: flex; align-items: center;">
+                    <img src="images/nova-logo-03.svg" alt="logo" style="width: 100%; height: 100%; object-fit: contain;">
+                </div>
             </div>
-          </div>
-          <ul class="feature-list">
-            <li class="feature-item"><i class="fas fa-check"></i> Simple Logo</li>
-            <li class="feature-item"><i class="fas fa-check"></i> 6 Posts Per Month</li>
-            <li class="feature-item"><i class="fas fa-check"></i> Social Media Setup</li>
-            <li class="feature-item"><i class="fas fa-check"></i> 1 Video Per Month</li>
-            <li class="feature-item"><i class="fas fa-check"></i> Ads Management</li>
-            <li class="feature-item"><i class="fas fa-check"></i> Customer Interaction</li>
-          </ul>
-          <div class="pricing-footer">
-            <a href="#" class="btn btn-primary whatsapp-btn" data-phone="+252672085009" data-message="Hello, I'm interested in your Starter Package.">Choose Plan</a>
-          </div>
-        </div>
-
-        <!-- Standard Package -->
-        <div class="pricing-card popular">
-          <div class="popular-badge">Popular</div>
-          <div class="pricing-header">
-            <h2 class="pricing-title">Standard Package</h2>
-            <div class="pricing-price">
-              <span class="pricing-amount">$99.99</span>
-              <span class="pricing-duration">/ month</span>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="portfolio.html" class="nav-link">Portfolio</a>
+                </li>
+                <li class="nav-item">
+                    <a href="pricing.html" class="nav-link active">Pricing</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link btn-primary">Get Started</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </div>
-          </div>
-          <ul class="feature-list">
-            <li class="feature-item"><i class="fas fa-check"></i> Standard Branding</li>
-            <li class="feature-item"><i class="fas fa-check"></i> 8 Posts Per Month</li>
-            <li class="feature-item"><i class="fas fa-check"></i> Social Media Setup</li>
-            <li class="feature-item"><i class="fas fa-check"></i> 2 Videos Per Month</li>
-            <li class="feature-item"><i class="fas fa-check"></i> Ads Management</li>
-            <li class="feature-item"><i class="fas fa-check"></i> Customer Interaction</li>
-            <li class="feature-item"><i class="fas fa-check"></i> 1 Revision Call</li>
-          </ul>
-          <div class="pricing-footer">
-            <a href="#" class="btn btn-primary whatsapp-btn" data-phone="+252672085009" data-message="Hello, I'm interested in your Standard Package.">Choose Plan</a>
-          </div>
         </div>
+    </nav>
 
-        <!-- Premium Package -->
-        <div class="pricing-card">
-          <div class="pricing-header">
-            <h2 class="pricing-title">Premium Package</h2>
-            <div class="pricing-price">
-              <span class="pricing-amount">$299.99</span>
-              <span class="pricing-duration">/ month</span>
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="page-header-content">
+                <div class="section-badge">
+                    <span>Pricing Plans</span>
+                </div>
+                <h1>Choose the perfect plan for <span class="gradient-text">your business</span></h1>
+                <p>Transparent pricing with no hidden fees. Scale your brand with our flexible packages designed to grow with your business.</p>
+                
+                <!-- Pricing Toggle -->
+                <div class="pricing-toggle-container">
+                    <div class="pricing-toggle">
+                        <span class="toggle-label">Monthly</span>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="pricing-toggle">
+                            <span class="toggle-slider"></span>
+                        </label>
+                        <span class="toggle-label">Annual <span class="discount-badge">Save 20%</span></span>
+                    </div>
+                </div>
             </div>
-          </div>
-          <ul class="feature-list">
-            <li class="feature-item"><i class="fas fa-check"></i> Full Branding</li>
-            <li class="feature-item"><i class="fas fa-check"></i> Brand Guideline</li>
-            <li class="feature-item"><i class="fas fa-check"></i> 12 Posts Per Month</li>
-            <li class="feature-item"><i class="fas fa-check"></i> Social Media Setup</li>
-            <li class="feature-item"><i class="fas fa-check"></i> Up to 5 Videos Per Month</li>
-            <li class="feature-item"><i class="fas fa-check"></i> Ads Management</li>
-            <li class="feature-item"><i class="fas fa-check"></i> Customer Interaction</li>
-            <li class="feature-item"><i class="fas fa-check"></i> 2 Revision Calls</li>
-            <li class="feature-item"><i class="fas fa-check"></i> Page Monitoring 24/7</li>
-          </ul>
-          <div class="pricing-footer">
-            <a href="#" class="btn btn-primary whatsapp-btn" data-phone="+252672085009" data-message="Hello, I'm interested in your Premium Package.">Choose Plan</a>
-          </div>
         </div>
-      </div>
+    </section>
 
-      <!-- Custom Solution Section -->
-      <div class="custom-solution">
-        <h2>Need a Custom Solution?</h2>
-        <p>
-          We understand that every business is unique. Contact us to discuss a tailored package that meets your specific needs and goals.
-        </p>
-        <a href="#" class="btn btn-whatsapp whatsapp-btn" data-phone="+252672085009" data-message="Hello, I'm interested in discussing a custom pricing package for my business." data-source="Pricing Page">Contact Us on WhatsApp</a>
-      </div>
-    </div>
-  </section>
+    <!-- Pricing Plans -->
+    <section class="pricing-section">
+        <div class="container">
+            <div class="pricing-grid">
+                <!-- Starter Plan -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Starter</h3>
+                        <p>Perfect for small businesses getting started</p>
+                        <div class="pricing-price">
+                            <span class="currency">$</span>
+                            <span class="amount monthly-price">299</span>
+                            <span class="amount annual-price" style="display: none;">239</span>
+                            <span class="period">/month</span>
+                        </div>
+                        <div class="annual-savings" style="display: none;">
+                            <span>$720 saved annually</span>
+                        </div>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> Logo Design</li>
+                            <li><i class="fas fa-check"></i> Basic Brand Guidelines</li>
+                            <li><i class="fas fa-check"></i> 2 Social Media Platforms</li>
+                            <li><i class="fas fa-check"></i> 8 Posts per Month</li>
+                            <li><i class="fas fa-check"></i> Basic Analytics</li>
+                            <li><i class="fas fa-check"></i> Email Support</li>
+                        </ul>
+                    </div>
+                    <div class="pricing-footer">
+                        <a href="contact.html" class="btn btn-secondary btn-full">Get Started</a>
+                    </div>
+                </div>
 
-  <!-- Footer Section -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <a href="index.html" class="footer-logo">
-            <span class="logo-text">NOVA</span>
-          </a>
-          <p class="footer-description">
-            Elevating brands through strategic design and digital marketing.
-          </p>
-        </div>
-        
-        <div class="footer-col">
-          <h3 class="footer-heading">Pages</h3>
-          <ul class="footer-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="portfolio.html">Portfolio</a></li>
-            <li><a href="pricing.html">Pricing</a></li>
-            <li><a href="about.html">About</a></li>
-          </ul>
-        </div>
-        
-        <div class="footer-col">
-          <h3 class="footer-heading">Services</h3>
-          <ul class="footer-links">
-            <li><a href="portfolio.html">Visual Branding</a></li>
-            <li><a href="portfolio.html">Logo Design</a></li>
-            <li><a href="portfolio.html">Social Media Marketing</a></li>
-            <li><a href="portfolio.html">Content Creation</a></li>
-          </ul>
-        </div>
-        
-        <div class="footer-col">
-          <h3 class="footer-heading">Connect</h3>
-          <div class="social-icons">
-            <a href="https://www.instagram.com/nova.digital.2025/" target="_blank" rel="noreferrer">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://www.facebook.com/profile.php?id=61574710993829" target="_blank" rel="noreferrer">
-              <i class="fab fa-facebook"></i>
-            </a>
-            <a href="https://linkedin.com/company/novaagency" target="_blank" rel="noreferrer">
-              <i class="fab fa-linkedin"></i>
-            </a>
-          </div>
-          <p class="footer-contact">WhatsApp: +252672085009</p>
-        </div>
-      </div>
-      
-      <div class="footer-bottom">
-        <p class="copyright">&copy; <span id="current-year"></span> Nova. All rights reserved.</p>
-        <div class="footer-legal">
-          <a href="privacy.html">Privacy Policy</a>
-          <a href="terms.html">Terms of Service</a>
-        </div>
-      </div>
-    </div>
-  </footer>
+                <!-- Professional Plan -->
+                <div class="pricing-card featured">
+                    <div class="featured-badge">Most Popular</div>
+                    <div class="pricing-header">
+                        <h3>Professional</h3>
+                        <p>Ideal for growing businesses</p>
+                        <div class="pricing-price">
+                            <span class="currency">$</span>
+                            <span class="amount monthly-price">599</span>
+                            <span class="amount annual-price" style="display: none;">479</span>
+                            <span class="period">/month</span>
+                        </div>
+                        <div class="annual-savings" style="display: none;">
+                            <span>$1,440 saved annually</span>
+                        </div>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> Complete Brand Identity</li>
+                            <li><i class="fas fa-check"></i> Comprehensive Brand Guidelines</li>
+                            <li><i class="fas fa-check"></i> 4 Social Media Platforms</li>
+                            <li><i class="fas fa-check"></i> 20 Posts per Month</li>
+                            <li><i class="fas fa-check"></i> Advanced Analytics</li>
+                            <li><i class="fas fa-check"></i> Content Strategy</li>
+                            <li><i class="fas fa-check"></i> Monthly Strategy Calls</li>
+                            <li><i class="fas fa-check"></i> Priority Support</li>
+                        </ul>
+                    </div>
+                    <div class="pricing-footer">
+                        <a href="contact.html" class="btn btn-primary btn-full">Get Started</a>
+                    </div>
+                </div>
 
-<script src="main.js"></script>
+                <!-- Enterprise Plan -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Enterprise</h3>
+                        <p>For established businesses seeking growth</p>
+                        <div class="pricing-price">
+                            <span class="currency">$</span>
+                            <span class="amount monthly-price">999</span>
+                            <span class="amount annual-price" style="display: none;">799</span>
+                            <span class="period">/month</span>
+                        </div>
+                        <div class="annual-savings" style="display: none;">
+                            <span>$2,400 saved annually</span>
+                        </div>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> Full Brand Ecosystem</li>
+                            <li><i class="fas fa-check"></i> Advanced Brand Strategy</li>
+                            <li><i class="fas fa-check"></i> All Social Media Platforms</li>
+                            <li><i class="fas fa-check"></i> 40 Posts per Month</li>
+                            <li><i class="fas fa-check"></i> Advanced Analytics & Reporting</li>
+                            <li><i class="fas fa-check"></i> Paid Advertising Management</li>
+                            <li><i class="fas fa-check"></i> Weekly Strategy Calls</li>
+                            <li><i class="fas fa-check"></i> Dedicated Account Manager</li>
+                            <li><i class="fas fa-check"></i> 24/7 Priority Support</li>
+                        </ul>
+                    </div>
+                    <div class="pricing-footer">
+                        <a href="contact.html" class="btn btn-secondary btn-full">Get Started</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Add-ons Section -->
+    <section class="addons-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <span>Add-ons</span>
+                </div>
+                <h2>Enhance your plan with <span class="gradient-text">additional services</span></h2>
+                <p>Customize your package with our premium add-on services</p>
+            </div>
+            <div class="addons-grid">
+                <div class="addon-card">
+                    <div class="addon-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Website Design</h3>
+                    <p>Professional website design and development</p>
+                    <div class="addon-price">
+                        <span>Starting at $1,499</span>
+                    </div>
+                </div>
+                <div class="addon-card">
+                    <div class="addon-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Video Production</h3>
+                    <p>Professional video content creation</p>
+                    <div class="addon-price">
+                        <span>Starting at $799</span>
+                    </div>
+                </div>
+                <div class="addon-card">
+                    <div class="addon-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h3>Photography</h3>
+                    <p>Professional brand photography sessions</p>
+                    <div class="addon-price">
+                        <span>Starting at $499</span>
+                    </div>
+                </div>
+                <div class="addon-card">
+                    <div class="addon-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3>PR & Media</h3>
+                    <p>Public relations and media outreach</p>
+                    <div class="addon-price">
+                        <span>Starting at $999</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <span>FAQ</span>
+                </div>
+                <h2>Frequently asked <span class="gradient-text">questions</span></h2>
+                <p>Everything you need to know about our pricing and services</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What's included in each plan?</h3>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Each plan includes different levels of branding, social media management, and support. The Starter plan covers basic needs, Professional adds strategy and more platforms, while Enterprise provides comprehensive brand management with dedicated support.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Can I upgrade or downgrade my plan?</h3>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, you can change your plan at any time. Upgrades take effect immediately, while downgrades will take effect at your next billing cycle. We'll help you transition smoothly between plans.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Do you offer custom packages?</h3>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We understand that every business is unique. Contact us to discuss your specific needs, and we'll create a custom package that fits your requirements and budget.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What's your refund policy?</h3>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We offer a 30-day money-back guarantee for all new clients. If you're not satisfied with our services within the first 30 days, we'll provide a full refund, no questions asked.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How long are the contracts?</h3>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We offer flexible contract terms. Monthly plans have no long-term commitment, while annual plans offer significant savings. You can cancel anytime with 30 days notice.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <div class="cta-text">
+                    <h2>Ready to elevate your brand?</h2>
+                    <p>Join hundreds of businesses that have transformed their brand presence with NOVA. Start your journey today.</p>
+                </div>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-primary">
+                        <span>Start Your Project</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="portfolio.html" class="btn btn-secondary">
+                        <span>View Our Work</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="logo-icon">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                <path d="M16 2L20 12H30L22 18L26 28L16 22L6 28L10 18L2 12H12L16 2Z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <span class="logo-text">NOVA</span>
+                    </div>
+                    <p>Creative branding & social media marketing agency helping businesses elevate their digital presence.</p>
+                    <div class="footer-contact">
+                        <a href="https://wa.me/252672085009" class="contact-item">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>+252672085009</span>
+                        </a>
+                        <a href="mailto:novadigitalagency2025@gmail.com" class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>novadigitalagency2025@gmail.com</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Navigation</h4>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="portfolio.html">Portfolio</a></li>
+                            <li><a href="pricing.html">Pricing</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="contact.html">Visual Branding</a></li>
+                            <li><a href="contact.html">Social Media Management</a></li>
+                            <li><a href="contact.html">Ads Management</a></li>
+                            <li><a href="contact.html">Content Creation</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Legal</h4>
+                        <ul>
+                            <li><a href="privacy.html">Privacy Policy</a></li>
+                            <li><a href="terms.html">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 NOVA Digital Agency. All rights reserved.</p>
+                <div class="footer-social">
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

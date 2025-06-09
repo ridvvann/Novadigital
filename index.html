@@ -1,331 +1,778 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Professional branding and social media marketing agency services">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
-    <title>Nova | Branding & SMM Agency</title>
+    <title>NOVA Digital Agency - Creative Branding & Social Media Marketing</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body class="dark">
-    <header class="sticky-header">
-      <div class="container">
-        <div class="header-content">
-          <div class="logo">
-            <a href="index.html">
-              <span class="logo-text">NOVA</span>
-            </a>
-          </div>
-          
-          <nav class="desktop-nav">
-            <a href="index.html" class="nav-link active">Home</a>
-            <a href="portfolio.html" class="nav-link">Portfolio</a>
-            <a href="pricing.html" class="nav-link">Pricing</a>
-            <a href="about.html" class="nav-link">About</a>
-          </nav>
-          
-          <div class="desktop-cta">
-            <a href="myfolio.html">My Folio</a>
-          </div>
-          
-          <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
-            <i class="fas fa-bars"></i>
-          </button>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-icon" style="width: 100px; height: auto; display: flex; align-items: center;">
+                    <img src="images/nova-logo-03.svg" alt="logo" style="width: 100%; height: 100%; object-fit: contain;">
+                </div>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link active">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="portfolio.html" class="nav-link">Portfolio</a>
+                </li>
+                <li class="nav-item"></li>
+                    <a href="pricing.html" class="nav-link">Pricing</a>
+                </li>
+                <li class="nav-item"></li>
+                    <a href="about.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link btn-primary">Get Started</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
         </div>
-      </div>
-      
-      <div class="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation menu">
-        <nav class="mobile-nav">
-          <a href="index.html" class="nav-link active">Home</a>
-          <a href="portfolio.html" class="nav-link">Portfolio</a>
-          <a href="pricing.html" class="nav-link">Pricing</a>
-          <a href="about.html" class="nav-link">About</a>
-          <a href="#" class="btn btn-primary whatsapp-btn mt-4" data-phone="+252672085009" data-message="Hello, I'm interested in your services." data-source="Mobile Menu">Get Started</a>
-        </nav>
-        <button class="mobile-menu-close" aria-label="Close menu">
-          
-        </button>
-      </div>
-    </header>
+    </nav>
+
+    <!-- Hero Section -->
     <section class="hero">
-        <div class="container">
-          <div class="hero-grid">
+        <div class="hero-container">
             <div class="hero-content">
-              <h1 class="hero-title">
-                Elevate Your Brand with <span class="gradient-text">NOVA</span>
-              </h1>
-              <p class="hero-description">
-                Strategic branding and social media marketing to help your business stand out in the digital landscape.
-              </p>
-              <div class="hero-buttons">
-                <a href="#" class="btn btn-whatsapp whatsapp-btn" data-phone="+252672085009" data-message="Hello, I'm interested in learning more about your services." data-source="Home Page Hero">Get Started</a>
-                <a href="portfolio.html" class="btn btn-outline">View Our Work</a>
-              </div>
+                <div class="hero-badge">
+                    <i class="fas fa-rocket badge-icon"></i>
+                    <span>Transforming Brands Since 2021</span>
+                </div>
+                <h1 class="hero-title">Elevate Your Brand with <span class="gradient-text">Creative Excellence</span></h1>
+                <p class="hero-subtitle">We craft compelling visual identities and strategic social media campaigns that connect your brand with the right audience and drive meaningful engagement.</p>
+                <div class="hero-buttons">
+                    <a href="contact.html" class="btn btn-primary">
+                        <span>Start Your Project</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="portfolio.html" class="btn btn-secondary">
+                        <span>View Our Work</span>
+                        <i class="fas fa-play"></i>
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Projects Completed</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">25+</div>
+                        <div class="stat-label">Happy Clients</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">3+</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                </div>
             </div>
-            <div class="hero-image">
-              <img src="images/site-img-02.svg" alt="Nova Branding">
+            <div class="hero-visual">
+                <div class="visual-card">
+                    <div class="card-header">
+                        <div class="card-dots">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="card-title">Brand Preview</div>
+                    </div>
+                    <div class="brand-preview">
+                        <div class="logo-showcase">
+                            <div class="logo-icon large">
+                                <svg width="24" height="24" viewBox="0 0 32 32" fill="none">
+                                    <path d="M16 2L20 12H30L22 18L26 28L16 22L6 28L10 18L2 12H12L16 2Z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <div class="brand-info">
+                                <h3>Your Branding Partner</h3>
+                                <p>Nova Digital</p>
+                            </div>
+                        </div>
+                        <div class="color-palette">
+                            <div class="color-item" style="background: #4A31FC;"></div>
+                            <div class="color-item" style="background: #6B52FF;"></div>
+                            <div class="color-item" style="background: #8B7AFF;"></div>
+                            <div class="color-item" style="background: #ABA2FF;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="floating-elements">
+                    <div class="floating-card card-1">
+                        <i class="fas fa-chart-line"></i>
+                        <span>+150% Growth</span>
+                    </div>
+                    <div class="floating-card card-2">
+                        <i class="fas fa-users"></i>
+                        <span>10K+ Followers</span>
+                    </div>
+                    <div class="floating-card card-3">
+                        <i class="fas fa-heart"></i>
+                        <span>95% Satisfaction</span>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
     </section>
+
+    <!-- Trusted By Section -->
+    <section class="trusted-by">
+        <div class="container">
+            <div class="trusted-content">
+                <h3>Trusted by innovative brands worldwide</h3>
+                <div class="trusted-logos">
+                    <div class="logo-item">TechCorp</div>
+                    <div class="logo-item">StartupX</div>
+                    <div class="logo-item">BrandCo</div>
+                    <div class="logo-item">InnovateLab</div>
+                    <div class="logo-item">FutureFlow</div>
+                    <div class="logo-item">CreativeHub</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Services Section -->
     <section class="services">
         <div class="container">
-          <div class="section-header">
-            <h2 class="section-title">Our Services</h2>
-            <p class="section-description">
-              Comprehensive branding and marketing solutions to help your business grow
-            </p>
-          </div>
-          
-          <div class="services-grid">
-            <div class="service-card">
-              <div class="service-icon">
-                <i class="fas fa-paint-brush"></i>
-              </div>
-              <h3>Visual Branding</h3>
-              <p>Create a distinctive visual identity that captures your brand's essence and resonates with your target audience.</p>
-              <a href="portfolio.html" class="service-link">Learn More →</a>
+            <div class="section-header">
+                <div class="section-badge">
+                    <span>Our Services</span>
+                </div>
+                <h2>Everything you need to <span class="gradient-text">build your brand</span></h2>
+                <p>From visual identity to social media strategy, we provide comprehensive solutions that drive results and create lasting impact.</p>
             </div>
-            
-            <div class="service-card">
-              <div class="service-icon">
-                <i class="fas fa-chart-bar"></i>
-              </div>
-              <h3>Social Media Management</h3>
-              <p>Strategic social media campaigns that increase engagement, build community, and drive conversions.</p>
-              <a href="portfolio.html" class="service-link">Learn More →</a>
+            <div class="services-grid">
+                <div class="service-card featured">
+                    <div class="featured-badge">Most Popular</div>
+                    <div class="service-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Visual Branding</h3>
+                    <p>Complete brand identity design including logos, color schemes, typography, and brand guidelines that reflect your unique vision.</p>
+                    <ul class="service-features">
+                        <li>Logo Design & Variations</li>
+                        <li>Brand Guidelines</li>
+                        <li>Color Palette & Typography</li>
+                        <li>Business Card Design</li>
+                        <li>Brand Asset Library</li>
+                    </ul>
+                    <a href="contact.html" class="service-link">
+                        <span>Get Started</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-share-alt"></i>
+                    </div>
+                    <h3>Social Media Management</h3>
+                    <p>Strategic social media campaigns that engage your audience and build a strong online community around your brand.</p>
+                    <ul class="service-features">
+                        <li>Content Strategy & Planning</li>
+                        <li>Post Creation & Scheduling</li>
+                        <li>Community Management</li>
+                        <li>Analytics & Reporting</li>
+                        <li>Hashtag Research</li>
+                    </ul>
+                    <a href="contact.html" class="service-link">
+                        <span>Learn More</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3>Ads Management</h3>
+                    <p>Data-driven advertising campaigns across multiple platforms to maximize your reach and return on investment.</p>
+                    <ul class="service-features">
+                        <li>Facebook & Instagram Ads</li>
+                        <li>Google Ads Management</li>
+                        <li>Campaign Optimization</li>
+                        <li>A/B Testing</li>
+                        <li>Performance Tracking</li>
+                    </ul>
+                    <a href="contact.html" class="service-link">
+                        <span>Explore</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Content Creation</h3>
+                    <p>High-quality visual content including graphics, videos, and photography that tells your brand story effectively.</p>
+                    <ul class="service-features">
+                        <li>Graphic Design</li>
+                        <li>Video Production</li>
+                        <li>Photography</li>
+                        <li>Copywriting</li>
+                        <li>Content Calendar</li>
+                    </ul>
+                    <a href="contact.html" class="service-link">
+                        <span>Discover</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
             </div>
-            
-            <div class="service-card">
-              <div class="service-icon">
-                <i class="fas fa-layer-group"></i>
-              </div>
-              <h3>Ads Management</h3>
-              <p>Professional logo design that communicates your brand values and creates a memorable impression.</p>
-              <a href="portfolio.html" class="service-link">Learn More →</a>
-            </div>
-            
-            <div class="service-card">
-              <div class="service-icon">
-                <i class="fas fa-comment"></i>
-              </div>
-              <h3>Content Creation</h3>
-              <p>Engaging content that tells your brand story and connects with your audience across platforms.</p>
-              <a href="portfolio.html" class="service-link">Learn More →</a>
-            </div>
-          </div>
         </div>
     </section>
-    <!-- About Section -->
-    <section class="about-preview">
+
+    <!-- Why Choose Us Section -->
+    <section class="why-choose-us">
         <div class="container">
-          <div class="about-grid">
-            <div class="about-image">
-              <img src="images/site-img-01.svg" alt="About Nova">
+            <div class="why-content">
+                <div class="why-text">
+                    <div class="section-badge">
+                        <span>Why Choose NOVA</span>
+                    </div>
+                    <h2>We don't just create brands, <span class="gradient-text">we build experiences</span></h2>
+                    <p>Our unique approach combines strategic thinking with creative excellence to deliver results that exceed expectations.</p>
+                    
+                    <div class="why-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>Fast Turnaround</h4>
+                                <p>Quick delivery without compromising quality. Most projects completed within 2-4 weeks.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>100% Satisfaction Guarantee</h4>
+                                <p>We're not happy until you're thrilled with the results. Unlimited revisions included.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-headset"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>24/7 Support</h4>
+                                <p>Always here when you need us. Direct access to your dedicated project manager.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="why-cta">
+                        <a href="about.html" class="btn btn-primary">Learn More About Us</a>
+                        <a href="contact.html" class="btn btn-secondary">Start Your Project</a>
+                    </div>
+                </div>
+                <div class="why-visual">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">Projects Delivered</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="stat-number">4.9/5</div>
+                            <div class="stat-label">Client Rating</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="stat-number">48h</div>
+                            <div class="stat-label">Response Time</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="stat-number">25+</div>
+                            <div class="stat-label">Happy Clients</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="about-content">
-              <h2 class="section-title">About Nova</h2>
-              <p class="about-description">
-                Nova is a creative branding and social media marketing agency dedicated to helping businesses establish a strong presence in the digital world. We combine strategic thinking with creative execution to deliver results that exceed expectations.
-              </p>
-              <p class="about-description">
-                Our team of experts is passionate about creating meaningful connections between brands and their audiences through compelling visual identities and engaging social media campaigns.
-              </p>
-              <a href="about.html" class="btn btn-outline">Learn More About Us</a>
-            </div>
-          </div>
         </div>
     </section>
 
-    <main class="main-portfolio">
-      <!-- Popup container -->
-      <div class="popup-image">
-        <span class="close-popup">&times;</span>
-        <img src="" alt="Full Size Image" class="popup-img">
-      </div>
-
-      <div class="section-header">
-        <h1 class="section-title">Featured Work</h1>
-        <p class="section-description">Explore some of our standout projects that showcase our expertise in branding and digital marketing.</p>
-      </div>
-    
-      <div class="portfolio-grid">
-        <div class="portfolio-card featured-card">
-          <div class="image-link" data-full-image="images/Nova-Digital-Overall.png">
-            <img src="images/Nova-Digital-Overall.png" alt="Nova Digital Agency">
-          </div>
-          <div class="card-overlay">
-            <p>Branding</p>
-            <h3>Nova Digital Agency</h3>
-          </div>
+    <!-- Portfolio Preview Section -->
+<section class="portfolio-preview">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-badge">
+                <span>Our Work</span>
+            </div>
+            <h2>Recent projects that <span class="gradient-text">made an impact</span></h2>
+            <p>Take a look at some of our latest work and see how we've helped brands transform their digital presence.</p>
         </div>
-    
-        <div class="portfolio-card featured-card">
-          <div class="image-link" data-full-image="images/Goray-Podcast-Overall.png">
-            <img src="images/Goray-Podcast-Overall.png" alt="Project Image">
-          </div>
-          <div class="card-overlay">
-            <p>Branding</p>
-            <h3>Goray Podcast</h3>
-          </div>
+        <div class="portfolio-preview-grid">
+            <div class="portfolio-preview-item" data-category="branding">
+                <div class="portfolio-image">
+                    <img src="images/Goray-Podcast-Overall.png" alt="Goray-Podcast-Overall">
+                    <div class="portfolio-overlay">
+                        <div class="portfolio-overlay-content">
+                            <h3>Goray Podcast</h3>
+                            <p>Complete brand identity for a tech startup</p>
+                            <a href="G" class="btn btn-sm btn-primary">View Project</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-content">
+                    <div class="portfolio-tags">
+                        <span class="tag">Branding</span>
+                        <span class="tag">Logo Design</span>
+                    </div>
+                    <h3>TechStart Identity</h3>
+                    <p>Modern brand identity that positioned this startup as an industry leader.</p>
+                    <div class="portfolio-metrics">
+                        <div class="metric">
+                            <span class="metric-value">300%</span>
+                            <span class="metric-label">Brand Recognition</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">2 weeks</span>
+                            <span class="metric-label">Delivery Time</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio-preview-item" data-category="branding">
+                <div class="portfolio-image">
+                    <img src="images/somlogic-overall" alt="som-logic-overall">
+                    <div class="portfolio-overlay">
+                        <div class="portfolio-overlay-content">
+                            <h3>Som Logic 
+                            <p>Complete brand identity for a tech startup</p>
+                            <a href="G" class="btn btn-sm btn-primary">View Project</a>" 
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-content">
+                    <div class="portfolio-tags">
+                        <span class="tag">Branding</span>
+                        <span class="tag">Logo Design</span>
+                    </div>
+                    <h3>Som Logic</h3>
+                    <p>Modern brand identity that positioned this startup as an industry leader.</p>
+                    <div class="portfolio-metrics">
+                        <div class="metric">
+                            <span class="metric-value">Successful</span>
+                            <span class="metric-label">Visual Re-Branding</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value"> less than a week</span>
+                            <span class="metric-label">Delivery Time</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="portfolio-preview-item" data-category="ads">
+                <div class="portfolio-image">
+                    <img src="images/portfolio-ads-1.jpg" alt="EcoLife Ad Campaign">
+                    <div class="portfolio-overlay">
+                        <div class="portfolio-overlay-content">
+                            <h3>Geesi Tech Event</h3>
+                            <p>High-converting ad strategy</p>
+                            <a href="portfolio.html" class="btn btn-sm btn-primary">View Project</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-content">
+                    <div class="portfolio-tags">
+                        <span class="tag">Event</span>
+                        <span class="tag">Branding</span>
+                    </div>
+                    <h3>Geesi Tech Event Branding</h3>
+                    <p>Strategic ad campaign that delivered 5x return on investment.</p>
+                    <div class="portfolio-metrics">
+                        <div class="metric">
+                            <span class="metric-value">5 days</span>
+                            <span class="metric-label">Delivered in</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">20+</span>
+                            <span class="metric-label">Varies Designs</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    
-        <div class="portfolio-card featured-card">
-          <div class="image-link" data-full-image="images/Geesi-Tech-Overall.png">
-            <img src="images/Geesi-Tech-Overall.png" alt="Project Image">
-          </div>
-          <div class="card-overlay">
-            <p>Branding</p>
-            <h3>Geesi Tech</h3>
-          </div>
-        </div>
-    
-        <div class="portfolio-card featured-card">
-          <div class="image-link" data-full-image="images/DOLLAR-ZONE-Overall.png">
-            <img src="images/DOLLAR-ZONE-Overall.png" alt="Project Image">
-          </div>
-          <div class="card-overlay">
-            <p>Branding</p>
-            <h3>Dollar Zone</h3>
-          </div>
+        <div class="portfolio-cta">
+            <a href="portfolio.html" class="btn btn-primary">
+                <span>View All Projects</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
         </div>
     </div>
+</section>
 
-    <div class="view-more">
-      <a href="portfolio.html" class="btn btn-outline">View More Projects</a>
-    </div>
-
-    </main>
-
-    <!-- Contact Section -->
-    <section class="contact-section">
+    <!-- Testimonials Section -->
+    <section class="testimonials">
         <div class="container">
-          <div class="contact-grid">
-            <div class="contact-info">
-              <h2 class="section-title">Contact Information</h2>
-              <div class="contact-details">
-                <div class="contact-item">
-                  <i class="fas fa-phone"></i>
-                  <div>
-                    <h3>WhatsApp</h3>
-                    <p>+252672085009</p>
-                  </div>
+            <div class="section-header">
+                <div class="section-badge">
+                    <span>Client Stories</span>
                 </div>
-                <div class="contact-item">
-                  <i class="fas fa-envelope"></i>
-                  <div>
-                    <h3>Email</h3>
-                    <p>novadigitalagency2025@gmail.com</p>
-                  </div>
-                </div>
-                <div class="contact-item">
-                  <i class="fas fa-map-marker-alt"></i>
-                  <div>
-                    <h3>Office</h3>
-                    <p>Borama, Somaliland</p>
-                  </div>
-                </div>
-              </div>
-              <a href="#" class="btn btn-whatsapp whatsapp-btn" data-phone="+252672085009" data-message="Hello, I'm interested in your services and would like to learn more." data-source="Home Page Contact">Contact Us on WhatsApp</a>
+                <h2>What our clients <span class="gradient-text">say about us</span></h2>
+                <p>Don't just take our word for it. Here's what our clients have to say about working with NOVA.</p>
             </div>
-            
-            <div class="contact-form-container">
-              <h2 class="section-title">Get In Touch</h2>
-              <p class="form-description">
-                Fill out the form and we'll connect with you via WhatsApp.
-              </p>
-              <form class="contact-form" id="home-contact-form">
-                <div class="form-row">
-                  <div class="form-group">
-                    <label for="name">Your Name</label>
-                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
-                  </div>
-                  <div class="form-group">
-                    <label for="email">Your Email</label>
-                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
-                  </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <blockquote>
+                        "NOVA transformed our brand completely. The new identity perfectly captures our vision and has helped us stand out in a crowded market. Their attention to detail is incredible."
+                    </blockquote>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Sarah Johnson</h4>
+                            <p>CEO, TechStart Inc.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                  <label for="subject">Subject</label>
-                  <input type="text" id="subject" name="subject" placeholder="What is this about?" required>
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <blockquote>
+                        "Working with NOVA was a game-changer for our social media presence. Our engagement increased by 400% and we gained 50K new followers in just 3 months!"
+                    </blockquote>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Michael Chen</h4>
+                            <p>Marketing Director, FashionForward</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                  <label for="message">Message</label>
-                  <textarea id="message" name="message" placeholder="Tell us about your project..." required></textarea>
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <blockquote>
+                        "The ROI from NOVA's ad campaigns exceeded all our expectations. They delivered a 5x return on our investment and helped us reach our target audience effectively."
+                    </blockquote>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Emily Rodriguez</h4>
+                            <p>Founder, EcoLife Products</p>
+                        </div>
+                    </div>
                 </div>
-                <button type="submit" class="btn btn-primary btn-block">Send Message</button>
-                <input type="hidden" name="source" value="Home Page">
-                <input type="hidden" name="phone" value="+252672085009">
-              </form>
             </div>
-          </div>
         </div>
     </section>
 
-    <!-- Footer Section -->
-    <footer class="site-footer">
+    <!-- Process Section -->
+    <section class="process-section">
         <div class="container">
-          <div class="footer-grid">
-            <div class="footer-col">
-              <a href="index.html" class="footer-logo">
-                <span class="logo-text">NOVA</span>
-              </a>
-              <p class="footer-description">
-                Elevating brands through strategic design and digital marketing.
-              </p>
+            <div class="section-header">
+                <div class="section-badge">
+                    <span>Our Process</span>
+                </div>
+                <h2>How we bring your <span class="gradient-text">vision to life</span></h2>
+                <p>Our proven 4-step process ensures every project is delivered on time, on budget, and exceeds expectations.</p>
             </div>
-            
-            <div class="footer-col">
-              <h3 class="footer-heading">Pages</h3>
-              <ul class="footer-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="portfolio.html">Portfolio</a></li>
-                <li><a href="pricing.html">Pricing</a></li>
-                <li><a href="about.html">About</a></li>
-              </ul>
+            <div class="process-timeline">
+                <div class="process-step">
+                    <div class="process-number">01</div>
+                    <div class="process-content">
+                        <h3>Discovery & Strategy</h3>
+                        <p>We start by understanding your brand, goals, and target audience through comprehensive research and strategic planning.</p>
+                        <ul class="process-features">
+                            <li>Brand audit and analysis</li>
+                            <li>Competitor research</li>
+                            <li>Target audience identification</li>
+                            <li>Strategic roadmap creation</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">02</div>
+                    <div class="process-content">
+                        <h3>Design & Development</h3>
+                        <p>Our creative team brings your vision to life with stunning designs that capture your brand essence and resonate with your audience.</p>
+                        <ul class="process-features">
+                            <li>Concept development</li>
+                            <li>Design iterations</li>
+                            <li>Client feedback integration</li>
+                            <li>Final design refinement</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">03</div>
+                    <div class="process-content">
+                        <h3>Implementation & Launch</h3>
+                        <p>We execute the strategy across all platforms, ensuring consistent brand messaging and optimal performance from day one.</p>
+                        <ul class="process-features">
+                            <li>Platform setup and optimization</li>
+                            <li>Content creation and scheduling</li>
+                            <li>Campaign launch</li>
+                            <li>Performance monitoring</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">04</div>
+                    <div class="process-content">
+                        <h3>Optimize & Scale</h3>
+                        <p>We continuously monitor performance, optimize campaigns, and scale successful strategies to maximize your return on investment.</p>
+                        <ul class="process-features">
+                            <li>Performance analysis</li>
+                            <li>Strategy optimization</li>
+                            <li>Scaling successful campaigns</li>
+                            <li>Ongoing support and maintenance</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            
-            <div class="footer-col">
-              <h3 class="footer-heading">Services</h3>
-              <ul class="footer-links">
-                <li><a href="portfolio.html">Visual Branding</a></li>
-                <li><a href="portfolio.html">Logo Design</a></li>
-                <li><a href="portfolio.html">Social Media Marketing</a></li>
-                <li><a href="portfolio.html">Content Creation</a></li>
-              </ul>
+        </div>
+    </section>
+
+    <!-- Pricing Preview Section -->
+    <section class="pricing-preview">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <span>Pricing</span>
+                </div>
+                <h2>Simple, transparent <span class="gradient-text">pricing</span></h2>
+                <p>Choose the perfect plan for your business needs. No hidden fees, no surprises.</p>
             </div>
-            
-            <div class="footer-col">
-              <h3 class="footer-heading">Connect</h3>
-              <div class="social-icons">
-                <a href="https://www.instagram.com/nova.digital.2025/" target="_blank" rel="noreferrer">
-                  <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://www.facebook.com/profile.php?id=61574710993829" target="_blank" rel="noreferrer">
-                  <i class="fab fa-facebook"></i>
-                </a>
-                <a href="https://linkedin.com/company/novaagency" target="_blank" rel="noreferrer">
-                  <i class="fab fa-linkedin"></i>
-                </a>
-              </div>
-              <p class="footer-contact">WhatsApp: +252672085009</p>
+            <div class="pricing-preview-grid">
+                <div class="pricing-preview-card">
+                    <h3>Starter</h3>
+                    <div class="price">
+                        <span class="currency">$</span>
+                        <span class="amount">299</span>
+                        <span class="period">/month</span>
+                    </div>
+                    <p>Perfect for small businesses getting started</p>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Logo Design</li>
+                        <li><i class="fas fa-check"></i> Basic Brand Guidelines</li>
+                        <li><i class="fas fa-check"></i> 2 Social Media Platforms</li>
+                        <li><i class="fas fa-check"></i> 8 Posts per Month</li>
+                    </ul>
+                    <a href="pricing.html" class="btn btn-secondary btn-full">Choose Plan</a>
+                </div>
+                <div class="pricing-preview-card featured">
+                    <div class="featured-badge">Most Popular</div>
+                    <h3>Professional</h3>
+                    <div class="price">
+                        <span class="currency">$</span>
+                        <span class="amount">599</span>
+                        <span class="period">/month</span>
+                    </div>
+                    <p>Ideal for growing businesses</p>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Complete Brand Identity</li>
+                        <li><i class="fas fa-check"></i> 4 Social Media Platforms</li>
+                        <li><i class="fas fa-check"></i> 20 Posts per Month</li>
+                        <li><i class="fas fa-check"></i> Advanced Analytics</li>
+                    </ul>
+                    <a href="pricing.html" class="btn btn-primary btn-full">Choose Plan</a>
+                </div>
+                <div class="pricing-preview-card">
+                    <h3>Enterprise</h3>
+                    <div class="price">
+                        <span class="currency">$</span>
+                        <span class="amount">999</span>
+                        <span class="period">/month</span>
+                    </div>
+                    <p>For established businesses seeking growth</p>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Full Brand Ecosystem</li>
+                        <li><i class="fas fa-check"></i> All Social Media Platforms</li>
+                        <li><i class="fas fa-check"></i> 40 Posts per Month</li>
+                        <li><i class="fas fa-check"></i> Dedicated Account Manager</li>
+                    </ul>
+                    <a href="pricing.html" class="btn btn-secondary btn-full">Choose Plan</a>
+                </div>
             </div>
-          </div>
-          
-          <div class="footer-bottom">
-            <p class="copyright">&copy; <span id="current-year"></span> Nova. All rights reserved.</p>
-            <div class="footer-legal">
-              <a href="policy.html">Privacy Policy</a>
-              <a href="terms.html">Terms of Service</a>
+            <div class="pricing-cta">
+                <p>Need a custom solution? <a href="contact.html">Contact us</a> for a personalized quote.</p>
             </div>
-          </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <span>FAQ</span>
+                </div>
+                <h2>Frequently asked <span class="gradient-text">questions</span></h2>
+                <p>Everything you need to know about working with NOVA</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How long does a typical project take?</h3>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Most branding projects are completed within 2-4 weeks, while social media campaigns can be launched within 1-2 weeks. We'll provide a detailed timeline during our initial consultation.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Do you work with businesses outside Somalia?</h3>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! We work with clients globally. Our digital-first approach allows us to collaborate effectively with businesses anywhere in the world.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What's included in your branding packages?</h3>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our branding packages include logo design, color palette, typography, brand guidelines, business card design, and social media templates. Specific inclusions vary by package level.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Can you help with ongoing social media management?</h3>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We offer comprehensive social media management including content creation, posting schedules, community management, and performance analytics.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <div class="cta-text">
+                    <h2>Ready to transform your brand?</h2>
+                    <p>Join hundreds of businesses that have elevated their brand presence with NOVA. Let's create something amazing together.</p>
+                </div>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-primary">
+                        <span>Start Your Project</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="portfolio.html" class="btn btn-secondary">
+                        <span>View Our Work</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="logo-icon">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                <path d="M16 2L20 12H30L22 18L26 28L16 22L6 28L10 18L2 12H12L16 2Z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <span class="logo-text">NOVA</span>
+                    </div>
+                    <p>Creative branding & social media marketing agency helping businesses elevate their digital presence.</p>
+                    <div class="footer-contact">
+                        <a href="https://wa.me/252672085009" class="contact-item">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>+252672085009</span>
+                        </a>
+                        <a href="mailto:novadigitalagency2025@gmail.com" class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>novadigitalagency2025@gmail.com</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Navigation</h4>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="portfolio.html">Portfolio</a></li>
+                            <li><a href="pricing.html">Pricing</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="contact.html">Visual Branding</a></li>
+                            <li><a href="contact.html">Social Media Management</a></li>
+                            <li><a href="contact.html">Ads Management</a></li>
+                            <li><a href="contact.html">Content Creation</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Legal</h4>
+                        <ul>
+                            <li><a href="privacy.html">Privacy Policy</a></li>
+                            <li><a href="terms.html">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 NOVA Digital Agency. All rights reserved.</p>
+                <div class="footer-social">
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
         </div>
     </footer>
 
-    <script src="main.js"></script>
-
+    <script src="script.js"></script>
 </body>
 </html>
