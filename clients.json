@@ -10,5 +10,17 @@
     "status": "pending",
     "createdAt": "2025-05-29T16:23:29.890Z",
     "updatedAt": "2025-05-29T16:23:29.891Z"
+  },
+  {
+    "id": "1749589871989",
+    "name": "Geesi Tech",
+    "contact": "+252 63 4575930",
+    "service": "Design",
+    "price": 100,
+    "discount": 10,
+    "notes": "",
+    "status": "active",
+    "createdAt": "2025-06-10T21:11:11.989Z",
+    "updatedAt": "2025-06-10T21:11:11.991Z"
   }
 ]
