@@ -843,6 +843,178 @@
                 opacity: 1;
             }
         }
+
+        /* Branding Guidelines Section */
+        .branding-section {
+            margin: 80px 0;
+            position: relative;
+        }
+
+        .portfolio-subtitle {
+            font-size: clamp(16px, 2.5vw, 20px);
+            color: var(--text-light);
+            margin-top: 8px;
+        }
+
+        .branding-slider {
+            position: relative;
+            max-width: 1000px;
+            margin: 40px auto;
+            overflow: hidden;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .branding-slide {
+            display: none;
+            width: 100%;
+            position: relative;
+        }
+
+        .branding-slide.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .branding-slide img {
+            width: 100%;
+            height: auto;
+            max-height: 600px;
+            object-fit: contain;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+        }
+
+        .slide-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .slide-caption h3 {
+            font-size: clamp(18px, 3vw, 24px);
+            margin-bottom: 8px;
+        }
+
+        .slide-caption p {
+            font-size: clamp(12px, 2vw, 16px);
+            opacity: 0.9;
+        }
+
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+            z-index: 10;
+        }
+
+        .slider-arrow:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .prev {
+            left: 20px;
+        }
+
+        .next {
+            right: 20px;
+        }
+
+        .slider-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            z-index: 10;
+        }
+
+        .dot {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            margin: 0 5px;
+            background-color: rgba(255,255,255,0.5);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .dot.active {
+            background-color: white;
+        }
+
+        .branding-download {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .download-btn {
+            background: var(--purple);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .branding-slide img {
+                max-height: 400px;
+            }
+            
+            .slider-arrow {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .branding-slide img {
+                max-height: 300px;
+            }
+            
+            .slide-caption {
+                padding: 12px;
+            }
+            
+            .slider-arrow {
+                width: 35px;
+                height: 35px;
+                font-size: 18px;
+            }
+            
+            .dot {
+                width: 10px;
+                height: 10px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1052,40 +1224,40 @@
             
             <div class="events-grid">
                 <div class="event-item">
-                    <img src="images/SOCIAL MEDIA INVITE POSTER-01-01.png" alt="Tech Summit 2024">
+                    <img src="images/SOCIAL MEDIA INVITE POSTER-01-01.png" >
                 </div>
                 
                 <div class="event-item">
-                    <img src="images/Banner Stand Mockup.png" alt="Innovation Conference">
+                    <img src="images/Banner Stand Mockup.png">
                 </div>
                 
                 <div class="event-item">
-                    <img src="images/Banner Mockup.png" alt="Design Festival">
+                    <img src="images/Banner Mockup.png">
                 </div>
                 
                 <div class="event-item">
-                    <img src="images/BANNER FLAG Mockup.png" alt="Startup Expo">
+                    <img src="images/BANNER FLAG Mockup.png" >
                 </div>
                 
                 <div class="event-item">
-                    <img src="images/BANNER FLAG Mockup 2.png" alt="Creative Workshop">
+                    <img src="images/BANNER FLAG Mockup 2.png">
                 </div>
                 
                 <div class="event-item">
-                    <img src="images/Invitation Card Mockup.png" alt="Business Summit">
+                    <img src="images/Invitation Card Mockup.png" >
                 </div>
                 
                 <div class="event-item">
-                    <img src="images/SOCIAL MEDIA INVITE POSTER-01-01.png" alt="Art Exhibition">
+                    <img src="images/SOCIAL MEDIA INVITE POSTER-01-01.png" >
                 </div>
                 
                 <div class="event-item">
-                    <img src="images/Staff ID Card.png" alt="Music Festival">
+                    <img src="images/Staff ID Card.png">
                 </div>
             </div>
         </div>
 
-        <!-- EVENTS SECTION - CRAZY UNIQUE DESIGN -->
+        <!-- Gallery/Posters SECTION - CRAZY UNIQUE DESIGN -->
         <div class="events-section">
             <div class="events-header">
                 <h2 class="events-title">Portfolio Showcase</h2>
@@ -1094,39 +1266,39 @@
             
             <div class="events-grid">
                 <div class="event-item">
-                    <img src="images/poster-01.png" alt="Tech Summit 2024">
+                    <img src="images/poster-01.png" >
                 </div>
                 
                 <div class="event-item">
-                    <img src="images/poster-02.png" alt="Innovation Conference">
+                    <img src="images/poster-02.png" >
                 </div>
                 
                 <div class="event-item">
-                    <img src="images/poster-03.png" alt="Design Festival">
+                    <img src="images/poster-03.png" >
                 </div>
                 
                 <div class="event-item">
-                    <img src="images/poster-04.png" alt="Startup Expo">
+                    <img src="images/poster-04.png" >
                 </div>
                 
                 <div class="event-item">
-                    <img src="images/poster-05.png" alt="Creative Workshop">
+                    <img src="images/poster-05.png" >
                 </div>
                 
                 <div class="event-item">
-                    <img src="images/Poster-06.png" alt="Business Summit">
+                    <img src="images/Poster-06.png">
                 </div>
                 
                 <div class="event-item">
-                    <img src="images/Poster-07.png" alt="Art Exhibition">
+                    <img src="images/Poster-07.png" >
                 </div>
                 
                 <div class="event-item">
-                    <img src="images/Poster-08.png" alt="Music Festival">
+                    <img src="images/Poster-08.png" >
                 </div>
 
                 <div class="event-item">
-                    <img src="images/Poster-09.png" alt="Music Festival">
+                    <img src="images/Poster-09.png" >
                 </div>
             </div>
         </div>
@@ -1138,6 +1310,197 @@
                 <button class="lightbox-close" onclick="closeLightbox()">
                     <i class="bi bi-x"></i>
                 </button>
+            </div>
+        </div>
+
+        <!-- Branding Guidelines Section -->
+        <div class="branding-section">
+            <div class="portfolio-header">
+                <h2 class="portfolio-title">Branding Guidelines</h2>
+                <p class="portfolio-subtitle">SOMLOGIC - IT Consulting & Software Solutions</p>
+            </div>
+            
+            <div class="branding-slider">
+                <!-- Slide 1 - Cover -->
+                <div class="branding-slide active">
+                    <img src="images/Brand-Guidelines-01.png" alt="SOMLOGIC Brand Guidelines Cover">
+                    <div class="slide-caption">
+                        <h3>Brand Guidelines</h3>
+                        <p>Complete visual identity system for SOMLOGIC</p>
+                    </div>
+                </div>
+                
+                <!-- Slide 2 - Color Palette -->
+                <div class="branding-slide">
+                    <img src="images/Brand-Guidelines-02.png" alt="SOMLOGIC Color Palette">
+                    <div class="slide-caption">
+                        <h3>Color System</h3>
+                        <p>Primary and secondary brand colors</p>
+                    </div>
+                </div>
+                
+                <!-- Slide 3 - Typography -->
+                <div class="branding-slide">
+                    <img src="images/Brand-Guidelines-03.png" alt="SOMLOGIC Typography">
+                    <div class="slide-caption">
+                        <h3>Typography</h3>
+                        <p>Bricolage Grotesque type system</p>
+                    </div>
+                </div>
+                
+                <!-- Slide 4 - Logo Concept -->
+                <div class="branding-slide">
+                    <img src="images/Brand-Guidelines-04.png" alt="SOMLOGIC Logo Concept">
+                    <div class="slide-caption">
+                        <h3>Logo Concept</h3>
+                        <p>Combination of initials forming the brand mark</p>
+                    </div>
+                </div>
+                
+                <!-- Slide 5 - Applications -->
+                <div class="branding-slide">
+                    <img src="images/Brand-Guidelines-05.png" alt="SOMLOGIC Brand Applications">
+                    <div class="slide-caption">
+                        <h3>Brand Applications</h3>
+                        <p>Implementation across various touchpoints</p>
+                    </div>
+                </div>
+
+                <!-- Slide 6 - Applications -->
+                <div class="branding-slide">
+                    <img src="images/Brand-Guidelines-06.png" alt="SOMLOGIC Brand Applications">
+                    <div class="slide-caption">
+                        <h3>Brand Applications</h3>
+                        <p>Implementation across various touchpoints</p>
+                    </div>
+                </div>
+
+                <!-- Slide 5 - Applications -->
+                <div class="branding-slide">
+                    <img src="images/Brand-Guidelines-07.png" alt="SOMLOGIC Brand Applications">
+                    <div class="slide-caption">
+                        <h3>Brand Applications</h3>
+                        <p>Implementation across various touchpoints</p>
+                    </div>
+                </div>
+
+                <!-- Slide 5 - Applications -->
+                <div class="branding-slide">
+                    <img src="images/Brand-Guidelines-08.png" alt="SOMLOGIC Brand Applications">
+                    <div class="slide-caption">
+                        <h3>Brand Applications</h3>
+                        <p>Implementation across various touchpoints</p>
+                    </div>
+                </div>
+
+                <!-- Slide 5 - Applications -->
+                <div class="branding-slide">
+                    <img src="images/Brand-Guidelines-09.png" alt="SOMLOGIC Brand Applications">
+                    <div class="slide-caption">
+                        <h3>Brand Applications</h3>
+                        <p>Implementation across various touchpoints</p>
+                    </div>
+                </div>
+
+                <!-- Slide 5 - Applications -->
+                <div class="branding-slide">
+                    <img src="images/Brand-Guidelines-10.png" alt="SOMLOGIC Brand Applications">
+                    <div class="slide-caption">
+                        <h3>Brand Applications</h3>
+                        <p>Implementation across various touchpoints</p>
+                    </div>
+                </div>
+
+                <!-- Slide 5 - Applications -->
+                <div class="branding-slide">
+                    <img src="images/Brand-Guidelines-11.png" alt="SOMLOGIC Brand Applications">
+                    <div class="slide-caption">
+                        <h3>Brand Applications</h3>
+                        <p>Implementation across various touchpoints</p>
+                    </div>
+                </div>
+
+                <!-- Slide 5 - Applications -->
+                <div class="branding-slide">
+                    <img src="images/Brand-Guidelines-12.png" alt="SOMLOGIC Brand Applications">
+                    <div class="slide-caption">
+                        <h3>Brand Applications</h3>
+                        <p>Implementation across various touchpoints</p>
+                    </div>
+                </div>
+
+                <!-- Slide 5 - Applications -->
+                <div class="branding-slide">
+                    <img src="images/Brand-Guidelines-13.png" alt="SOMLOGIC Brand Applications">
+                    <div class="slide-caption">
+                        <h3>Brand Applications</h3>
+                        <p>Implementation across various touchpoints</p>
+                    </div>
+                </div>
+
+                <!-- Slide 5 - Applications -->
+                <div class="branding-slide">
+                    <img src="images/Brand-Guidelines-14.png" alt="SOMLOGIC Brand Applications">
+                    <div class="slide-caption">
+                        <h3>Brand Applications</h3>
+                        <p>Implementation across various touchpoints</p>
+                    </div>
+                </div>
+
+                <!-- Slide 5 - Applications -->
+                <div class="branding-slide">
+                    <img src="images/Brand-Guidelines-15.png" alt="SOMLOGIC Brand Applications">
+                    <div class="slide-caption">
+                        <h3>Brand Applications</h3>
+                        <p>Implementation across various touchpoints</p>
+                    </div>
+                </div>
+
+                <!-- Slide 5 - Applications -->
+                <div class="branding-slide">
+                    <img src="images/Brand-Guidelines-16.png" alt="SOMLOGIC Brand Applications">
+                    <div class="slide-caption">
+                        <h3>Brand Applications</h3>
+                        <p>Implementation across various touchpoints</p>
+                    </div>
+                </div>
+
+                <!-- Slide 5 - Applications -->
+                <div class="branding-slide">
+                    <img src="images/Brand-Guidelines-17.png" alt="SOMLOGIC Brand Applications">
+                    <div class="slide-caption">
+                        <h3>Brand Applications</h3>
+                        <p>Implementation across various touchpoints</p>
+                    </div>
+                </div>
+
+                <!-- Slide 5 - Applications -->
+                <div class="branding-slide">
+                    <img src="images/Brand-Guidelines-17.png" alt="SOMLOGIC Brand Applications">
+                    <div class="slide-caption">
+                        <h3>Brand Applications</h3>
+                        <p>Implementation across various touchpoints</p>
+                    </div>
+                </div>
+                
+                <!-- Navigation Arrows -->
+                <button class="slider-arrow prev" onclick="moveSlide(-1)">❮</button>
+                <button class="slider-arrow next" onclick="moveSlide(1)">❯</button>
+                
+                <!-- Dots Navigation -->
+                <div class="slider-dots">
+                    <span class="dot active" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                    <span class="dot" onclick="currentSlide(4)"></span>
+                    <span class="dot" onclick="currentSlide(5)"></span>
+                </div>
+            </div>
+            
+            <div class="branding-download">
+                <a href="images/Main.pdf" class="download-btn" download>
+                    <i class="bi bi-download"></i> Download Full Guidelines (PDF)
+                </a>
             </div>
         </div>
     </div>
@@ -1231,6 +1594,53 @@
             box.addEventListener('mouseleave', function() {
                 this.style.transform = 'translateY(0)';
             });
+        });
+        // Branding Guidelines Slider
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function moveSlide(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("branding-slide");
+            let dots = document.getElementsByClassName("dot");
+            
+            if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length}
+            
+            for (i = 0; i < slides.length; i++) {
+                slides[i].classList.remove("active");
+            }
+            
+            for (i = 0; i < dots.length; i++) {
+                dots[i].classList.remove("active");
+            }
+            
+            slides[slideIndex-1].classList.add("active");
+            dots[slideIndex-1].classList.add("active");
+        }
+
+        // Auto-advance slides (optional)
+        let slideInterval = setInterval(() => {
+            moveSlide(1);
+        }, 5000);
+
+        // Pause on hover
+        document.querySelector('.branding-slider').addEventListener('mouseenter', () => {
+            clearInterval(slideInterval);
+        });
+
+        document.querySelector('.branding-slider').addEventListener('mouseleave', () => {
+            slideInterval = setInterval(() => {
+                moveSlide(1);
+            }, 5000);
         });
     </script>
 </body>
